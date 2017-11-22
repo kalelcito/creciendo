@@ -1,0 +1,54 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 layout-left">
+                        <div class="course-syllabus">
+                            <div class="course-syllabus-title underline">  3.2.1 Reporte</div>
+                            <div class="course-table">
+                                <div class="outer-container">
+                                    <div class="inner-container table-responsive">
+                                        <div class="table-header">
+                                            <table class="edu-table-responsive">
+                                                <thead>
+                                                <tr class="heading-table">
+                                                    <th class="col-1">Reporte</th>
+                                                    <th class="col-2" style="text-align: center; font-size: 1em;">Descargar</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <div class="table-body">
+                                            <table class="edu-table-responsive table-hover">
+                                                <tbody>
+                                                <tr class="table-row">
+                                                    <td class="left col-1"><a href="#"><i class="bg-green mr25 fa fa-caret-right"></i><span>Reporte</span></a></td>
+                                                    <td class="green-color col-2" style="text-align: center">
+                                                        <a href="#" style="color:#86bc42;">
+                                                            <i class="fa fa-download"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="window.location.href='../gestion'" class="btn btn-green-2" style="left: 45%;">
+                <span>Regresar</span>
+            </button>
+        </div>
+    </div>
+{% endblock %}

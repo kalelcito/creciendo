@@ -1,0 +1,46 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        {#<h1 class="course-title">Norma CRESE</h1>#}
+                        {#
+                                                <div class="course-info info">
+                                                    <div class="author item"><a href="#"><span>By&nbsp;</span><span>Emma Watson</span></a></div>
+                                                    <div class="date-time item"><a href="#">20 Aug 2015</a></div>
+                                                </div>
+                                                <div class="course-video">
+                                                    <iframe src="https://www.youtube.com/embed/xo1VInw-SKc?list=PL7JgdmQ0zTfatnGhUnRBnhMwYEraSIRdD" allowfullscreen="allowfullscreen"></iframe>
+                                                    <div class="video-btn">
+                                                        <button class="btn btn-grey video-btn-right pull-right"><span>next lesson</span><i class="fa fa-angle-right"></i></button>
+                                                        <button class="btn btn-grey video-btn-left pull-right"><i class="fa fa-angle-left"></i><span>previous lesson</span></button>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div> #}
+                        <div class="course-des">
+                            <div class="course-des-title underline">1.0 Video Curso de Inducción</div>
+                            <div class="course-des-content">
+                                <p></p>
+                            </div>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/Qbsgiz02wXU" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='../gestion'" class="btn btn-green-2" style="left: 45%;">
+                            <span>Regresar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

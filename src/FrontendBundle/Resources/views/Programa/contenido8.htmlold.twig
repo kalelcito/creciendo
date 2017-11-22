@@ -1,0 +1,159 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="course-des">
+                            <div class="course-des-title underline">4.2 Minutas</div>
+                            <div class="col-sm-12" id="impresion">
+                                <div class="status alert alert-success" style="display: none"></div>
+                                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="" role="form">
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                        <div class="form-group">
+                                            <label class="control-label form-label">Fecha <span class="highlight">*</span></label>
+                                            <input type="date" class="form-control" required="required" name="fecha">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                        <div class="form-group">
+                                            <label class="control-label form-label">Tema <span class="highlight">*</span></label>
+                                            <input type="text" class="form-control" required="required" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                        <div class="form-group">
+                                            <label class="control-label form-label">Empresa <span class="highlight">*</span></label>
+                                            <input type="text" class="form-control" required="required" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                        <div class="form-group">
+                                            <label class="control-label form-label">Duracion <span class="highlight">*</span></label>
+                                            <input type="text" class="form-control" required="required" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                        <div class="form-group">
+                                            <label class="control-label form-label">Asistentes <span class="highlight">*</span></label>
+                                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                        <div class="form-group">
+                                            <label class="control-label form-label">Puntos a tratar <span class="highlight">*</span></label>
+                                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                        <div class="form-group">
+                                            <label class="control-label form-label">Acuerdos <span class="highlight">*</span></label>
+                                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                        <div class="form-group">
+                                            <label class="control-label form-label">Fecha de la siguiente reunion <span class="highlight">*</span></label>
+                                            <input type="date" class="form-control" required="required" name="fecha">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">
+                                        <div class="col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                            <div class="contact-submit">
+                                                <button type="submit" class="btn btn-contact btn-green"><span>ENVIAR</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                            <div>
+                                                <button class="btn btn-contact btn-green" onclick="printDiv('impresion')"><span>IMPRIMIR</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#<div class="section section-padding contact-main">
+        <div class="container">
+            <div class="contact-main-wrapper">
+                <form class="bg-w-form contact-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label form-label">NOMBRE <span class="highlight">*</span></label>
+                                <input type="text" placeholder="" class="form-control form-input"/></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label class="control-label form-label">EMAIL <span class="highlight">*</span></label><input type="text" placeholder="" class="form-control form-input"/><!--label.control-label.form-label.warning-label(for="")--></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label class="control-label form-label">Tipo de consulta</label><select class="form-control form-input selectbox">
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="">Información</option>
+                                    <option value="">Soporte</option>
+                                    <option value="">Consultoría</option>
+                                </select><!--label.control-label.form-label.warning-label(for="", hidden)--></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label class="control-label form-label">ASUNTO</label><input type="text" placeholder="" class="form-control form-input"/><!--label.control-label.form-label.warning-label(for="", hidden)--></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="contact-question form-group"><label class="control-label form-label">MENSAJE<span class="highlight">*</span></label><textarea class="form-control form-input"></textarea></div>
+                        </div>
+                    </div>
+                    <div class="contact-submit">
+                        <button type="submit" class="btn btn-contact btn-green"><span>ENVIAR</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>#}
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+
+        function PrintElem(elem)
+        {
+            var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+
+            mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+
+            mywindow.document.write('</head><body >');
+            mywindow.document.write('<h1>' + document.title  + '</h1>');
+            mywindow.document.write(document.getElementById(elem).innerHTML);
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+
+        }
+    </script>
+{% endblock %}

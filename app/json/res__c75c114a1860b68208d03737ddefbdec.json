@@ -1,0 +1,34 @@
+{
+  "nombre": "Diagn\u00f3stico de Servicios Preventivos de Salud",
+  "secciones": [
+    {
+      "nombre": "Secci\u00f3n 1",
+      "preguntas": [
+        {
+          "pregunta": "\u00bfSe cuenta con alg\u00fan m\u00e9dico o personal capacitado, para proporcionar atenci\u00f3n en caso de un accidente en el trabajo (PreR II de la Norma CRESE 2014)?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "\u00bfQu\u00e9 acciones se tienen en la empresa para promover la salud de los trabajadores (Art. 49, II, Reglamento) (PreR II-11 de la Norma CRESE 2014, m\u00ednimo auditable \"a\" del R9 y R10)?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "\u00bfQu\u00e9 acciones se tienen en la empresa para prevenir las adicciones en los trabajadores (Art. 49, II, Reglamento) (PreR II-11 de la Norma CRESE 2014, m\u00ednimo auditable \"a\" del R9 y R10)?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "\u00bfSe cuenta con un botiqu\u00edn de primeros auxilios debidamente equipado; (Pre-requisito II-16, Botiqu\u00edn, m\u00ednimo auditable \"a\" del R8)?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "\u00bfC\u00f3mo se da seguimiento a las acciones de los incisos II y III de este diagn\u00f3stico? (PreR II-11 de la Norma CRESE 2014, m\u00ednimo auditable \"a\" del R9 y R10)?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "\u00bfC\u00f3mo se apoya la actualizaci\u00f3n (capacitaci\u00f3n y adiestramiento) de los responsables de los servicios preventivos de medicina del trabajo de car\u00e1cter interno, en su caso (PreR II-11 de la Norma CRESE 2014, m\u00ednimo auditable \"b\" del R8 y \"d\" del R10)?",
+          "respuesta": null
+        }
+      ]
+    }
+  ]
+}

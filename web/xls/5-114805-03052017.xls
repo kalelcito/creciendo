@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+                <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta http-equiv="Charset" content="utf-8" />
+                </head>
+                <body>
+                <table>
+                    <thead>
+                       <tr>
+                          <th>Número de Pregunta</th>
+                          <th>Pregunta</th>
+                          <th>Respuesta</th>
+                          <th>Comentario</th>
+                       </tr>
+                    </thead>
+                    <tbody><tr><td>1</td><td>¿Existe un estudio de riesgo de incendio?</td><td>No</td><td></td></tr><tr><td>2</td><td>¿Se cuenta con medios de detección y equipos contra incendio?</td><td>Si</td><td></td></tr><tr><td>3</td><td>¿Se cuenta con un programa de revisión a extintores?</td><td>No</td><td></td></tr><tr><td>4</td><td>¿Se cuenta con un programa de revisión a los medios de detección y equipos contra incendio?</td><td>Si</td><td></td></tr><tr><td>5</td><td>¿Se cuenta con un programa de revisión a las instalaciones eléctricas y de gas LP y natural?</td><td>No</td><td></td></tr><tr><td>6</td><td>¿Se cuenta con señalización adecuada en las áreas donde se producen, almacenan o manejan sustancias inflamables o explosivas?</td><td>No</td><td></td></tr><tr><td>7</td><td>¿Se cuenta con instrucciones de seguridad para la prevención y protección de incendios al alcance de los trabajadores?</td><td>Si</td><td></td></tr><tr><td>8</td><td>¿Se cuenta con un croquis, plano o mapa que identifique las áreas o zonas con riesgo de incendio, la ubicación de los medios de detección de incendio y de los equipos y sistemas contra incendio, así como las rutas de evacuación?</td><td>No</td><td></td></tr><tr><td>9</td><td>¿Esta prohibido el bloqueo, daño, inutilización o uso inadecuado de los equipos y sistemas contra incendio y demás elementos relacionados?</td><td>Si</td><td></td></tr><tr><td>10</td><td>¿Existen medidas de seguridad para prevenir la generación y acumulación de electricidad estática en las áreas donde se manejen sustancias inflamables o explosivas?</td><td>Si</td><td></td></tr><tr><td>11</td><td>¿Se cuenta con un plan de atención a emergencias de incendio?</td><td>Si</td><td></td></tr><tr><td>12</td><td>¿Se cuenta con rutas de evacuación adecuadas?</td><td>Si</td><td></td></tr><tr><td>13</td><td>¿Se cuenta con brigadas contra incendio?</td><td>Si</td><td></td></tr><tr><td>14</td><td>¿Se han desarrollado simulacros de emergencias de incendio?</td><td>No</td><td></td></tr><tr><td>15</td><td>¿Se cuenta con Equipo de Protección Personal para las brigadas contra incendio?</td><td>No</td><td></td></tr><tr><td>16</td><td>¿Están capacitados y adiestrados los trabajadores y, en su caso, a los integrantes de las brigadas contra incendio?</td><td>Si</td><td></td></tr><tr><td>17</td><td>¿Se llevan registros de resultados de los programas de revisión y pruebas, así como de los simulacros de emergencias de incendio?</td><td>Si</td><td></td></tr>  </tbody>
+                 </table>
+                 </body>
+                 </html>

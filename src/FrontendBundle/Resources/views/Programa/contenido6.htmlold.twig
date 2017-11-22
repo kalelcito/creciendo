@@ -1,0 +1,79 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        {#<h1 class="course-title">Norma CRESE</h1>
+                        <div class="course-info info">
+                            <div class="author item"><a href="#"><span>By&nbsp;</span><span>Emma Watson</span></a></div>
+                            <div class="date-time item"><a href="#">20 Aug 2015</a></div>
+                        </div>
+                        <div class="course-video">
+                            <iframe src="https://www.youtube.com/embed/xo1VInw-SKc?list=PL7JgdmQ0zTfatnGhUnRBnhMwYEraSIRdD" allowfullscreen="allowfullscreen"></iframe>
+                            <div class="video-btn">
+                                <button class="btn btn-grey video-btn-right pull-right"><span>next lesson</span><i class="fa fa-angle-right"></i></button>
+                                <button class="btn btn-grey video-btn-left pull-right"><i class="fa fa-angle-left"></i><span>previous lesson</span></button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div> #}
+                        <div class="course-des">
+                            <div class="course-des-title underline">  3.2 Encuesta clima laboral</div>
+                            <div class="course-des-content" style="color:#49575f;">
+                                <form>
+                                    <div class="form-group">
+                                        <label class="control-label form-label">Fecha</label>
+                                        <input type="date" class="form-control" required="required" name="fecha">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Escriba el nombre de la Empresa</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Escriba el número de la Sucursal (en su caso)</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Antigüedad en la Organización (años)</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                    {% set c=1 %}
+                                    {% for pregunta in preguntas %}
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">{{ c }}.- {{ pregunta[0] }}</label>
+                                        {% for opciones in pregunta[1] %}
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                                {{ opciones }}
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                        {% if c==11 %}
+                                            <label for="comment">Principal motivo de discriminación:</label>
+                                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        {% endif %}
+                                    </div>
+
+                                        {% set c=c+1 %}
+                                    {% endfor %}
+                                    <button type="submit" class="btn btn-contact btn-green pull-right"><span>Enviar</span></button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

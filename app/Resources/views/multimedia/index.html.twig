@@ -1,0 +1,51 @@
+    {% extends '@Admin/base.html.twig' %}
+{% block navegacion %}
+{{ include('@Admin/partials/navegacion.html.twig',{'menu':'Empresa Responsable','submenu':'Multimedia'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('admin/plugins/bower_components/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/plugins/bower_components/datatables/jquery.dataTables.min.js') }}"></script><script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">Multimedia</h3>
+               {#<p class="text-muted m-b-30">{{ Multimedia</p>#}
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>No.</th>                            <th>Id</th>                            <th>Nombre</th>                            <th>Descripcion</th>                            <th>Tipo</th>                            <th>Imagen</th>                            <th>Video</th>                            <th>Created_at</th>                            <th>Updated_at</th>                        <th>Opciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set i = 1 %}
+                    {% for multimedia in multimedia %}
+                    <tr>
+                        <td>{{ i }}</td>                                <td><a href="{{ path('multimedia_show', { 'id': multimedia.id }) }}">{{ multimedia.id }}</a></td>                                <td>{{ multimedia.nombre }}</td>                                <td>{{ multimedia.descripcion }}</td>                                <td>{{ multimedia.tipo }}</td>                                <td>{{ multimedia.imagen }}</td>                                <td>{{ multimedia.video }}</td>                                <td>{% if multimedia.createdat %}{{ multimedia.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>                                <td>{% if multimedia.updatedat %}{{ multimedia.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>                                <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="{{ path('multimedia_show', { 'id': multimedia.id }) }}" data-toggle="tooltip" title="Ver" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
+                                        <a href="{{ path('multimedia_edit', { 'id': multimedia.id }) }}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                    </div>
+                                </td>
+                    </tr>
+                    {% set i=i+1 %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

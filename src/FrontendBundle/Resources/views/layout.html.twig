@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>{% block title %}Empresa Responsable{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('images/er2.png') }}">
+    <!-- LIBRARY FONT-->
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,900,300">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/font/font-icon/font-awesome-4.4.0/css/font-awesome.css') }}">
+    {#<link type="text/css" rel="stylesheet" href="{{ asset('assets/font/font-icon/font-svg/css/Glyphter.css') }}">#}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/font/font-icon/font-svg1/css/Glyphter.css') }}">
+
+    <!-- LIBRARY CSS-->
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/libs/animate/animate.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/libs/bootstrap-3.3.5/css/bootstrap.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/libs/owl-carousel-2.0/assets/owl.carousel.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/libs/selectbox/css/jquery.selectbox.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/libs/fancybox/css/jquery.fancybox.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/libs/fancybox/css/jquery.fancybox-buttons.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/libs/media-element/build/mediaelementplayer.min.css') }}">
+    <!-- STYLE CSS    -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/color-1.css') }}" id="color-skins">
+    <!--link(type="text/css", rel='stylesheet', href='#', id="color-skins")-->
+    {% block stylesheets %}{% endblock %}
+    <script src="{{ asset('assets/libs/jquery/jquery-2.1.4.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/js-cookie/js.cookie.js') }}"></script>
+    <!--script.--><!--    if ((Cookies.get('color-skin') != undefined) && (Cookies.get('color-skin') != 'color-1')) {--><!--        $('#color-skins').attr('href', 'assets/css/' + Cookies.get('color-skin') + '.css');--><!--    } else if ((Cookies.get('color-skin') == undefined) || (Cookies.get('color-skin') == 'color-1')) {--><!--        $('#color-skins').attr('href', 'assets/css/color-1.css');--><!--    }-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-91791693-4', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body ><!-- HEADER-->
+<header>
+    <div class="header-topbar">
+        <div class="container">
+            <div class="topbar-left pull-left">
+                <div class="socials text-left" style="margin-right:10px; padding-left:0px;">
+                    <a href="https://www.facebook.com/ERACdigital?fref=ts" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                    {#<a href="#" class="google"><i class="fa fa-google-plus"></i></a>#}
+                    <a href="https://twitter.com/@EracNoticias" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                </div>
+                <div class="email">
+                    <a href="mailto:info@empresaresponsable.org"><i class="topbar-icon fa fa-envelope-o"></i><span class="hidden-xs hidden-sm">info@empresaresponsable.org</span></a>
+                </div>
+                <div class="hotline">
+                    <a href=""><i class="topbar-icon fa fa-phone"></i><span>+52 722-3851242</span></a>
+                </div>
+            </div>
+            <div class="topbar-right pull-right">
+                <div class="group-sign-in">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a href="https://www.sistemaserac.com/videoconferencia/index.html" target="_blank"><i class="fa fa-video-camera"></i> <span class="hidden-xs hidden-sm">Video Conferencia</span></a> | {{ app.user.niveles.nombre }} - {{ app.user.nombre }} {{ app.user.apellidos }} |
+                        <a href="{{ path('logout') }}" class="register">Salir</a>
+                    {% else %}
+                        <a href="{{ path('login') }}" class="login">Login</a>
+                        <a href="{{ path('registro') }}" class="register">Registro</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-main homepage-01">
+        <div class="container">
+            <div class="header-main-wrapper">
+                <div class="navbar-header">
+                    <div class="logo pull-left">
+                        <a href="{{ path('homepage') }}" class="header-logo">
+                            <img src="{{ asset('assets/images/logo.png') }}" alt=""/>
+                        </a>
+                    </div>
+                    <button type="button" data-toggle="collapse" data-target=".navigation" class="navbar-toggle edugate-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <nav class="navigation collapse navbar-collapse pull-right">
+                  <style>
+                    .main-menu{
+                      font-size: 14px;
+                    }
+                  </style>
+                    <ul class="nav-links nav navbar-nav">
+                        {#<li ><a href="{{ path('homepage') }}" class="main-menu">Inicio</a></li>#}
+                        <li ><a href="{{ path('norma') }}" class="main-menu">Norma CRESE<br>basada en la DSI</a></li>
+                        <li><a href="{{ path('membresias') }}" class="main-menu">Servicios</a></li>
+                        <li><a href="{{ path('frontend_programa',{"slug":"accesos"}) }}" class="main-menu">Accesos</a></li>
+                        <li><a href="http://distintivoer.com/" class="main-menu">Distintivo Empresa<br>Responsable</a></li>
+                        <li><a href="http://proyectocv.com/" class="main-menu">Proyecto Caridad<br>en la Verdad</a></li>
+                        <li><a href="{{ path('contacto') }}" class="main-menu">Contacto</a></li>
+                        {#<li class="button-search"><p class="main-menu"><i class="fa fa-search"></i></p></li>
+                        <div class="nav-search hide">
+                            <form><input type="text" placeholder="Buscar" class="searchbox"/>
+                                <button type="submit" class="searchbutton fa fa-search"></button>
+                            </form>
+                        </div>#}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+{#<div class="modal fade" id="ventana" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: white">
+            <div class="modal-header" style="background-color: darkblue">
+                <a href=" http://www.crese.org/page/registration/"><h3 class="modal-title" style="color: gold">Descarga la nueva versión de la Norma CRESE 2018</h3></a>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black; margin-top: -30px; size: 10px"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{ asset('images/sello.jpg') }}" >
+            </div>
+        </div>
+    </div>
+</div>#}
+<!-- WRAPPER-->
+<div id="wrapper-content"><!-- PAGE WRAPPER-->
+    <div id="page-wrapper"><!-- MAIN CONTENT-->
+        <div class="main-content"><!-- CONTENT-->
+            <div class="content"><!-- SLIDER BANNER-->
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <!-- BUTTON BACK TO TOP-->
+    <div id="back-top"><a href="#top"><i class="fa fa-angle-double-up"></i></a></div>
+</div>
+<!-- FOOTER-->
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-top-wrapper" style="margin-bottom: 5px">
+                <div class="footer-top-left" style="text-align: center">
+                    <div class="col-xs-8 col-sm-12">
+                        <h2 class="footer-top-focus">¿TE GUSTARÍA COLABORAR CON EMPRESA RESPONSABLE?</h2>
+                        <p class="footer-top-text">Escríbenos para enviarte información.</p>
+                    </div>
+                    <div class="footer-top-center col-xs-8 col-sm-12" style="padding-top: 10px; vertical-align: middle">
+                        <a href="{{ path("contacto") }}" class="btn btn-blue btn-bold"><span>CONTÁCTANOS</span></a>
+                        <a href="{{ asset('res/Modalidades-de-colaboración-v4.pdf') }}" download class="btn btn-blue btn-bold alg"><span class="boton">Conoce las modalidades de colaboración</span></a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-main-wrapper">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 sd380">
+                            <div class="useful-link-widget widget">
+                                <div class="title-widget">MAPA DEL SITIO</div>
+                                <div class="content-widget">
+                                    <div class="useful-link-list">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                            <ul class="list-unstyled">
+                                                <li><i class="fa fa-angle-right"></i><a href="{{ path('homepage') }}">Inicio</a></li>
+                                                <li><i class="fa fa-angle-right"></i><a href="{{ path('norma') }}">Norma CRESE</a></li>
+                                                <li><i class="fa fa-angle-right"></i><a href="{{ path('membresias') }}">Servicios</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                            <ul class="list-unstyled">
+                                                <li><i class="fa fa-angle-right"></i><a href="{{ path('frontend_programa',{"slug":"accesos"}) }}">Accesos</a></li>
+                                                <li><i class="fa fa-angle-right"></i><a href="http://distintivoer.com/">Distintivo ER</a></li>
+                                                <li><i class="fa fa-angle-right"></i><a href="http://proyectocv.com/">Proyecto CV</a></li>
+                                                <li><i class="fa fa-angle-right"></i><a href="{{ asset('assets/web/avisoprivacidad.pdf') }}" target="_blank">Aviso de Privacidad</a></li>
+                                            </ul>
+                                        </div>
+                                        {#<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                                            <ul class="list-unstyled">
+                                                <li><i class="fa fa-angle-right"></i><a href="#">Consultoría</a></li>
+                                                <li><i class="fa fa-angle-right"></i><a href="#">Soporte</a></li>
+                                            </ul>
+                                        </div>#}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 sd380">
+                            <div class="mailing-widget widget">
+                                <div class="title-widget">BOLETÍN</div>
+                                <div class="content-wiget"><p>Suscríbete a nuestro boletín</p>
+                                    {#{{ render(controller('AdminBundle:Default:boletin')) }}#}
+                                    <form method="POST" action="https://empresaresponsable.activehosted.com/proc.php" id="_form_1_" class="_form _form_1 _inline-form  _dark" novalidate>
+                                        <input type="hidden" name="u" value="1" />
+                                        <input type="hidden" name="f" value="1" />
+                                        <input type="hidden" name="s" />
+                                        <input type="hidden" name="c" value="0" />
+                                        <input type="hidden" name="m" value="0" />
+                                        <input type="hidden" name="act" value="sub" />
+                                        <input type="hidden" name="v" value="2" />
+                                        <div class="_form-content">
+                                            <div class="_form_element _x30901365 _full_width _clear" >
+                                                <div class="_form-title">
+                                                    ¡Regístrate!
+                                                </div>
+                                            </div>
+                                            <div class="_form_element _x56705113 _full_width _clear" >
+                                                <div class="_html-code">
+                                                    <p>
+                                                        Quiero recibir el Boletín de Empresa Responsable, A.C.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="_form_element _x10804713 _full_width " >
+                                                <label class="_form-label">
+                                                    Nombre*
+                                                </label>
+                                                <div class="_field-wrapper">
+                                                    <input class="form-control" type="text" id="name" name="fullname" placeholder="Anota sólo tu nombre" required/>
+                                                </div>
+                                            </div>
+                                            <div class="_form_element _x08461541 _full_width " >
+                                                <label class="_form-label">
+                                                    Email*
+                                                </label>
+                                                <div class="_field-wrapper">
+                                                    <input id="email" class="form-control" type="text" name="email" placeholder="Anota tu email" required/>
+                                                </div>
+                                            </div>
+                                            <div class="_button-wrapper _full_width">
+                                                <button style="margin-top: 10px;" id="_form_1_submit" class="_submit btn btn-blue btn-bold" type="submit">
+                                                    <span>Enviar</span>
+                                                </button>
+                                            </div>
+                                            <div class="_clear-element">
+                                            </div>
+                                        </div>
+                                        <div class="_form-thank-you" style="display:none;">
+                                        </div>
+                                    </form>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $('#name').val('');
+                                            $('#email').val('');
+                                        });
+                                        window.cfields = [];
+                                        window._show_thank_you = function(id, message, trackcmp_url) {
+                                            var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
+                                            form.querySelector('._form-content').style.display = 'none';
+                                            thank_you.innerHTML = message;
+                                            thank_you.style.display = 'block';
+                                            if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
+                                                // Site tracking URL to use after inline form submission.
+                                                _load_script(trackcmp_url);
+                                            }
+                                            if (typeof window._form_callback !== 'undefined') window._form_callback(id);
+                                        };
+                                        window._show_error = function(id, message, html) {
+                                            var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
+                                            if (old_error) old_error.parentNode.removeChild(old_error);
+                                            err.innerHTML = message;
+                                            err.className = '_error-inner _form_error _no_arrow';
+                                            var wrapper = document.createElement('div');
+                                            wrapper.className = '_form-inner';
+                                            wrapper.appendChild(err);
+                                            button.parentNode.insertBefore(wrapper, button);
+                                            document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
+                                            if (html) {
+                                                var div = document.createElement('div');
+                                                div.className = '_error-html';
+                                                div.innerHTML = html;
+                                                err.appendChild(div);
+                                            }
+                                        };
+                                        window._load_script = function(url, callback) {
+                                            var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+                                            script.type = 'text/javascript';
+                                            script.charset = 'utf-8';
+                                            script.src = url;
+                                            if (callback) {
+                                                script.onload = script.onreadystatechange = function() {
+                                                    if (!r && (!this.readyState || this.readyState == 'complete')) {
+                                                        r = true;
+                                                        callback();
+                                                    }
+                                                };
+                                            }
+                                            head.appendChild(script);
+                                        };
+                                        (function() {
+                                            if (window.location.search.search("excludeform") !== -1) return false;
+                                            var getCookie = function(name) {
+                                                var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+                                                return match ? match[2] : null;
+                                            }
+                                            var setCookie = function(name, value) {
+                                                var now = new Date();
+                                                var time = now.getTime();
+                                                var expireTime = time + 1000 * 60 * 60 * 24 * 365;
+                                                now.setTime(expireTime);
+                                                document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
+                                            }
+                                            var addEvent = function(element, event, func) {
+                                                if (element.addEventListener) {
+                                                    element.addEventListener(event, func);
+                                                } else {
+                                                    var oldFunc = element['on' + event];
+                                                    element['on' + event] = function() {
+                                                        oldFunc.apply(this, arguments);
+                                                        func.apply(this, arguments);
+                                                    };
+                                                }
+                                            }
+                                            var _removed = false;
+                                            var form_to_submit = document.getElementById('_form_1_');
+                                            var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
+
+                                            var getUrlParam = function(name) {
+                                                var regexStr = '[\?&]' + name + '=([^&#]*)';
+                                                var results = new RegExp(regexStr, 'i').exec(window.location.href);
+                                                return results != undefined ? decodeURIComponent(results[1]) : false;
+                                            };
+
+                                            for (var i = 0; i < allInputs.length; i++) {
+                                                var regexStr = "field\\[(\\d+)\\]";
+                                                var results = new RegExp(regexStr).exec(allInputs[i].name);
+                                                if (results != undefined) {
+                                                    allInputs[i].dataset.name = window.cfields[results[1]];
+                                                } else {
+                                                    allInputs[i].dataset.name = allInputs[i].name;
+                                                }
+                                                var fieldVal = getUrlParam(allInputs[i].dataset.name);
+
+                                                if (fieldVal) {
+                                                    if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
+                                                        if (allInputs[i].value == fieldVal) {
+                                                            allInputs[i].checked = true;
+                                                        }
+                                                    } else {
+                                                        allInputs[i].value = fieldVal;
+                                                    }
+                                                }
+                                            }
+
+                                            var remove_tooltips = function() {
+                                                for (var i = 0; i < tooltips.length; i++) {
+                                                    tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+                                                }
+                                                tooltips = [];
+                                            };
+                                            var remove_tooltip = function(elem) {
+                                                for (var i = 0; i < tooltips.length; i++) {
+                                                    if (tooltips[i].elem === elem) {
+                                                        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+                                                        tooltips.splice(i, 1);
+                                                        return;
+                                                    }
+                                                }
+                                            };
+                                            var create_tooltip = function(elem, text) {
+                                                var tooltip = document.createElement('div'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
+                                                if (elem.type != 'radio' && elem.type != 'checkbox') {
+                                                    tooltip.className = '_error';
+                                                    arrow.className = '_error-arrow';
+                                                    inner.className = '_error-inner';
+                                                    inner.innerHTML = text;
+                                                    tooltip.appendChild(arrow);
+                                                    tooltip.appendChild(inner);
+                                                    elem.parentNode.appendChild(tooltip);
+                                                } else {
+                                                    tooltip.className = '_error-inner _no_arrow';
+                                                    tooltip.innerHTML = text;
+                                                    elem.parentNode.insertBefore(tooltip, elem);
+                                                    new_tooltip.no_arrow = true;
+                                                }
+                                                new_tooltip.tip = tooltip;
+                                                new_tooltip.elem = elem;
+                                                tooltips.push(new_tooltip);
+                                                return new_tooltip;
+                                            };
+                                            var resize_tooltip = function(tooltip) {
+                                                var rect = tooltip.elem.getBoundingClientRect();
+                                                var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
+                                                if (scrollPosition < 40) {
+                                                    tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+                                                } else {
+                                                    tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+                                                }
+                                            };
+                                            var resize_tooltips = function() {
+                                                if (_removed) return;
+                                                for (var i = 0; i < tooltips.length; i++) {
+                                                    if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+                                                }
+                                            };
+                                            var validate_field = function(elem, remove) {
+                                                var tooltip = null, value = elem.value, no_error = true;
+                                                remove ? remove_tooltip(elem) : false;
+                                                if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+                                                if (elem.getAttribute('required') !== null) {
+                                                    if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
+                                                        var elems = form_to_submit.elements[elem.name];
+                                                        if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
+                                                            no_error = elem.checked;
+                                                        }
+                                                        else {
+                                                            no_error = false;
+                                                            for (var i = 0; i < elems.length; i++) {
+                                                                if (elems[i].checked) no_error = true;
+                                                            }
+                                                        }
+                                                        if (!no_error) {
+                                                            tooltip = create_tooltip(elem, "Please select an option.");
+                                                        }
+                                                    } else if (elem.type =='checkbox') {
+                                                        var elems = form_to_submit.elements[elem.name], found = false, err = [];
+                                                        no_error = true;
+                                                        for (var i = 0; i < elems.length; i++) {
+                                                            if (elems[i].getAttribute('required') === null) continue;
+                                                            if (!found && elems[i] !== elem) return true;
+                                                            found = true;
+                                                            elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
+                                                            if (!elems[i].checked) {
+                                                                no_error = false;
+                                                                elems[i].className = elems[i].className + ' _has_error';
+                                                                err.push("Checking %s is required".replace("%s", elems[i].value));
+                                                            }
+                                                        }
+                                                        if (!no_error) {
+                                                            tooltip = create_tooltip(elem, err.join('<br/>'));
+                                                        }
+                                                    } else if (elem.tagName == 'SELECT') {
+                                                        var selected = true;
+                                                        if (elem.multiple) {
+                                                            selected = false;
+                                                            for (var i = 0; i < elem.options.length; i++) {
+                                                                if (elem.options[i].selected) {
+                                                                    selected = true;
+                                                                    break;
+                                                                }
+                                                            }
+                                                        } else {
+                                                            for (var i = 0; i < elem.options.length; i++) {
+                                                                if (elem.options[i].selected && !elem.options[i].value) {
+                                                                    selected = false;
+                                                                }
+                                                            }
+                                                        }
+                                                        if (!selected) {
+                                                            elem.className = elem.className + ' _has_error';
+                                                            no_error = false;
+                                                            tooltip = create_tooltip(elem, "Please select an option.");
+                                                        }
+                                                    } else if (value === undefined || value === null || value === '') {
+                                                        elem.className = elem.className + ' _has_error';
+                                                        no_error = false;
+                                                        tooltip = create_tooltip(elem, "This field is required.");
+                                                    }
+                                                }
+                                                if (no_error && elem.name == 'email') {
+                                                    if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+                                                        elem.className = elem.className + ' _has_error';
+                                                        no_error = false;
+                                                        tooltip = create_tooltip(elem, "Enter a valid email address.");
+                                                    }
+                                                }
+                                                if (no_error && /date_field/.test(elem.className)) {
+                                                    if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
+                                                        elem.className = elem.className + ' _has_error';
+                                                        no_error = false;
+                                                        tooltip = create_tooltip(elem, "Enter a valid date.");
+                                                    }
+                                                }
+                                                tooltip ? resize_tooltip(tooltip) : false;
+                                                return no_error;
+                                            };
+                                            var needs_validate = function(el) {
+                                                return el.name == 'email' || el.getAttribute('required') !== null;
+                                            };
+                                            var validate_form = function(e) {
+                                                var err = form_to_submit.querySelector('._form_error'), no_error = true;
+                                                if (!submitted) {
+                                                    submitted = true;
+                                                    for (var i = 0, len = allInputs.length; i < len; i++) {
+                                                        var input = allInputs[i];
+                                                        if (needs_validate(input)) {
+                                                            if (input.type == 'text') {
+                                                                addEvent(input, 'blur', function() {
+                                                                    this.value = this.value.trim();
+                                                                    validate_field(this, true);
+                                                                });
+                                                                addEvent(input, 'input', function() {
+                                                                    validate_field(this, true);
+                                                                });
+                                                            } else if (input.type == 'radio' || input.type == 'checkbox') {
+                                                                (function(el) {
+                                                                    var radios = form_to_submit.elements[el.name];
+                                                                    for (var i = 0; i < radios.length; i++) {
+                                                                        addEvent(radios[i], 'click', function() {
+                                                                            validate_field(el, true);
+                                                                        });
+                                                                    }
+                                                                })(input);
+                                                            } else if (input.tagName == 'SELECT') {
+                                                                addEvent(input, 'change', function() {
+                                                                    validate_field(this, true);
+                                                                });
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                remove_tooltips();
+                                                for (var i = 0, len = allInputs.length; i < len; i++) {
+                                                    var elem = allInputs[i];
+                                                    if (needs_validate(elem)) {
+                                                        if (elem.tagName.toLowerCase() !== "select") {
+                                                            elem.value = elem.value.trim();
+                                                        }
+                                                        validate_field(elem) ? true : no_error = false;
+                                                    }
+                                                }
+                                                if (!no_error && e) {
+                                                    e.preventDefault();
+                                                }
+                                                resize_tooltips();
+                                                return no_error;
+                                            };
+                                            addEvent(window, 'resize', resize_tooltips);
+                                            addEvent(window, 'scroll', resize_tooltips);
+                                            window._old_serialize = null;
+                                            if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
+                                            _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function() {
+                                                window._form_serialize = window.serialize;
+                                                if (window._old_serialize) window.serialize = window._old_serialize;
+                                            });
+                                            var form_submit = function(e) {
+                                                e.preventDefault();
+                                                if (validate_form()) {
+                                                    // use this trick to get the submit button & disable it using plain javascript
+                                                    document.querySelector('[id^="_form"][id$="_submit"]').disabled = true;
+                                                    var serialized = _form_serialize(document.getElementById('_form_1_'));
+                                                    var err = form_to_submit.querySelector('._form_error');
+                                                    err ? err.parentNode.removeChild(err) : false;
+                                                    _load_script('https://empresaresponsable.activehosted.com/proc.php?' + serialized + '&jsonp=true');
+                                                }
+                                                return false;
+                                            };
+                                            addEvent(form_to_submit, 'submit', form_submit);
+                                        })();
+
+                                    </script>
+                                    <div class="socials">
+                                        <a href="https://www.facebook.com/ERACdigital?fref=ts" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                                        {#<a href="#" class="google"><i class="fa fa-google-plus"></i></a>#}
+                                        <a href="https://twitter.com/@EracNoticias" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {#<div class="col-2">
+                    </div>#}
+                </div>
+            </div>
+            <div class="hyperlink">
+                <div class="pull-left hyper-left">
+                    {#<ul class="list-inline">
+                        <li><a href="{{ path('homepage') }}">INICIO</a></li>
+                        <li><a href="{{ path('norma') }}">NORMA CRESE</a></li>
+                        <li><a href="{{ path('contacto') }}">CONTACTO</a></li>
+                    </ul>#}
+                </div>
+                <div class="pull-right hyper-right">Empresa Responsable</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- LOADING
+<div class="body-2 loading">
+    <div class="dots-loader"></div>
+</div>-->
+
+<script src="{{  asset('assets/libs/bootstrap-3.3.5/js/bootstrap.min.js')}}"></script>
+<script src="{{  asset('assets/libs/smooth-scroll/jquery-smoothscroll.js')}}"></script>
+<script src="{{  asset('assets/libs/owl-carousel-2.0/owl.carousel.min.js')}}"></script>
+<script src="{{  asset('assets/libs/appear/jquery.appear.js')}}"></script>
+<script src="{{  asset('assets/libs/count-to/jquery.countTo.js')}}"></script>
+<script src="{{  asset('assets/libs/wow-js/wow.min.js')}}"></script>
+{#<script src="{{  asset('assets/libs/selectbox/js/jquery.selectbox-0.2.min.js')}}"></script>#}
+<script src="{{  asset('assets/libs/fancybox/js/jquery.fancybox.js')}}"></script>
+<script src="{{  asset('assets/libs/fancybox/js/jquery.fancybox-buttons.js')}}"></script>
+<script src=”https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js”></script>
+<script src=”https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js”></script>
+
+<!-- MAIN JS-->
+<script src="{{  asset('assets/js/main.js')}}"></script>
+<!-- LOADING SCRIPTS FOR PAGE-->
+{% block javascripts %}{% endblock %}
+
+<script type="text/javascript">
+
+    $('#ventana').modal('show');
+
+    var LHCChatOptions = {};
+    LHCChatOptions.opt = {widget_height:340,widget_width:300,popup_height:520,popup_width:500,domain:'plataforma-er.com'};
+    (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf('://')+1)) : '';
+        var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : '';
+        po.src = '//plataforma-er.com/chat/index.php/esp/chat/getstatus/(click)/internal/(position)/bottom_right/(ma)/br/(top)/350/(units)/pixels/(leaveamessage)/true/(department)/1?r='+referrer+'&l='+location;
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+</script>
+<style>
+    @media screen and (max-width: 344px) {
+        .boton{
+            font-size: 0.7em;
+        }
+        .alg{
+            text-align: left;
+        }
+        .txt-alg{
+
+            font-size: 1em;
+        }
+    }
+
+</style>
+</body>
+</html>

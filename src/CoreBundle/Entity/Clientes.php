@@ -1,0 +1,1200 @@
+<?php
+namespace CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\ClientesRepository")
+ *
+ */
+
+class Clientes implements UserInterface, \Serializable
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="bigint", length=20)
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="bigint", length=12, nullable=true)
+     */
+    private $id_parent;
+
+    /**
+     * @ORM\Column(type="string", length=250, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @ORM\Column(type="string", length=250, nullable=true)
+     */
+    private $apellidos;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $nom_empresa;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $puesto;
+
+    /**
+     * @ORM\Column(type="string", length=300, nullable=true)
+     */
+    private $foto;
+
+    /**
+     * @ORM\Column(type="string", unique=true, length=250, nullable=true)
+     */
+    private $username;
+
+    /**
+     * @ORM\Column(type="string", unique=true, length=250, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $telefono;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $celular;
+
+    /**
+     * @ORM\Column(type="string", length=600, nullable=true)
+     */
+    private $pass;
+
+    /**
+     * @ORM\Column(type="string", length=250, nullable=true)
+     */
+    private $salt;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true, options={"default":0})
+     */
+    private $is_active;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true, options={"default":0})
+     */
+    private $verificado;
+
+    /**
+     * @ORM\Column(type="string", length=200, nullable=true)
+     */
+    private $recuperacion;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $activacion;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $ultimo_acceso;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true, options={"default":1})
+     */
+    private $pagoefectivo;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true, options={"default":1})
+     */
+    private $pagotarjeta;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true, options={"default":1})
+     */
+    private $pagooxxo;
+
+    /**
+     * @ORM\Column(type="decimal", length=12, nullable=true, options={"default":0})
+     */
+    private $saldo;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $conekta_customer_id;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $fecha_renovacion;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $ciudad;
+
+    /**
+     * @ORM\Column(type="string", length=200, nullable=true)
+     */
+    private $sucursal;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="create", field="creado")
+     */
+    private $creado;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="update", field="actualizado")
+     */
+    private $actualizado;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Clientes_Permisos", mappedBy="clientes")
+     */
+    private $clientesPermisos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Pagos", mappedBy="clientes")
+     */
+    private $pagos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Reporte_Clima", mappedBy="clientes")
+     */
+    private $reporteClima;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Reportes", mappedBy="clientes")
+     */
+    private $reportes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Respuestas", mappedBy="clientes")
+     */
+    private $respuestas;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Posts", mappedBy="clientes")
+     */
+    private $posts;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Empresa", inversedBy="clientes")
+     * @ORM\JoinColumn(name="id_empresa", referencedColumnName="id")
+     */
+    private $empresa;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Niveles", inversedBy="clientes")
+     * @ORM\JoinColumn(name="id_nivel", referencedColumnName="id", nullable=false)
+     */
+    private $niveles;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Perfil", inversedBy="clientes")
+     * @ORM\JoinColumn(name="id_perfil", referencedColumnName="id", nullable=false)
+     */
+    private $perfil;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Clientes
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set ciudad
+     *
+     * @param string $ciudad
+     *
+     * @return Clientes
+     */
+    public function setCiudad($ciudad)
+    {
+        $this->ciudad = $ciudad;
+
+        return $this;
+    }
+
+    /**
+     * Get ciudad
+     *
+     * @return string
+     */
+    public function getCiudad()
+    {
+        return $this->ciudad;
+    }
+
+    /**
+     * Set sucursal
+     *
+     * @param string $sucursal
+     *
+     * @return Clientes
+     */
+    public function setSucursal($sucursal)
+    {
+        $this->sucursal = $sucursal;
+
+        return $this;
+    }
+
+    /**
+     * Get sucursal
+     *
+     * @return string
+     */
+    public function getSucursal()
+    {
+        return $this->sucursal;
+    }
+
+    /**
+     * Set apellidos
+     *
+     * @param string $apellidos
+     *
+     * @return Clientes
+     */
+    public function setApellidos($apellidos)
+    {
+        $this->apellidos = $apellidos;
+
+        return $this;
+    }
+
+    /**
+     * Get apellidos
+     *
+     * @return string
+     */
+    public function getApellidos()
+    {
+        return $this->apellidos;
+    }
+
+    /**
+     * Set nomEmpresa
+     *
+     * @param string $nomEmpresa
+     *
+     * @return Clientes
+     */
+    public function setNomEmpresa($nomEmpresa)
+    {
+        $this->nom_empresa = $nomEmpresa;
+
+        return $this;
+    }
+
+    /**
+     * Get nomEmpresa
+     *
+     * @return string
+     */
+    public function getNomEmpresa()
+    {
+        return $this->nom_empresa;
+    }
+
+    /**
+     * Set puesto
+     *
+     * @param string $puesto
+     *
+     * @return Clientes
+     */
+    public function setPuesto($puesto)
+    {
+        $this->puesto = $puesto;
+
+        return $this;
+    }
+
+    /**
+     * Get puesto
+     *
+     * @return string
+     */
+    public function getPuesto()
+    {
+        return $this->puesto;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     *
+     * @return Clientes
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Clientes
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set telefono
+     *
+     * @param string $telefono
+     *
+     * @return Clientes
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set celular
+     *
+     * @param string $celular
+     *
+     * @return Clientes
+     */
+    public function setCelular($celular)
+    {
+        $this->celular = $celular;
+
+        return $this;
+    }
+
+    /**
+     * Get celular
+     *
+     * @return string
+     */
+    public function getCelular()
+    {
+        return $this->celular;
+    }
+
+    /**
+     * Set pass
+     *
+     * @param string $pass
+     *
+     * @return Clientes
+     */
+    public function setPass($pass)
+    {
+        $this->pass = $pass;
+
+        return $this;
+    }
+
+    /**
+     * Get pass
+     *
+     * @return string
+     */
+    public function getPass()
+    {
+        return $this->pass;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return Clientes
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     *
+     * @return Clientes
+     */
+    public function setIsActive($isActive)
+    {
+        $this->is_active = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->is_active;
+    }
+
+    /**
+     * Set verificado
+     *
+     * @param boolean $verificado
+     *
+     * @return Clientes
+     */
+    public function setVerificado($verificado)
+    {
+        $this->verificado = $verificado;
+
+        return $this;
+    }
+
+    /**
+     * Get verificado
+     *
+     * @return boolean
+     */
+    public function getVerificado()
+    {
+        return $this->verificado;
+    }
+
+    /**
+     * Set recuperacion
+     *
+     * @param string $recuperacion
+     *
+     * @return Clientes
+     */
+    public function setRecuperacion($recuperacion)
+    {
+        $this->recuperacion = $recuperacion;
+
+        return $this;
+    }
+
+    /**
+     * Get recuperacion
+     *
+     * @return string
+     */
+    public function getRecuperacion()
+    {
+        return $this->recuperacion;
+    }
+
+    /**
+     * Set activacion
+     *
+     * @param string $activacion
+     *
+     * @return Clientes
+     */
+    public function setActivacion($activacion)
+    {
+        $this->activacion = $activacion;
+
+        return $this;
+    }
+
+    /**
+     * Get activacion
+     *
+     * @return string
+     */
+    public function getActivacion()
+    {
+        return $this->activacion;
+    }
+
+    /**
+     * Set ultimoAcceso
+     *
+     * @param \DateTime $ultimoAcceso
+     *
+     * @return Clientes
+     */
+    public function setUltimoAcceso($ultimoAcceso)
+    {
+        $this->ultimo_acceso = $ultimoAcceso;
+
+        return $this;
+    }
+
+    /**
+     * Get ultimoAcceso
+     *
+     * @return \DateTime
+     */
+    public function getUltimoAcceso()
+    {
+        return $this->ultimo_acceso;
+    }
+
+    /**
+     * Set pagoefectivo
+     *
+     * @param boolean $pagoefectivo
+     *
+     * @return Clientes
+     */
+    public function setPagoefectivo($pagoefectivo)
+    {
+        $this->pagoefectivo = $pagoefectivo;
+
+        return $this;
+    }
+
+    /**
+     * Get pagoefectivo
+     *
+     * @return boolean
+     */
+    public function getPagoefectivo()
+    {
+        return $this->pagoefectivo;
+    }
+
+    /**
+     * Set pagotarjeta
+     *
+     * @param boolean $pagotarjeta
+     *
+     * @return Clientes
+     */
+    public function setPagotarjeta($pagotarjeta)
+    {
+        $this->pagotarjeta = $pagotarjeta;
+
+        return $this;
+    }
+
+    /**
+     * Get pagotarjeta
+     *
+     * @return boolean
+     */
+    public function getPagotarjeta()
+    {
+        return $this->pagotarjeta;
+    }
+
+    /**
+     * Set pagooxxo
+     *
+     * @param boolean $pagooxxo
+     *
+     * @return Clientes
+     */
+    public function setPagooxxo($pagooxxo)
+    {
+        $this->pagooxxo = $pagooxxo;
+
+        return $this;
+    }
+
+    /**
+     * Get pagooxxo
+     *
+     * @return boolean
+     */
+    public function getPagooxxo()
+    {
+        return $this->pagooxxo;
+    }
+
+    /**
+     * Set saldo
+     *
+     * @param string $saldo
+     *
+     * @return Clientes
+     */
+    public function setSaldo($saldo)
+    {
+        $this->saldo = $saldo;
+
+        return $this;
+    }
+
+    /**
+     * Get saldo
+     *
+     * @return string
+     */
+    public function getSaldo()
+    {
+        return $this->saldo;
+    }
+
+    /**
+     * Set conektaCustomerId
+     *
+     * @param string $conektaCustomerId
+     *
+     * @return Clientes
+     */
+    public function setConektaCustomerId($conektaCustomerId)
+    {
+        $this->conekta_customer_id = $conektaCustomerId;
+
+        return $this;
+    }
+
+    /**
+     * Get conektaCustomerId
+     *
+     * @return string
+     */
+    public function getConektaCustomerId()
+    {
+        return $this->conekta_customer_id;
+    }
+
+    /**
+     * Set empresa
+     *
+     * @param \CoreBundle\Entity\Empresa $empresa
+     *
+     * @return Clientes
+     */
+    public function setEmpresa(\CoreBundle\Entity\Empresa $empresa = null)
+    {
+        $this->empresa = $empresa;
+
+        return $this;
+    }
+
+    /**
+     * Get empresa
+     *
+     * @return \CoreBundle\Entity\Empresa
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->pass,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->pass,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized);
+    }
+    /**
+     * Returns the password used to authenticate the user.
+     *
+     * This should be the encoded password. On authentication, a plain-text
+     * password will be salted, encoded, and then compared to this value.
+     *
+     * @return string The password
+     */
+    public function getPassword()
+    {
+        // TODO: Implement getPassword() method.
+        return $this->pass;
+    }
+
+    /**
+     * Set niveles
+     *
+     * @param \CoreBundle\Entity\Niveles $niveles
+     *
+     * @return Clientes
+     */
+    public function setNiveles(\CoreBundle\Entity\Niveles $niveles)
+    {
+        $this->niveles = $niveles;
+
+        return $this;
+    }
+
+    /**
+     * Get niveles
+     *
+     * @return \CoreBundle\Entity\Niveles
+     */
+    public function getNiveles()
+    {
+        return $this->niveles;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->clientesPermisos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reporteClima = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->nombre." ".$this->apellidos." - ".$this->nom_empresa;
+    }
+
+    /**
+     * Set idParent
+     *
+     * @param integer $idParent
+     *
+     * @return Clientes
+     */
+    public function setIdParent($idParent)
+    {
+        $this->id_parent = $idParent;
+
+        return $this;
+    }
+
+    /**
+     * Get idParent
+     *
+     * @return integer
+     */
+    public function getIdParent()
+    {
+        return $this->id_parent;
+    }
+
+    /**
+     * Set foto
+     *
+     * @param string $foto
+     *
+     * @return Clientes
+     */
+    public function setFoto($foto)
+    {
+        $this->foto = $foto;
+
+        return $this;
+    }
+
+    /**
+     * Get foto
+     *
+     * @return string
+     */
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+
+    /**
+     * Add clientesPermiso
+     *
+     * @param \CoreBundle\Entity\Clientes_Permisos $clientesPermiso
+     *
+     * @return Clientes
+     */
+    public function addClientesPermiso(\CoreBundle\Entity\Clientes_Permisos $clientesPermiso)
+    {
+        $this->clientesPermisos[] = $clientesPermiso;
+
+        return $this;
+    }
+
+    /**
+     * Remove clientesPermiso
+     *
+     * @param \CoreBundle\Entity\Clientes_Permisos $clientesPermiso
+     */
+    public function removeClientesPermiso(\CoreBundle\Entity\Clientes_Permisos $clientesPermiso)
+    {
+        $this->clientesPermisos->removeElement($clientesPermiso);
+    }
+
+    /**
+     * Get clientesPermisos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getClientesPermisos()
+    {
+        return $this->clientesPermisos;
+    }
+
+    /**
+     * Add reporteClima
+     *
+     * @param \CoreBundle\Entity\Reporte_Clima $reporteClima
+     *
+     * @return Clientes
+     */
+    public function addReporteClima(\CoreBundle\Entity\Reporte_Clima $reporteClima)
+    {
+        $this->reporteClima[] = $reporteClima;
+
+        return $this;
+    }
+
+    /**
+     * Remove reporteClima
+     *
+     * @param \CoreBundle\Entity\Reporte_Clima $reporteClima
+     */
+    public function removeReporteClima(\CoreBundle\Entity\Reporte_Clima $reporteClima)
+    {
+        $this->reporteClima->removeElement($reporteClima);
+    }
+
+    /**
+     * Get reporteClima
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReporteClima()
+    {
+        return $this->reporteClima;
+    }
+
+    /**
+     * Set perfil
+     *
+     * @param \CoreBundle\Entity\Perfil $perfil
+     *
+     * @return Clientes
+     */
+    public function setPerfil(\CoreBundle\Entity\Perfil $perfil)
+    {
+        $this->perfil = $perfil;
+
+        return $this;
+    }
+
+    /**
+     * Get perfil
+     *
+     * @return \CoreBundle\Entity\Perfil
+     */
+    public function getPerfil()
+    {
+        return $this->perfil;
+    }
+
+    /**
+     * Set creado
+     *
+     * @param \DateTime $creado
+     *
+     * @return Clientes
+     */
+    public function setCreado($creado)
+    {
+        $this->creado = $creado;
+
+        return $this;
+    }
+
+    /**
+     * Get creado
+     *
+     * @return \DateTime
+     */
+    public function getCreado()
+    {
+        return $this->creado;
+    }
+
+    /**
+     * Add pago
+     *
+     * @param \CoreBundle\Entity\Pagos $pago
+     *
+     * @return Clientes
+     */
+    public function addPago(\CoreBundle\Entity\Pagos $pago)
+    {
+        $this->pagos[] = $pago;
+
+        return $this;
+    }
+
+    /**
+     * Remove pago
+     *
+     * @param \CoreBundle\Entity\Pagos $pago
+     */
+    public function removePago(\CoreBundle\Entity\Pagos $pago)
+    {
+        $this->pagos->removeElement($pago);
+    }
+
+    /**
+     * Get pagos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPagos()
+    {
+        return $this->pagos;
+    }
+
+    /**
+     * Set actualizado
+     *
+     * @param \DateTime $actualizado
+     *
+     * @return Clientes
+     */
+    public function setActualizado($actualizado)
+    {
+        $this->actualizado = $actualizado;
+
+        return $this;
+    }
+
+    /**
+     * Get actualizado
+     *
+     * @return \DateTime
+     */
+    public function getActualizado()
+    {
+        return $this->actualizado;
+    }
+
+    /**
+     * Add post
+     *
+     * @param \CoreBundle\Entity\Posts $post
+     *
+     * @return Clientes
+     */
+    public function addPost(\CoreBundle\Entity\Posts $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \CoreBundle\Entity\Posts $post
+     */
+    public function removePost(\CoreBundle\Entity\Posts $post)
+    {
+        $this->posts->removeElement($post);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Add respuesta
+     *
+     * @param \CoreBundle\Entity\Respuestas $respuesta
+     *
+     * @return Clientes
+     */
+    public function addRespuesta(\CoreBundle\Entity\Respuestas $respuesta)
+    {
+        $this->respuestas[] = $respuesta;
+
+        return $this;
+    }
+
+    /**
+     * Remove respuesta
+     *
+     * @param \CoreBundle\Entity\Respuestas $respuesta
+     */
+    public function removeRespuesta(\CoreBundle\Entity\Respuestas $respuesta)
+    {
+        $this->respuestas->removeElement($respuesta);
+    }
+
+    /**
+     * Get respuestas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRespuestas()
+    {
+        return $this->respuestas;
+    }
+
+    /**
+     * Add reporte
+     *
+     * @param \CoreBundle\Entity\Reportes $reporte
+     *
+     * @return Clientes
+     */
+    public function addReporte(\CoreBundle\Entity\Reportes $reporte)
+    {
+        $this->reportes[] = $reporte;
+
+        return $this;
+    }
+
+    /**
+     * Remove reporte
+     *
+     * @param \CoreBundle\Entity\Reportes $reporte
+     */
+    public function removeReporte(\CoreBundle\Entity\Reportes $reporte)
+    {
+        $this->reportes->removeElement($reporte);
+    }
+
+    /**
+     * Get reportes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReportes()
+    {
+        return $this->reportes;
+    }
+
+    /**
+     * Set fechaRenovacion
+     *
+     * @param \DateTime $fechaRenovacion
+     *
+     * @return Clientes
+     */
+    public function setFechaRenovacion($fechaRenovacion)
+    {
+        $this->fecha_renovacion = $fechaRenovacion;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaRenovacion
+     *
+     * @return \DateTime
+     */
+    public function getFechaRenovacion()
+    {
+        return $this->fecha_renovacion;
+    }
+}

@@ -1,0 +1,287 @@
+{% extends '@Frontend/layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/js/wizard/css/wizard.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/js/wizard/css/formValidation.min.css') }}" rel="stylesheet">
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/wizard/jquery-wizard.js') }}"></script>
+    <script src="{{ asset('assets/js/wizard/formValidation.min.js') }}"></script>
+    <script src="{{ asset('assets/js/wizard/bootstrap.min.js') }}"></script>
+    <script>
+        $( document ).ready(function() {
+            $('#validation').formValidation({
+                framework: 'bootstrap',
+                fields: {
+                    {% set p=0 %}
+                    {% for seccion in encuesta.secciones %}
+                    {% for pregunta in seccion.preguntas %}
+                    preg{{ p }}: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Requiere respuesta'
+                            }
+                        }
+                    }
+                    {% if not loop.last %}
+                    ,
+                {% endif %}
+                {% set p=p+1 %}
+                {% endfor %}
+                {% if not loop.last %}
+                ,
+                {% endif %}
+                {% endfor %}
+            }
+        });
+            $('#exampleValidator').wizard({
+                buttonLabels: {
+                    next: 'Siguiente',
+                    back: 'Anterior',
+                    finish: 'Enviar'
+                },
+                validator: function() {
+                    var fv = $('#validation').data('formValidation');
+                    var $this = $(this);
+                    // Validate the container
+                    fv.validateContainer($this);
+                    var isValidStep = fv.isValidContainer($this);
+                    if (isValidStep === false || isValidStep === null) {
+                        return false;
+                    }
+                    return true;
+                },
+                onBeforeChange: function(from, to) {
+                    varr=$('#st'+from.index+ " input").serializeArray();
+                    txt=$('#st'+from.index+ " textarea").serializeArray();
+                    console.log(varr);
+                    res = $("#preguntas").val();
+                    console.log("Preguntas: "+res);
+                    console.log(txt);
+                },
+                onFinish: function() {
+                    $('#validation')[0].submit();
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    {#Revisar Encuesta#}
+                    {% set ban=0 %}
+                    {% if encuesta.secciones is defined and encuesta.secciones is not empty %}
+                        {% for seccion in encuesta.secciones %}
+                            {% if seccion.preguntas is defined and seccion.preguntas is not empty %}
+                                {% for pregunta in seccion.preguntas %}
+                                    {% if pregunta.tipo=="checkbox" or pregunta.tipo=="radio" or pregunta.tipo=="select" %}
+                                        {% if pregunta.opciones is defined and pregunta.opciones is not empty %}
+                                        {% else %}
+                                            {% set ban=1 %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                {% set ban=1 %}
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% set ban=1 %}
+                    {% endif %}
+
+                    {% if ban==0 %}
+                        <div class="col-md-12 layout-left">
+                            <div class="course-des">
+                                <div class="course-des-title underline">{{ titulo }}</div>
+                                <p>{{ encuesta.descripcion }}</p>
+                                {% if respuesta is defined %}
+                                    <p style="color: green;">Encuesta Contestada</p>
+                                    <div id="respondido">
+                                        <ul class="wizard-steps" role="tablist">
+                                            {% set i=0 %}
+                                            {% for seccion in encuesta.secciones %}
+                                                <li {% if i==0 %}class="active"{% endif %} role="tab">{{ seccion.nombre }}</li>
+                                                {% set i=i+1 %}
+                                            {% endfor %}
+                                        </ul>
+                                        <form id="validation" class="form-horizontal" action="#" method="post">
+                                            {% set i=0 %}
+                                            {% set p=0 %}
+                                            <div class="wizard-content">
+                                                {% for seccion in encuesta.secciones %}
+                                                    <div class="wizard-pane {% if i==0 %}active{% endif %}" id="st{{ i }}" role="tabpanel">
+                                                        {% for pregunta in seccion.preguntas %}
+                                                            {% if pregunta.tipo=="text" %}
+                                                                <div class="form-group">
+                                                                    <label for="preg{{ p }}">{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    <input type="text" class="form-control" name="preg{{ p }}" value="{{ respuesta.secciones[0].preguntas[p].respuesta }}"/>
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.tipo=="textarea" %}
+                                                                <div class="form-group">
+                                                                    <label for="preg{{ p }}">{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    <textarea class="form-control" name="preg{{ p }}" rows="5">{{ respuesta.secciones[0].preguntas[p].respuesta }}</textarea>
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.tipo=="checkbox" %}
+                                                                <div class="form-group">
+                                                                    <label>{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    {% set o=0 %}
+                                                                    {%  for opcion in pregunta.opciones %}
+                                                                        <div class="checkbox">
+                                                                            <label for="preg{{ p }}{{ o }}">
+                                                                                <input type="checkbox" id="preg{{ p }}{{ o }}" value="{{ opcion.valor }}" name="preg{{ p }}" {% if o==respuesta.secciones[0].preguntas[p].respuesta %} checked {% endif %} /> {{ opcion.nombre }}
+                                                                            </label>
+                                                                        </div>
+                                                                        {% set o=o+1 %}
+                                                                    {% endfor   %}
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.tipo=="radio" %}
+                                                                <div class="form-group">
+                                                                    <label>{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    {% set o=0 %}
+                                                                    {% for opcion in pregunta.opciones %}
+                                                                        <div class="radio">
+                                                                            <label for="preg{{ p }}{{ o }}">
+                                                                                <input type="radio" id="preg{{ p }}{{ o }}" value="{{ opcion.valor }}" name="preg{{ p }}" {% if o==respuesta.secciones[0].preguntas[p].respuesta %} checked {% endif %} /> {{ opcion.nombre }}
+                                                                            </label>
+                                                                        </div>
+                                                                        {% set o=o+1 %}
+                                                                    {% endfor   %}
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.tipo=="select" %}
+                                                                <div class="form-group">
+                                                                    <label for="preg{{ p }}">{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    <select class="form-control" name="preg{{ p }}">
+                                                                        {% for opcion in pregunta.opciones %}
+                                                                            <option value="{{ opcion.valor }}" {% if o==respuesta.secciones[0].preguntas[p].respuesta %} selected {% endif %}>{{ opcion.nombre }}</option>
+                                                                        {% endfor   %}
+                                                                    </select>
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.desc == true %}
+                                                                <div class="form-group">
+                                                                    <label for="txt{{ p }}">Descripción</label>
+                                                                    <textarea class="form-control" name="txt{{ p }}" rows="5">{{ respuesta.secciones[0].preguntas[p].descripcion }}</textarea>
+                                                                </div>
+                                                            {% endif %}
+                                                            {% set p=p+1 %}
+                                                        {% endfor %}
+                                                    </div>
+                                                    {% set i=i+1 %}
+                                                {% endfor %}
+                                            </div>
+                                            <input id="preguntas" value="{{ p }}" class="hidden" />
+                                        </form>
+                                    </div>
+                                {% else %}
+                                    <div id="exampleValidator" class="wizard">
+                                        <ul class="wizard-steps" role="tablist">
+                                            {% set i=0 %}
+                                            {% for seccion in encuesta.secciones %}
+                                                <li {% if i==0 %}class="active"{% endif %} role="tab">{{ seccion.nombre }}</li>
+                                                {% set i=i+1 %}
+                                            {% endfor %}
+                                        </ul>
+                                        <form id="validation" class="form-horizontal" action="{{ path('frontend_encuestas') }}" method="post">
+                                            {% set i=0 %}
+                                            {% set p=0 %}
+                                            <div class="wizard-content">
+                                                {% for seccion in encuesta.secciones %}
+                                                    <div class="wizard-pane {% if i==0 %}active{% endif %}" id="st{{ i }}" role="tabpanel">
+                                                        {% for pregunta in seccion.preguntas %}
+                                                            {% if pregunta.tipo=="text" %}
+                                                                <div class="form-group">
+                                                                    <label for="preg{{ p }}">{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    <input type="text" class="form-control" name="preg{{ p }}"/>
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.tipo=="textarea" %}
+                                                                <div class="form-group">
+                                                                    <label for="preg{{ p }}">{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    <textarea class="form-control" name="preg{{ p }}" rows="5"></textarea>
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.tipo=="checkbox" %}
+                                                                <div class="form-group">
+                                                                    <label>{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    {% set o=0 %}
+                                                                    {%  for opcion in pregunta.opciones %}
+                                                                        <div class="checkbox">
+                                                                            <label for="preg{{ p }}{{ o }}">
+                                                                                <input type="checkbox" id="preg{{ p }}{{ o }}" value="{{ opcion.valor }}" name="preg{{ p }}" /> {{ opcion.nombre }}
+                                                                            </label>
+                                                                        </div>
+                                                                        {% set o=o+1 %}
+                                                                    {% endfor   %}
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.tipo=="radio" %}
+                                                                <div class="form-group">
+                                                                    <label>{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    {% set o=0 %}
+                                                                    {% for opcion in pregunta.opciones %}
+                                                                        <div class="radio">
+                                                                            <label for="preg{{ p }}{{ o }}">
+                                                                                <input type="radio" id="preg{{ p }}{{ o }}" value="{{ opcion.valor }}" name="preg{{ p }}" /> {{ opcion.nombre }}
+                                                                            </label>
+                                                                        </div>
+                                                                        {% set o=o+1 %}
+                                                                    {% endfor   %}
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.tipo=="select" %}
+                                                                <div class="form-group">
+                                                                    <label for="preg{{ p }}">{{ p+1 }}.- {{ pregunta.pregunta }}</label>
+                                                                    <select class="form-control" name="preg{{ p }}">
+                                                                        {% for opcion in pregunta.opciones %}
+                                                                            <option value="{{ opcion.valor }}">{{ opcion.nombre }}</option>
+                                                                        {% endfor   %}
+                                                                    </select>
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if pregunta.desc == true %}
+                                                                <div class="form-group">
+                                                                    <label for="txt{{ p }}">Descripción</label>
+                                                                    <textarea class="form-control" name="txt{{ p }}" rows="5"></textarea>
+                                                                </div>
+                                                            {% endif %}
+                                                            {% set p=p+1 %}
+                                                        {% endfor %}
+                                                    </div>
+                                                    {% set i=i+1 %}
+                                                {% endfor %}
+                                            </div>
+                                            {% if cod is defined %}
+                                                <input name="codigo" value="{{ cod }}" class="hidden" />
+                                            {% endif %}
+                                            <input id="preguntas" name="preguntas" value="{{ p }}" class="hidden" />
+                                            <input name="id" value="{{ id }}" class="hidden" />
+                                            <input name="slug" value="{{ app.request.get('slug') }}" class="hidden" />
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="col-md-12 layout-left">
+                            <h3>Encuesta Incompleta</h3>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% if cod is defined %}
+                <a href="{{ path("frontend_contenido", {"slug": app.request.get('slug') }) }}"  class="btn btn-green-2" style="left: 45%;"><span>Regresar</span></a>
+            {% else %}
+                <a href="{{ path("frontend_programa", {"slug":'gestion' }) }}"  class="btn btn-green-2" style="left: 45%;"><span>Regresar</span></a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

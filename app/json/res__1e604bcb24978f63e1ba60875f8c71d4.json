@@ -1,0 +1,135 @@
+{
+  "nombre": "Encuesta clima laboral",
+  "secciones": [
+    {
+      "nombre": "Secci\u00f3n 1",
+      "preguntas": [
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfha recibido en contra de su voluntad, comentarios, propuestas, agresiones o bromas relacionadas con el sexo?",
+          "respuesta": null
+        },
+        {
+          "pregunta": " En su trabajo, en el \u00faltimo a\u00f1o \u00bfha recibido amenaza de da\u00f1os o castigos en caso de no acceder a proporcionar favores sexuales?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En caso de haber contestado s\u00ed en alguna de las preguntas anteriores, \u00bfSe resolvi\u00f3 satisfactoriamente su caso?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfsu jefe(a) o alg\u00fan(a) superior le ha aislado de sus compa\u00f1ros(as), mediante prohibiciones o cambios de lugar repentinos y poco razonables?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfsu jefe(a) o alg\u00fan(a) superior a menospreciado ofensivamente su esfuerzo laboral o sus propuestas de trabajo?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfsu jefe(a) o alg\u00fan(a) superior le ha girado instrucciones de manera altanera y poco educada?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfsu jefe(a) o alg\u00fan(a) superior le ha impuesto tareas sin los medios necesarios para cumplirlas?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfsu jefe(a) o superiores toman en cuenta su opini\u00f3n?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfsu jefe(a) o sus superiores valoran su trabajo y capacidades?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfEs consciente de sus responsabilidades y de lo que su jefe(a) inmediato(a) espera de usted?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, que clasificaci\u00f3n le pondr\u00eda a la empresa en igualdad de oportunidades y no discriminaci\u00f3n por motivos de sexo, raza, religi\u00f3n, edad, discapacidad, etc. (0 es la calificaci\u00f3n m\u00e1s baja y 10 es la m\u00e1s alta o mejor):",
+          "respuesta": null,
+          "descripcion": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfLas funciones y tareas est\u00e1n definidas con claridad?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfLas cargas de trabajo son justas y equitativas para todas y todos los que laboran en la organizaci\u00f3n?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfLos sueldos y salarios para hombres y mujeres son de car\u00e1cter igualitario, cuando se realizan las mismas funciones, tareas y responsabilidades?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfHay conciencia en los empleados (colaboadores, trabajadores, etc.) de su dignidad y que trabajan para su propio desarrollo? (0 es no hay nada de conciencia, 10 si hay mucha conciencia):",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfSiente que esta haciendo algo \u00fatil?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "\u00bfLe gusta su trabajo?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfha aprendido cosas nuevas?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfHa podido ver a su familia antes o despu\u00e9s de ir a trabajar?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "\u00bfSe siente orgullosos de pertenecer a la empresa donde trabaja?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfSe levanta con \u00e1nimo de ir a trabajar?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfhay actitud y esp\u00edritu de servicio? (0 es n hay actitud de servicio, 10 si hay mucha actitud y esp\u00edritu de servicio)",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfSe practican los valores establecidos por la empresa?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfHay mas labor de convencimiento o m\u00e1s \u00f3rdenes? (0 es que siempre se dan \u00f3rdenes, 10 es que siempre hay labor de convencimiento)",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfSe respeta mi libertad de pensar, expresarme y actuar? (0 es no hay nada de libertad, 10 si hay mucha libertad)",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfsus compa\u00f1eros por lo general toman en cuneta su opini\u00f3n?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfSus compa\u00f1eros valoran su trabajo y sus capacidades?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfC\u00f3mo es la comunicaci\u00f3n con sus compa\u00f1eros?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfSe ha sentido amenazado o ha sido atacado por alg\u00fan compa\u00f1ero?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfC\u00f3mo es lenguaje entre los compa\u00f1eros?",
+          "respuesta": null
+        },
+        {
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfLos conflictos entre compa\u00f1eros se resuelven satisfactoriamente?",
+          "respuesta": null
+        }
+      ]
+    }
+  ]
+}

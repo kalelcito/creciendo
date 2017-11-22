@@ -1,0 +1,184 @@
+{% extends '@Frontend/layoutlogin.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+
+{% block body %}
+    <div class="page-register rlp" style="background-image: none; background-color: #004f6e; height: auto;">
+        <div class="container">
+            <div class="register-wrapper rlp-wrapper">
+                <div class="register-table rlp-table">
+                    <a href="{{ path('login') }}">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="" class="login" style="height: 100px; width: auto;"/>
+                    </a>
+                    <div class="register-title rlp-title">Formulario de registro</div>
+                    {{ form_start(form,  {'action':path('registro'), 'attr': {'role': 'form','class':'form-signin'}}) }}
+                    <label class="panel-login">
+                        <div class="login_result">
+                            {% if existe==1 %}
+                                <p style="color: red;font-weight: bold;" class="text-center">El correo electrónico ya esta registrado.</p>
+                            {% endif %}
+                            {{ form_errors(form) }}
+                        </div>
+                    </label>
+                    <div class="register-form bg-w-form rlp-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="regname" class="control-label form-label">Nombre <span class="highlight">*</span></label>
+                                {{ form_widget(form.nombre, {'attr': {'class': 'form-control form-input'} }) }}
+                                {% if form.nombre.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.nombre.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                                <!--p.help-block Warning !-->
+                            </div>
+                            <div class="col-md-6">
+                                <label for="regname" class="control-label form-label">Apellidos <span class="highlight">*</span></label>
+                             {{ form_widget(form.apellidos, {'attr': {'class': 'form-control form-input'} }) }}
+                                {% if form.apellidos.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.apellidos.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                             </div>
+                            <div class="col-md-6">
+                                <label for="regemail" class="control-label form-label">Email <span class="highlight">*</span></label>
+                             {{ form_widget(form.email, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.email.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.email.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                                </div>
+                            <div class="col-md-6">
+                                <label for="regpassword" class="control-label form-label">Empresa <span class="highlight">*</span></label>
+                                {{ form_widget(form.empresa, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.empresa.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.empresa.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="regpassword" class="control-label form-label">Ciudad <span class="highlight">*</span></label>
+                                {{ form_widget(form.ciudad, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.ciudad.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.ciudad.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="regpassword" class="control-label form-label">Sucursal <span class="highlight">*</span></label>
+                                {{ form_widget(form.sucursal, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.sucursal.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.sucursal.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="regpassword" class="control-label form-label">Puesto <span class="highlight">*</span></label>
+                                {{ form_widget(form.puesto, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.puesto.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.puesto.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="regpassword" class="control-label form-label">Contraseña <span class="highlight">*</span></label>
+                                {{ form_widget(form.password, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.password.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.password.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="registro_niveles" class="control-label form-label">Membresía <span class="highlight">*</span></label>
+                                {{ form_widget(form.niveles, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.niveles.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.niveles.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12">
+                                <div class="checkbox">
+                                    <label for="registro_terminos">
+                                    {{ form_widget(form.terminos, {'attr': {'class': 'form-control',"style":"padding-top: 0px; width:20px; float:left;margin-right: 10px;"} }) }}
+                                        <span style="float: left; margin-left: 10px;padding-top: 8px;">Acepto los términos y condiciones de uso</span></label>
+                                    {% if form.terminos.vars.errors|length > 0 %}
+                                        <p class="help-block">
+                                            {% for error in form.terminos.vars.errors %}
+                                                {{ error.message }} <br/>
+                                            {% endfor %}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            {#
+                            <div class="col-md-6"><label for="reregpassword" class="control-label form-label">confirmar password <span class="highlight">*</span></label><input id="reregpassword" type="password" placeholder="" class="form-control form-input"/><!-- p.help-block Warning !--></div>
+                            #}
+                        </div>
+                        <a href="{{ path('terminos') }}" target="_blank">Términos y Condiciones</a>
+                        <div class="register-submit text-center">
+                            {{ form_widget(form.registrar, {'attr': {'class ': 'btn btn-login btn-green'} }) }}
+                            {#<button type="submit" id="registro_registrar" name="registro[registrar]" class="btn btn-login btn-green"><span>Registrar »</span></button>#}
+                            {#<button type="submit" onclick="window.location.href='{{ path('homepage') }}'" class="btn btn-register btn-green"><span>Crear cuenta</span></button>#}
+                        </div>
+                    </div>
+                     {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{#
+                                {{ form_widget(form.telefono, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.telefono.vars.errors|length > 0 %}
+                                    <label class="panel-login">
+                                        <div class="login_result">
+                                            {% for error in form.telefono.vars.errors %}
+                                                {{ error.message }} <br/>
+                                            {% endfor %}
+                                        </div>
+                                    </label>
+                                {% endif %}
+                                {{ form_widget(form.celular, {'attr': {'class': 'form-control'} }) }}
+                                {% if form.celular.vars.errors|length > 0 %}
+                                    <label class="panel-login">
+                                        <div class="login_result">
+                                            {% for error in form.celular.vars.errors %}
+                                                {{ error.message }} <br/>
+                                            {% endfor %}
+                                        </div>
+                                    </label>
+                                {% endif %}
+                                <br><br>
+                                {{ form_widget(form.registrar, {'attr': {'class ': 'btn btn-lg btn-success btn-block'} }) }}
+
+                            {{ form_end(form) }}
+                       #}
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/rs/responsiveslides.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/rs/themes/themes.css') }}">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/rs/responsiveslides.min.js') }}"></script>
+    <script>
+        $(function () {
+            $("#slider3").responsiveSlides({
+                auto: false,
+                pager: false,
+                nav: true,
+                speed: 500,
+                maxwidth: 800,
+                namespace: "large-btns"
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        {#<h1 class="course-title">Norma CRESE</h1>#}
+                        {#
+                                                <div class="course-info info">
+                                                    <div class="author item"><a href="#"><span>By&nbsp;</span><span>Emma Watson</span></a></div>
+                                                    <div class="date-time item"><a href="#">20 Aug 2015</a></div>
+                                                </div>
+                                                <div class="course-video">
+                                                    <iframe src="https://www.youtube.com/embed/xo1VInw-SKc?list=PL7JgdmQ0zTfatnGhUnRBnhMwYEraSIRdD" allowfullscreen="allowfullscreen"></iframe>
+                                                    <div class="video-btn">
+                                                        <button class="btn btn-grey video-btn-right pull-right"><span>next lesson</span><i class="fa fa-angle-right"></i></button>
+                                                        <button class="btn btn-grey video-btn-left pull-right"><i class="fa fa-angle-left"></i><span>previous lesson</span></button>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div> #}
+                        <div class="course-des">
+                            <div class="course-des-title underline">1.1 Presentación Power Point</div>
+                            <div class="course-des-content">
+                                {#<p>Presentación power point.</p>#}
+                                <div class="rslides_container">
+                                    <ul class="rslides" id="slider3">
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva01.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva02.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva03.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva04.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva05.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva06.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva07.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva08.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva09.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva10.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva11.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva12.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva13.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva14.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva15.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva16.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva17.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva18.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva19.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva20.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva21.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva22.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva23.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva24.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva25.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva26.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva27.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva28.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva29.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva30.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva31.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva32.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva33.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva34.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva35.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva36.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva37.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva38.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva39.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva40.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva41.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva42.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva43.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva44.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva45.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva46.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva47.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva48.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva49.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva50.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva51.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva52.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva53.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva54.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva55.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva56.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva57.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva58.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva59.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva60.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva61.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva62.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva63.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva64.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva65.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva66.jpg') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt1/Diapositiva67.jpg') }}" alt=""></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button onclick="window.location.href='../gestion'" class="btn btn-green-2" style="left: 45%;">
+                                <span>Regresar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

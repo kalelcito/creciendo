@@ -1,0 +1,75 @@
+core_reportes:
+    resource: "@AdminBundle/Controller/ReportesController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_clientes:
+    resource: "@AdminBundle/Controller/ClientesController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_multimedia:
+    resource: "@AdminBundle/Controller/MultimediaController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_descargas:
+    resource: "@AdminBundle/Controller/DescargasController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_niveles:
+    resource: "@AdminBundle/Controller/NivelesController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_administradores:
+    resource: "@AdminBundle/Controller/AdministradoresController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_seccion.contenidos:
+    resource: "@AdminBundle/Controller/Seccion_ContenidosController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_secciones:
+    resource: "@AdminBundle/Controller/SeccionesController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_programas:
+    resource: "@AdminBundle/Controller/ProgramasController.php"
+    type:     annotation
+    schemes:  [https]
+
+core_banners:
+    resource: "@AdminBundle/Controller/BannersController.php"
+    type:     annotation
+    schemes:  [https]
+
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+    schemes:  [https]
+
+core:
+    resource: "@CoreBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+    schemes:  [https]
+
+frontend:
+    resource: "@FrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    schemes:  [https]
+
+logout:
+    path: /logout
+    schemes:  [https]
+
+logoutadmin:
+    path: /admin/logout
+    schemes:  [https]

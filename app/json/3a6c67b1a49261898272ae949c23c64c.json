@@ -1,0 +1,791 @@
+{
+  "nombre": "DIRECCI\u00d3N Y COMUNICACI\u00d3N",
+  "descripcion": "El objetivo de este primer grupo de requisitos es garantizar que se implanta un Sistema de Gesti\u00f3n de Calidad Humana y Responsabilidad Social, con el apoyo de un Comit\u00e9 Interno, que cuenta con el apoyo de la Direcci\u00f3n General de la empresa u organizaci\u00f3n y con los elementos necesarios para darle continuidad y mejora continua.",
+  "secciones": [
+    {
+      "id": 1,
+      "nombre": "Que la Direcci\u00f3n asigne a un Comit\u00e9 Interno la responsabilidad de asesorar en Calidad Humana y Responsabilidad Social a la empresa u organizaci\u00f3n.",
+      "descripcion": "El Comit\u00e9 Interno, adem\u00e1s de implantar la Norma y conseguir el certificado, debe ser una ayuda eficaz para la Direcci\u00f3n General en lo que se refiere a la Calidad Humana y Responsabilidad Social de la empresa u organizaci\u00f3n, sin perjudicar su eficiencia y productividad.",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "\u00bfExiste un Comit\u00e9 Interno de Calidad Humana y Responsabilidad Social?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pregunta": "\u00bfSe difunde y conoce su existencia de acuerdo al alcance establecido?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "pregunta": "\u00bfExiste evidencia de la participaci\u00f3n del Comit\u00e9, del personal o de otros grupos de inter\u00e9s en la propuesta, dise\u00f1o, aplicaci\u00f3n y\/o revisi\u00f3n de la pol\u00edtica?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "pregunta": "\u00bfExiste evidencia de mejora continua?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "pregunta": "\u00bfExiste vinculaci\u00f3n o referencia de la existencia del Comit\u00e9 Interno con los elementos que conforman la estrategia de la empresa como son la Visi\u00f3n, Misi\u00f3n o Valores?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Que se cuente con una Pol\u00edtica de Calidad Humana y Responsabilidad Social.",
+      "descripcion": "Como m\u00ednimo se requiere (aspectos m\u00ednimos auditables no limitativos):  a) Que la pol\u00edtica exprese la filosof\u00eda o forma de pensar de la empresa u organizaci\u00f3n con respecto su Calidad Humana y Responsabilidad Social. Gu\u00edas de apoyo: www.crese.org\/norma\/guiasdeapoyo.pdf",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "\u00bfExiste una pol\u00edtica de Calidad Humana y Responsabilidad Social.?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pregunta": "\u00bfSe difunde y conoce su existencia de acuerdo al alcance establecido?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "pregunta": "\u00bfExiste evidencia de la participaci\u00f3n del Comit\u00e9, del personal o de otros grupos de inter\u00e9s en la propuesta, dise\u00f1o, aplicaci\u00f3n y\/o revisi\u00f3n de la pol\u00edtica?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "pregunta": "\u00bfExiste evidencia de mejora continua?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "pregunta": "\u00bfExiste vinculaci\u00f3n de la pol\u00edtica con los elementos que conforman la estrategia de la empresa como son la Visi\u00f3n, Misi\u00f3n o Valores?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Que se cuente con un Manual de Pol\u00edticas y Pr\u00e1cticas de Calidad Humana y Responsabilidad Social.",
+      "descripcion": "Como m\u00ednimo se requiere (aspectos m\u00ednimos auditables no limitativos):  a) Que se cuente con un manual-gu\u00eda que haga clara referencia al lugar donde se encuentran las pr\u00e1cticas que sirvan para dar cumplimiento a los prerequisitos y requisitos de esta Norma.",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "\u00bfExiste un Manual de Calidad Humana y Responsabilidad Social?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pregunta": "\u00bfSe difunde y conoce su existencia de acuerdo al alcance establecido?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "pregunta": "\u00bfExiste evidencia de la participaci\u00f3n del Comit\u00e9, del personal o de otros grupos de inter\u00e9s en la propuesta, dise\u00f1o, aplicaci\u00f3n y\/o revisi\u00f3n del Manual?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "pregunta": "\u00bfExiste evidencia de mejora continua?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "pregunta": "\u00bfExiste vinculaci\u00f3n de la existencia del Manual con los elementos que conforman la estrategia de la empresa como son la Visi\u00f3n, Misi\u00f3n o Valores?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Que se elabore un Informe Anual de Calidad Humana y Responsabilidad Social y que se entregue a los diferentes grupos de inter\u00e9s de la empresa u organizaci\u00f3n.",
+      "descripcion": "Su elaboraci\u00f3n permite una evaluaci\u00f3n s\u00f3lida del comportamiento de la empresa u organizaci\u00f3n, y puede servir de base para una mejora continua de los resultados. Tambi\u00e9n sirve como herramienta para fortalecer los v\u00ednculos con los grupos de inter\u00e9s y para obtener aportaciones valiosas para lComo m\u00ednimo se requiere (aspectos m\u00ednimos auditables no limitativos):  a) Que se elabore y publique un informe anual que contenga la descripci\u00f3n de las pr\u00e1cticas de Calidad Humana y Responsabilidad Social m\u00e1s relevantes del \u00faltimo a\u00f1o de la empresa u organizaci\u00f3n, con indicadores y testimonios. Gu\u00edas de apoyo: www.crese.org\/norma\/guiasdeapoyo.pdf",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "\u00bfExiste un informe anual de Calidad Humana y Responsabilidad Social?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pregunta": "\u00bfSe difunde y conoce su existencia de acuerdo al alcance establecido?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "pregunta": "\u00bfExiste evidencia de la participaci\u00f3n del Comit\u00e9, del personal o de otros grupos de inter\u00e9s en la propuesta, dise\u00f1o, aplicaci\u00f3n y\/o revisi\u00f3n del Informe?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "pregunta": "\u00bfExiste evidencia de mejora continua?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "pregunta": "\u00bfExiste vinculaci\u00f3n de la existencia del Informe Anual con los elementos que conforman la estrategia de la empresa como son la Visi\u00f3n, Misi\u00f3n o Valores?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Que se cuente con un Programa anual de auditor\u00edas internas con el fin de garantizar el cumplimiento y continuidad de las pr\u00e1cticas de Calidad Humana y Responsabilidad Social.",
+      "descripcion": "Como m\u00ednimo se requiere (aspectos m\u00ednimos auditables no limitativos):  Que se realice al menos una auditor\u00eda interna completa al a\u00f1o, con sus respectivas acciones correctivas y\/o preventivas debidamente cerradas para garantizar que el Sistema de Gesti\u00f3n est\u00e1 funcionando adecuadamente. Que se realicen las auditor\u00edas de seguimiento necesarias por los mismos auditores para asegurar el cumplimiento de las acciones correctivas determinadas por el Comit\u00e9 de Calidad Humana y Responsabilidad Social, derivadas de las auditor\u00edas internas. Que se determinen acciones preventivas por el comit\u00e9 de Calidad Humana y Responsabilidad Social derivadas de las auditor\u00edas internas y externas. Que los auditores internos sean personal de la misma empresa u organizaci\u00f3n. Que los auditores internos sean independientes del Comit\u00e9 Interno, que es el organismo a trav\u00e9s del cual se audita a la empresa u organizaci\u00f3n. Que la base de la auditor\u00eda sea este Manual Gu\u00eda de Implementaci\u00f3n del Sistema de Gesti\u00f3n de Calidad Humana Responsabilidad Social actualizado, sin que este sea limitante. Que se asegure que los reportes de auditor\u00edas los conozca el Director General.",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "\u00bfExiste un programa anual de auditor\u00edas internas aplicables a un Sistema de Gesti\u00f3n de Calidad Humana y Responsabilidad Social?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pregunta": "\u00bfSe difunde y conoce su existencia de acuerdo al alcance establecido?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "pregunta": "\u00bfExiste evidencia de la participaci\u00f3n del Comit\u00e9, del personal o de otros grupos de inter\u00e9s en la propuesta, dise\u00f1o, aplicaci\u00f3n y\/o revisi\u00f3n de las auditor\u00edas internas?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "pregunta": "\u00bfExiste evidencia de mejora continua?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "pregunta": "\u00bfExiste vinculaci\u00f3n del programa de auditor\u00edas internas con los elementos que conforman la estrategia de la empresa como son la Visi\u00f3n, Misi\u00f3n o Valores?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

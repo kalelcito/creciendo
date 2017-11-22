@@ -1,0 +1,56 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline">5.1 Cursos para auditores internos</div>
+                            <div class="course-des-content">
+                                {#<p>Presentación power point.</p>#}
+                                <div class="dropdown">
+                                    <button class="btn btn-contact btn-green dropdown-toggle" type="button" data-toggle="dropdown">Contenido
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        {% set c=0 %}
+                                        {% for seccion in secciones %}
+                                            <li><a href="{{ path('contenido4') }}?cont={{ c }}">{{ seccion }}</a> </li>
+                                            {% set c= c+1 %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline" style="font-size: 20px;margin-bottom: 20px;">{{ titulo }}</div>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                {#<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/E8rmzqVFRe4" frameborder="0" allowfullscreen></iframe>#}
+                                <video class="embed-responsive-item" width="853" height="480" controls>
+                                    <source src="http://www.atestapp.com/crese/auditoria/{{ url }}.mp4" type="video/mp4">
+                                    El navegador no soporta el tipo de video
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="window.location.href='../gestion'" class="btn btn-green-2" style="left: 45%;">
+                    <span>Regresar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

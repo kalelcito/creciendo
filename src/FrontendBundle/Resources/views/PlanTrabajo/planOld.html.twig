@@ -1,0 +1,835 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <div class="course-des">
+                            <div class="course-des-title underline">4.1 Plan de Trabajo</div>
+                            <div class="col-sm-12" id="impresion" style="font-size: 11pt;overflow-x: scroll;">
+                                <table class="table table-striped table-hover table-condensed" border="0" id="formato" cellpadding="0" cellspacing="0" >
+                                    <tbody>
+                                    <tr style="text-align: center;">
+                                        <td rowspan="2" style="height:112px; width:123px">TEMA</td>
+                                        <td  >REQUISITO&nbsp;</td>
+                                        <td >NOMBRE DEL PROGRAMA&nbsp;</td>
+                                        <td colspan="5" >RESULTADO DE LA AUDITOR&Iacute;A POR CRITERIO DE EVALUACI&Oacute;N. &Aacute;rea de oportunidad (%)</td>
+                                        <td rowspan="2" >ACCIONES ESPEC&Iacute;FICAS PARA REDUCIR EL AREA DE OPORTUNIDAD DE CADA CRITERIO DE EVALUACI&Oacute;N</td>
+                                        <td rowspan="2" >RESPONSABLE</td>
+                                        <td rowspan="2" >FECHA COMPROMISO</td>
+                                        <td colspan="3" >ANOTAR UNA &quot;X&quot; DONDE CORRESPONDA, DE ACUERDO A LA ACCI&Oacute;N TOMADA.</td>
+                                        <td colspan="12">CALENDARIO 2014 - 2015</td>
+                                        <td rowspan="2" >ESTATUS</td>
+                                    </tr>
+                                    <tr style="text-align: center;">
+                                        <td>(Nombre abreviado)</td>
+                                        <td >(Cuando aplique)</td>
+                                        <td style="width:20px;" >Existencia</td>
+                                        <td style="width:20px;" >Difusi&oacute;n y conocimiento</td>
+                                        <td style="width:20px;" >Participaci&oacute;n universal</td>
+                                        <td style="width:20px;" >Mejora continua</td>
+                                        <td style="width:20px;" >Vinc. con la direcci&oacute;n estrat&eacute;gica</td>
+                                        <td >FORTALECER PROGRAMA</td>
+                                        <td >MANTENER PROGRAMA</td>
+                                        <td >NUEVOS PROGRAMAS</td>
+                                        <td style="width:20px;">ENE</td>
+                                        <td style="width:20px;">FEB.</td>
+                                        <td style="width:20px;">MAR.</td>
+                                        <td style="width:20px;">ABR.</td>
+                                        <td style="width:20px;">MAY.</td>
+                                        <td style="width:20px;">JUN.</td>
+                                        <td style="width:20px;">JUL.</td>
+                                        <td style="width:20px;">AGO.</td>
+                                        <td style="width:20px;">SEP.</td>
+                                        <td style="width:20px;">OCT.</td>
+                                        <td style="width:20px;">NOV.</td>
+                                        <td style="width:20px;">DIC.</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5" style="height:399px; width:123px">I. Direcci&oacute;n y Comunicaci&oacute;n</td>
+                                        <td>1. Comit&eacute; Interno</td>
+                                        <td><input type="text" class="form-control" /></td>
+                                        <td><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:77px; width:136px">2. Pol&iacute;tica</td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:92px; width:136px">3. Manual de Programas</td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:36px; width:136px">4. Informe Anual</td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:108px; width:136px">5. Auditor&iacute;as Internas</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" style="height:139px; width:123px">II. Justicia Salarial y Cultura de la Legalidad</td>
+                                        <td  >6. Justicia Salarial</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:60px; width:136px">7. Cultura de la Legalidad</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="6" style="height:258px; width:123px">III.&nbsp; Calidad de Vida y Desarrollo del Personal</td>
+                                        <td >8. Salud</td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:42px; width:136px">9. Seguridad</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:43px; width:136px">10. Orden y Limpieza</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:55px; width:136px">11. Capacitaci&oacute;n en &aacute;reas de trabajo</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:37px; width:136px">12. Formaci&oacute;n acad&eacute;mica</td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:39px; width:136px">13. Propuestas</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3" style="height:218px; width:123px">IV. Protecci&oacute;n y Desarrollo de Familias</td>
+                                        <td style="width:136px">14. Desarrollo de familias</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:95px; width:136px">15. Estructura Laboral</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:71px; width:136px">16. Despido de personal</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4" style="height:226px; width:123px">V. Solidaridad y Ayuda a la Comunidad</td>
+                                        <td style="width:136px">17. No discriminaci&oacute;n</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:60px; width:136px">18. Becarios</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:61px; width:136px">19. Proveedores</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:42px; width:136px">20. Vinculaci&oacute;n con la comunidad</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3" style="height:200px; width:123px">VI. Promoci&oacute;n y Cuidado del Medio Ambiente</td>
+                                        <td style="width:136px">21. Cuidado del suelo</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:57px; width:136px">22. Cuidado del aire y de la atm&oacute;sfera</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:48px; width:136px">23. Cuidado del agua</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" style="height:180px; width:123px">VII. Humanizaci&oacute;n y trascendencia en el trabajo</td>
+                                        <td style="width:136px">24. Empresa m&aacute;s &eacute;tica</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:79px; width:136px">25. Trabajo m&aacute;s humano o dignificante</td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control" value="0.0%"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td  ><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                        <td><input type="text" class="form-control"/></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">
+                                <button type="submit" id="corebundle_minutas_enviar" name="corebundle_minutas[enviar]" class="btn btn-green-2 pull-right" onclick="printDiv('formato')"><span>Imprimir</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{{ path('gestion') }}'" class="btn btn-green-2" style="left: 45%;">
+                        <span>Regresar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        function printDiv(divName) {
+            /*var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+
+            window.close()*/
+            var divToPrint=document.getElementById(divName);
+            newWin= window.open("");
+            newWin.document.write(divToPrint.outerHTML);
+            newWin.print();
+            newWin.close();
+        }
+
+
+        function PrintElem(elem)
+        {
+            var mywindow = window.open('', 'PRINT', 'height=600,width=800');
+            mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+
+            mywindow.document.write('</head><body >');
+            mywindow.document.write('<h1>' + document.title  + '</h1>');
+            mywindow.document.write('<label style="display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold;"> Fecha: </label><br/>');
+            mywindow.document.write('<input style="display: block; width: 100%; height: 34px; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);" value="'+document.forms.corebundle_minutas.corebundle_minutas_fecha.value+'"><br/>');
+            mywindow.document.write('<label style="display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold;"> Tema: </label><br/>');
+            mywindow.document.write('<input style="display: block; width: 100%; height: 34px; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);" value="'+document.forms.corebundle_minutas.corebundle_minutas_tema.value+'"><br/>');
+            mywindow.document.write('<label style="display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold;"> Empresa: </label><br/>');
+            mywindow.document.write('<input style="display: block; width: 100%; height: 34px; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);" value="'+document.forms.corebundle_minutas.corebundle_minutas_empresa.value+'"><br/>');
+            mywindow.document.write('<label style="display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold;"> Duración: </label><br/>');
+            mywindow.document.write('<input style="display: block; width: 100%; height: 34px; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);" value="'+document.forms.corebundle_minutas.corebundle_minutas_duracion.value+'"><br/>');
+            mywindow.document.write('<label style="display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold;"> Asistentes: </label><br/>');
+            mywindow.document.write('<textarea rows="5" style="display: block; width: 100%; height: auto; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);">'+document.forms.corebundle_minutas.corebundle_minutas_asistentes.value+'</textarea><br/>');
+            mywindow.document.write('<label style="display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold;"> Puntos a tratar: </label><br/>');
+            mywindow.document.write('<textarea rows="5" style="display: block; width: 100%; height: auto; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);">'+document.forms.corebundle_minutas.corebundle_minutas_puntos.value+'</textarea><br/>');
+            mywindow.document.write('<label style="display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold;"> Acuerdos: </label><br/>');
+            mywindow.document.write('<textarea rows="5" style="display: block; width: 100%; height: auto; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);">'+document.forms.corebundle_minutas.corebundle_minutas_acuerdos.value+'</textarea><br/>');
+            mywindow.document.write('<label style="display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold;"> Fecha de la siguiente reunión: </label><br/>');
+            mywindow.document.write('<input style="display: block; width: 100%; height: 34px; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);" value="'+document.forms.corebundle_minutas.corebundle_minutas_fechasiguiente.value+'"><br/>');
+            /*mywindow.document.write(document.getElementById(elem).nodeValue);*/
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+
+        }
+    </script>
+{% endblock %}

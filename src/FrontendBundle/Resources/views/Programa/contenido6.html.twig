@@ -1,0 +1,562 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline">  3.2 Encuesta clima laboral</div>
+                            <div class="course-des-content" style="color:#49575f;">
+                                <div class="col-md-12">
+                                    {{ form_start(form, {'action':path('climalaboral')}) }}
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Fecha</label>
+                                        {{ form_widget(form.fecha, {'attr':{'class': 'form-control'}} ) }}
+                                        {% if form.fecha.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.fecha.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Escriba el nombre de la Empresa</label>
+                                        {{ form_widget(form.empresa, {'attr':{'class': 'form-control'}} )}}
+                                        {% if form.empresa.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.empresa.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Escriba el número de la Sucursal (en su caso)</label>
+                                        {{ form_widget(form.numero, {'attr':{'class': 'form-control'}}) }}
+                                        {% if form.numero.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.numero.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Antigüedad en la Organización (años)</label>
+                                        {{ form_widget(form.antiguedad, {'attr':{'class': 'form-control'}}) }}
+                                        {% if form.antiguedad.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.antiguedad.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">1.- En su trabajo, en el último año ¿ha recibido en contra de su voluntad, comentarios, propuestas, agresiones o bromas relacionadas con el sexo?</label><br/>
+                                        {% form_theme form.a01 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a01, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a01.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a01.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">2.- En su trabajo, en el último año ¿ha recibido amenaza de daños o castigos en caso de no acceder a proporcionar favores sexuales?</label><br/>
+                                        {% form_theme form.a02 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a02, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a02.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a02.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">3.- En caso de haber contestado sí en alguna de las preguntas anteriores, ¿Se resolvió satisfactoriamente su caso?</label><br/>
+                                        {% form_theme form.a03 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a03, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a03.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a03.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">4.- En su trabajo, en el último año, ¿su jefe(a) o algún(a) superior le ha aislado de sus compañros(as), mediante prohibiciones o cambios de lugar repentinos y poco razonables?</label><br/>
+                                        {% form_theme form.a04 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a04, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a04.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a04.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">5.- En su trabajo, en el último año ¿su jefe(a) o algún(a) superior a menospreciado ofensivamente su esfuerzo laboral o sus propuestas de trabajo?</label><br/>
+                                        {% form_theme form.a05 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a05, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a05.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a05.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">6.- En su trabajo, en el último año ¿su jefe(a) o algún(a) superior le ha girado instrucciones de manera altanera y poco educada?</label><br/>
+                                        {% form_theme form.a06 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a06, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a06.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a06.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">7.- En su trabajo, en el último año ¿su jefe(a) o algún(a) superior le ha impuesto tareas sin los medios necesarios para cumplirlas?</label><br/>
+                                        {% form_theme form.a07 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a07, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a07.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a07.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">8.- En su trabajo, en el último año, ¿su jefe(a) o superiores toman en cuenta su opinión?</label><br/>
+                                        {% form_theme form.a08 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a08, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a08.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a08.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">9.- En su trabajo, en el último año, ¿su jefe(a) o sus superiores valoran su trabajo y capacidades?</label><br/>
+                                        {% form_theme form.a09 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a09, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a09.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a09.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">10.- En su trabajo, en el último año, ¿Es consciente de sus responsabilidades y de lo que su jefe(a) inmediato(a) espera de usted?</label><br/>
+                                        {% form_theme form.a10 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a10, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a10.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a10.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">11.- En su trabajo, en el último año, que clasificación le pondría a la empresa en igualdad de oportunidades y no discriminación por motivos de sexo, raza, religión, edad, discapacidad, etc. (0 es la calificación más baja y 10 es la más alta o mejor):</label><br/>
+                                        {% form_theme form.a11 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a11, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a11.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a11.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                        <br/>
+                                        <label for="textbox" class="textbox">Principal motivo de discriminación:</label>
+                                        {{ form_widget(form.b11, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.b11.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.b11.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">12.- En su trabajo, en el último año, ¿Las funciones y tareas estan definidas con claridad?</label><br/>
+                                        {% form_theme form.a12 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a12, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a12.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a12.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">13.- En su trabajo, en el último año ¿Las cargas de trabajo son justas y equitativas para todas y todos los que laboran en la organización?</label><br/>
+                                        {% form_theme form.a13 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a13, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a13.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a13.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">14.- En su trabajo, en el último año ¿Los sueldos y salarios para hombres y mujeres son de cáracter igualitario, cuando se realizan las mismas funciones, tareas y responsabilidades?</label><br/>
+                                        {% form_theme form.a14 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a14, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a14.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a14.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">15.- En su trabajo, en el último año, ¿Hay conciencia en los empleados (colaboadores, trabajadores, etc.) de su dignidad y que trabajan para su propio desarrollo? (0 es no hay nada de conciencia, 10 si hay mucha conciencia):</label><br/>
+                                        {% form_theme form.a15 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a15, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a15.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a15.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">16.- En su trabajo, en el último año ¿Siente que esta haciendo algo útil?</label><br/>
+                                        {% form_theme form.a16 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a16, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a16.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a16.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">17.- ¿Le gusta su trabajo?</label><br/>
+                                        {% form_theme form.a17 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a17, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a17.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a17.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">18.- En su trabajo, en el último año ¿ha apendido cosas nuevas?</label><br/>
+                                        {% form_theme form.a18 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a18, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a18.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a18.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">19.- En su trabajo, en el último año ¿Ha podido ver a su familia antes o despues de ir a trabajar?</label><br/>
+                                        {% form_theme form.a19 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a19, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a19.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a19.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">20.- ¿Se siente orgullosos de pertenecer a la empresa donde trabaja?</label><br/>
+                                        {% form_theme form.a20 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a20, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a20.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a20.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">21.- En su trabajo, en el último año ¿Se levanta con ánimo de  ir a trabajar?</label><br/>
+                                        {% form_theme form.a21 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a21, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a21.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a21.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">22.- En su trabajo, en el último año, ¿hay actitud y espíritu de servicio? (0 es n hay actitud de servicio, 10 si hay mucha actitud y espíritu de servicio)</label><br/>
+                                        {% form_theme form.a22 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a22, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a22.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a22.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">23.- En su trabajo, en el último año, ¿Se practican los valores establecidos por la empresa?</label><br/>
+                                        {% form_theme form.a23 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a23, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a23.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a23.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">24.- En su trabajo, en el último año ¿Hay mas labor de convencimiento o más órdenes? (0 es que siempres se dan órdenes, 10 es que siempre hay labor de convencimiento)</label><br/>
+                                        {% form_theme form.a24 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a24, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a24.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a24.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">25.- En su trabajo, en el último año ¿Se respeta mi libertad de pensar, expresarme y actuar? (0 es no hay nada de libertad, 10 si hay mucha libertad)</label><br/>
+                                        {% form_theme form.a25 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a25, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a25.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a25.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">26.- En su trabajo, en el último año ¿sus compañeros por lo general toman en cuneta su opinión?</label><br/>
+                                        {% form_theme form.a26 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a26, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a26.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a26.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">27.- En su trabajo, en el último año ¿Sus compañeros valoran su trabajo y sus capacidades?</label><br/>
+                                        {% form_theme form.a27 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a27, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a27.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a27.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">28.- En su trabajo, en el último año ¿Cómo es la comunicación con sus compañeros?</label><br/>
+                                        {% form_theme form.a28 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a28, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a28.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a28.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">29.- En su trabajo, en el último año, ¿Se ha sentido amenazado o ha sido atacado por algún compañero?</label><br/>
+                                        {% form_theme form.a29 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a29, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a29.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a29.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">30.- En su trabajo, en el último año ¿Cómo es lenguaje entre los compañeros?</label><br/>
+                                        {% form_theme form.a30 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a30, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a30.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a30.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">31.- En su trabajo, en el último año ¿Los conflictos entre compañeros se resuelven satisfactoriamente?</label><br/>
+                                        {% form_theme form.a31 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a31, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a31.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a31.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    {{ form_widget(form.enviar, {'attr': {'class ': 'btn btn-contact btn-green pull-right', 'data-toggle': 'modal', 'data-target': '#res'} }) }}
+
+
+                                    {% for label, flashes in app.session.flashbag.all %}
+                                        {% for flash in flashes %}
+                                            <div id="res" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title"></h4>
+                                                        </div>
+                                                        <div class="modal-body ">
+                                                            <div class="alert alert-{{ label }}">
+                                                                {{ flash }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% endfor %}
+
+
+
+
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='../gestion'" class="btn btn-green-2" style="left: 45%;">
+                            <span>Regresar</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

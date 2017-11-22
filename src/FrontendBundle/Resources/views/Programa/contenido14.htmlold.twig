@@ -1,0 +1,136 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline">  3.4 Diagnóstico de Servicios Preventivos de Salud</div>
+                            <div class="course-des-content" style="color:#49575f;">
+                                <p>Referencia: Art. 19. Nuevo Reglamento Federal de Seguridad y Salud en el Trabajo</p>
+                                <form>
+                                    {#<div class="form-group">
+                                        <label for="exampleInputEmail1">1.- Escriba el nombre de la Empresa</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">2.- Escriba el número de la Sucursal (en su caso)</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">3.- Antigüedad en la Organización (años)</label>
+                                        <input type="text" class="form-control" >
+                                    </div>#}
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">I. ¿Se cuenta con algún médico o personal capacitado, para proporcionar atención en caso de un accidente en el trabajo (PreR II de la Norma CRESE 2014)?</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Si
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">No
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">II. ¿Qué acciones se tienen en la empresa para promover la salud de los trabajadores (Art. 49, II, Reglamento) (PreR II-11 de la Norma CRESE 2014, mínimo auditable "a" del R9 y R10)?</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">III. ¿Qué acciones se tienen en la empresa para prevenir las adicciones en los trabajadores (Art. 49, II, Reglamento) (PreR II-11 de la Norma CRESE 2014, mínimo auditable "a" del R9 y R10)?</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">IV. ¿Se cuenta con un botiquín de primeros auxilios debidamente equipado; (Pre-requisito II-16, Botiquín, mínimo auditable "a" del R8)?</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Si
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">No
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">V. ¿Cómo se da seguimiento a las acciones de los incisos II y III de este diagnóstico? (PreR II-11 de la Norma CRESE 2014, mínimo auditable "a" del R9 y R10)?</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">VI. ¿Cómo se apoya la actualización (capacitación y adiestramiento) de los responsables de los servicios preventivos de medicina del trabajo de carácter interno, en su caso (PreR II-11 de la Norma CRESE 2014, mínimo auditable "b" del R8 y "d" del R10)?</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">Nombre de la Empresa u Organización: </label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">Sucursal:</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">Nombre de Quien Contesto el Diagnóstico:</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">Departamento/Area:</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">Asesor de Empresa Responsable:</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment">Fecha:</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+
+                                    {#<div class="form-group">
+                                        <label for="exampleInputEmail1">19.- Puesto de quien contesta la encuesta: </label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">20.- Nombre de la empresa y sucursal: </label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">21.- Numero de la sucursal: </label>
+                                        <input type="text" class="form-control" >
+                                    </div>#}
+
+                                    <button type="submit" class="btn btn-contact btn-green pull-right"><span>Enviar</span></button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,228 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+    <style type="text/css">
+        .rightSign {
+            color: rgb(6, 105, 194);
+            background: #fff;
+            border-radius: 45px;
+            padding: 5px;
+            border: 2px solid;
+            box-shadow: 0px 0px 11px -5px #000;
+        }
+        .accordion .panel-heading .panel-title a {
+            color: #252939;
+            font-size: 1.3em;
+        }
+        .edu-table-responsive span{
+            padding-left: 0px;
+        }
+        .edu-table-responsive p{
+            color: #2ECBF8;
+        }
+        .edu-table-responsive .col-1 {
+            text-align: justify;
+            min-width: 180px;
+        }
+        @media (max-width: 600px){
+            .edu-table-responsive span {
+                font-size: 90%;
+            }
+        }
+        .edu-table-responsive .col-2 {
+        }
+        .accordion .panel-heading .panel-title a:after {
+            font-family: 'Lato', Helvetica, Arial, sans-serif;
+            content: "Más Info";
+            position: absolute;
+            top: 0;
+            right: 30px
+        }
+
+        @media (max-width: 768px) {
+            .accordion .panel-heading .panel-title a:after {
+                content: "+"!important;
+            }
+            .accordion .panel.active .panel-heading .panel-title a:after {
+                content: "-"!important;
+            }
+        }
+        .accordion .panel.active .panel-heading .panel-title a:after {
+            font-family: 'Lato', Helvetica, Arial, sans-serif;
+            content: "Menos";
+            position: absolute;
+            top: 0;
+            right: 30px
+        }
+        .accordion .panel-heading {
+            background-color: rgba(102, 233, 255, 0.35);
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+        }
+        .accordion .panel.active {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .table-hover > tbody > tr:hover{
+            background-color: rgba(102, 233, 255, 0.2);
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        (function ($) {
+            "use strict";
+            $(function () {
+                $('.accordion .panel .panel-heading').on('click', function () {
+                    var accor = $(this).closest('.accordion');
+                    var accor_panel = $(this).parent();
+                    if (accor_panel.hasClass('active')) {
+                        accor_panel.removeClass('active');
+                    } else {
+                        if ($('.panel-title a.accordion-toggle').hasClass('collapsed')) {
+                            $('.panel', accor).removeClass('active');
+                            accor_panel.addClass('active');
+                        } else {
+                            accor_panel.removeClass('active');
+                        }
+                    }
+                });
+            });
+
+        })(jQuery);
+    </script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            con = $('a[href*="collapse-3"]').html();
+            pro = $('a[href*="collapse-6"]').html();
+            int = $('a[href*="collapse-5"]').html();
+            cap = $('a[href*="collapse-4"]').html();
+            seg = $('a[href*="collapse-7"]').html();
+            dis = $('a[href*="collapse-8"]').html();
+            $( window ).resize(function() {
+                //977
+                if($( window ).width()<=977){
+                    $('a[href*="collapse-3"]').html("3. Consultoría");
+                    $('a[href*="collapse-6"]').html("6. Programa RFC");
+                    $('a[href*="collapse-5"]').html("5. Acompañamiento");
+                    $('a[href*="collapse-4"]').html("4. Auditoría Interna");
+                    $('a[href*="collapse-7"]').html("7. Aud. Seguimiento");
+                    $('a[href*="collapse-8"]').html("8. Documentación");
+                }else{
+                    $('a[href*="collapse-3"]').html(con);
+                    $('a[href*="collapse-6"]').html(pro);
+                    $('a[href*="collapse-5"]').html(int);
+                    $('a[href*="collapse-4"]').html(cap);
+                    $('a[href*="collapse-7"]').html(seg);
+                    $('a[href*="collapse-8"]').html(dis);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block title %}{{ parent() }} | Accesos{% endblock %}
+{% block body %}
+    <div class="section section-padding">
+        <div class="container">
+            <div class="accordion-faq">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="underline">{{ programa.nombre }}</div>
+                        <div class="inner-container table-responsive">
+                            <div class="table-body">
+                                <table class="edu-table-responsive table-hover">
+                                    <thead>
+                                    <tr class="heading-table">
+                                        <th class="col-1" style="text-align: center">Actividades necesarias para implantar la Norma CRESE</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="accordion" class="panel-group accordion">
+                            {% set i=1 %}
+                            {% for seccion in secciones | sortbyfield('orden') %}
+                                {% if seccion.id==6 %}
+                                    <div class="inner-container table-responsive">
+                                        <div class="table-body">
+                                            <table class="edu-table-responsive table-hover">
+                                                <thead>
+                                                <tr class="heading-table">
+                                                    <th class="col-1" style="text-align: center">Otros Servicios</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="panel">
+                                    <div class="panel-heading"><h5 class="panel-title"><a data-toggle="collapse"
+                                                                                          data-parent="#accordion"
+                                                                                          href="#collapse-{{ i }}"
+                                                                                          aria-expanded="false"
+                                                                                          class="accordion-toggle collapsed">
+                                                {{ seccion.nombre }}</a></h5></div>
+                                    <div id="collapse-{{ i }}" style="" aria-expanded="false" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            {% if seccion.id==9 or seccion.id==10 or seccion.id==11 %}
+                                                <div class="inner-container table-responsive">
+                                                    <div class="table-body">
+                                                        <table class="edu-table-responsive table-hover">
+                                                            <tbody>
+                                                            {% for contenidos in seccion.seccionContenidos | sortbyfield('orden') %}
+                                                                <tr class="table-row">
+                                                                    <td class="left col-1">
+                                                                        <a href="#">
+                                                                            <span>{{ contenidos.nombre }}</span>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="green-color col-2">
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                            <tr class="spacing-table">
+                                                                <td colspan="8"></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            {% else %}
+                                                <div class="inner-container table-responsive">
+                                                    <div class="table-body">
+                                                        <table class="edu-table-responsive table-hover">
+                                                            <tbody>
+                                                            {% for contenidos in seccion.seccionContenidos | sortbyfield('orden') %}
+                                                                <tr class="table-row">
+                                                                    <td class="left col-1">
+                                                                        <a href="#">
+                                                                            <span>{{ contenidos.nombre }}</span>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="green-color col-2">
+                                                                            <a href="{{ path("frontend_contenido",{'slug':contenidos.slug}) }}"
+                                                                               style="color:#5CA0C9;" {% if contenidos.tipo==20 %} target="_blank" {% endif %}>
+                                                                                <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                                            </a>
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                            <tr class="spacing-table">
+                                                                <td colspan="8"></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% set i=i+1 %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

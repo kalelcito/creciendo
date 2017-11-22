@@ -1,0 +1,16 @@
+{% use "form_div_layout.html.twig" %}
+
+   {% block radio_widget %}
+       {% set parent_label_class = parent_label_class|default(label_attr.class|default('')) %}
+       {% if 'radio-inline' in parent_label_class %}
+           <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+       {% else %}
+           <div class="radio">
+               <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+           </div>
+       {% endif %}
+   {% endblock radio_widget %}
+
+
+
+{#{{ form_widget(form.a01, {'attr': {'class': 'radio-inline'} })}}#}

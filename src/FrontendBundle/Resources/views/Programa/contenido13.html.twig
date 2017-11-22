@@ -1,0 +1,349 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline">  3.3 Diagnóstico de Seguridad</div>
+                            <div class="course-des-content" style="color:#49575f;">
+                                <p>Diagnóstico para la Prevención de incendios. Referencia: Art. 19.</p>
+                                <div class="col-md-12">
+                                    {{ form_start(form, {'action':path('seguridad')}) }}
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">1.- ¿Existe un estudio de riesgo de incendio?</label><br/>
+                                        {% form_theme form.a01 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a01, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a01.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a01.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">2.- ¿Se cuenta con medios de detección y equipos contra incendio?</label><br/>
+                                        {% form_theme form.a02 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a02, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a02.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a02.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">3.- ¿Se cuenta con un programa de revisión a extintores?</label><br/>
+                                        {% form_theme form.a03 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a03, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a03.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a03.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">4.- ¿Se cuenta con un programa de revisión a los medios de detección y equipos contra incendio?</label><br/>
+                                        {% form_theme form.a04 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a04, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a04.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a04.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">5.- ¿Se cuenta con un programa de revisión a las instalaciones eléctricas y de gas LP y natural?</label><br/>
+                                        {% form_theme form.a05 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a05, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a05.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a05.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">6.- ¿Se cuenta con señalización adecuada en las áreas donde se producen, almacenan o manejan sustancias inflamables o explosivas?</label><br/>
+                                        {% form_theme form.a06 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a06, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a06.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a06.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">7.- ¿Se cuenta con instrucciones de seguridad para la prevención y protección de incendios al alcance de los trabajadores?</label><br/>
+                                        {% form_theme form.a07 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a07, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a07.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a07.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">8.- ¿Se cuenta con un croquis, plano o mapa que identifique las áreas o zonas con riesgo de incendio, la ubicación de los medios de detección de incendio y de los equipos y sistemas contra incendio, así como las rutas de evacuación?</label><br/>
+                                        {% form_theme form.a08 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a08, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a08.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a08.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">9.- ¿Esta prohibido el bloqueo, daño, inutilización o uso inadecuado de los equipos y sistemas contra incendio y demás elementos relacionados?</label><br/>
+                                        {% form_theme form.a09 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a09, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a09.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a09.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">10.- ¿Existen medidas de seguridad para prevenir la generación y acumulación de electricidad estática en las áreas donde se manejen sustancias inflamables o explosivas?</label><br/>
+                                        {% form_theme form.a10 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a10, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a10.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a10.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">11.- ¿Se cuenta con un plan de atención a emergencias de incendio?</label><br/>
+                                        {% form_theme form.a11 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a11, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a11.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a11.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">12.- ¿Se cuenta con rutas de evacuación adecuadas?</label><br/>
+                                        {% form_theme form.a12 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a12, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a12.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a12.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">13.- ¿Se cuenta con brigadas contra incendio?</label><br/>
+                                        {% form_theme form.a13 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a13, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a13.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a13.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">14.- ¿Se han desarrollado simulacros de emergencias de incendio?</label><br/>
+                                        {% form_theme form.a14 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a14, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a14.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a14.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">15.- ¿Se cuenta con Equipo de Protección Personal para las brigadas contra incendio?</label><br/>
+                                        {% form_theme form.a15 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a15, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a15.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a15.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">16.- ¿Están capacitados y adiestrados los trabajadores y, en su caso, a los integrantes de las brigadas contra incendio?</label><br/>
+                                        {% form_theme form.a16 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a16, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a16.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a16.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">17.- ¿Se llevan registros de resultados de los programas de revisión y pruebas, así como de los simulacros de emergencias de incendio?</label><br/>
+                                        {% form_theme form.a17 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a17, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a17.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a17.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">18.- Nombre de quien contesta la encuesta:</label>
+                                        {{ form_widget(form.usuario, {'attr':{'class': 'form-control'}} )}}
+                                        {% if form.usuario.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.usuario.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">19.- Puesto de quien contesta la encuesta:</label>
+                                        {{ form_widget(form.puesto, {'attr':{'class': 'form-control'}} )}}
+                                        {% if form.puesto.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.puesto.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">20.- Nombre de la empresa y sucursal:</label>
+                                        {{ form_widget(form.empresa, {'attr':{'class': 'form-control'}} )}}
+                                        {% if form.empresa.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.empresa.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">21.- Numero de la sucursal:</label>
+                                        {{ form_widget(form.numero, {'attr':{'class': 'form-control'}} )}}
+                                        {% if form.numero.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.numero.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    {{ form_widget(form.enviar, {'attr': {'class ': 'btn btn-contact btn-green pull-right', 'data-toggle': 'modal', 'data-target': '#res'} }) }}
+
+
+                                    {% for label, flashes in app.session.flashbag.all %}
+                                        {% for flash in flashes %}
+                                            <div id="res" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title"></h4>
+                                                        </div>
+                                                        <div class="modal-body ">
+                                                            <div class="alert alert-{{ label }}">
+                                                                {{ flash }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% endfor %}
+
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="window.location.href='../gestion'" class="btn btn-green-2" style="left: 45%;">
+                    <span>Regresar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,320 @@
+{
+  "nombre": "HUMANIZACI\u00d3N Y TRASCENDENCIA EN EL TRABAJO",
+  "descripcion": "Todos los prerequisitos y requisitos de la Norma CRESE 2014 promueven conductas \u00e9ticas como son la justicia salarial y la cultura de la legalidad, la calidad de vida en el trabajo y el desarrollo del personal, el cuidado y desarrollo de las familias, la solidaridad y ayuda a la comunidad y la promoci\u00f3n del cuidado del medio ambiente. Estos aspectos contribuyen a la construcci\u00f3n del bien com\u00fan a trav\u00e9s del desarrollo humano integral y solidario de las personas. Todas estas son acciones que ayudan a mejorar a la empresa y hacerla exitosa.  Sin embargo, para asegurar que no se deja a un lado la cuesti\u00f3n antropol\u00f3gica, compleja en s\u00ed misma y siempre incompleta, por el mismo desarrollo que todas las personas siempre buscamos, se plantean los siguientes dos \u00faltimos requisitos que fortalecer\u00e1n a\u00fan m\u00e1s el aspecto subjetivo del trabajo, que siempre debe estar a la altura de la dignidad de la persona.",
+  "secciones": [
+    {
+      "id": 1,
+      "nombre": "Que exista un programa que sirva para promover el conocimiento, asimilaci\u00f3n y pr\u00e1ctica de los valores establecidos por la empresa u organizaci\u00f3n.",
+      "descripcion": "Como m\u00ednimo se requiere (aspectos m\u00ednimos auditables no limitativos):  a) Que se cuente con una lista de valores y una herramienta que permita detectar las fallas en su pr\u00e1ctica. Gu\u00edas de apoyo: www.crese.org\/norma\/guiasdeapoyo.pdf  El Premio Nacional de \u00c9tica y Valores en la Industria de la Confederaci\u00f3n de C\u00e1maras Industriales o un sistema equivalente puede ser aprovechado para cumplir con el criterio de existencia de este requisito.",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "\u00bfExiste un programa de conocimiento y vivencia de valores en la empresa?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pregunta": "\u00bfSe difunde y conoce su existencia de acuerdo al alcance establecido?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "pregunta": "\u00bfExiste evidencia de la participaci\u00f3n del Comit\u00e9, del personal o de otros grupos de inter\u00e9s en la propuesta, dise\u00f1o, aplicaci\u00f3n y\/o revisi\u00f3n del programa?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "pregunta": "\u00bfExiste evidencia de mejora continua?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "pregunta": "\u00bfExiste vinculaci\u00f3n de la existencia del programa con los elementos que conforman la estrategia de la empresa como son la Visi\u00f3n, Misi\u00f3n o Valores?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Que exista un programa para mejorar las caracter\u00edsticas y el ambiente de trabajo para hacerlo a\u00fan m\u00e1s digno o m\u00e1s humanizante.",
+      "descripcion": "M\u00e1s all\u00e1 de los aspectos de seguridad, orden y limpieza y otros que ya se consideraron en requisitos anteriores, este requisito se ocupa de los aspectos psicol\u00f3gicos, culturales, morales y espirituales de la persona. Por ejemplo, la empresa u organizaci\u00f3n podr\u00eda desarrollar programas para promover los siguientes objetivos:  -M\u00e1s conciencia de parte de los empleados, de su dignidad y de que trabajan para su propio desarrollo. -M\u00e1s labor de convencimiento y menos \u00f3rdenes. -Menos restricciones a la libertad de las personas. -Una mejor actitud o esp\u00edritu de servicio. -M\u00e1s responsabilidad con autoridad proporcional. -Un mayor uso del lenguaje edificante y no humillante. -M\u00e1s reconocimiento, agradecimiento y amor a la patria. Un mayor compromiso con la pr\u00e1ctica de valores morales. -Un mayor reconocimiento y desarrollo de lo espiritual y religioso en las personas. Como m\u00ednimo se requiere (aspectos m\u00ednimos auditables no limitativos):  a) Que se cuente con un programa que promueva, canalice y de seguimiento a las ideas o propuestas de todo el personal para hacer m\u00e1s congruente, \u00e9tica y humanizantes a la empresa u organizaci\u00f3n. b) Que exista una pr\u00e1ctica que atienda al menos alg\u00fan aspecto de los mencionados en la lista anterior. Gu\u00edas de apoyo: www.crese.org\/norma\/guiasdeapoyo.pdf",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "\u00bfExiste un programa para mejorar las caracter\u00edsticas y el ambiente de trabajo para hacerlo m\u00e1s digno o m\u00e1s humano?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pregunta": "\u00bfSe difunde y conoce su existencia de acuerdo al alcance establecido?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "pregunta": "\u00bfExiste evidencia de la participaci\u00f3n del Comit\u00e9, del personal o de otros grupos de inter\u00e9s en la propuesta, dise\u00f1o, aplicaci\u00f3n y\/o revisi\u00f3n del programa?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "pregunta": "\u00bfExiste evidencia de mejora continua?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "pregunta": "\u00bfExiste vinculaci\u00f3n de la existencia del programa con los elementos que conforman la estrategia de la empresa como son la Visi\u00f3n, Misi\u00f3n o Valores?",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "En desarrollo avanzado \/ Informal muy conocido \/ Subjetivo muy claro"
+            },
+            {
+              "valor": 2,
+              "nombre": "50%"
+            },
+            {
+              "valor": 3,
+              "nombre": "En desarrollo iniciando \/ Informal poco conocido \/ Subjetivo poco claro"
+            },
+            {
+              "valor": 4,
+              "nombre": "No"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

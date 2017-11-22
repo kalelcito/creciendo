@@ -1,0 +1,35 @@
+    {% extends '@Admin/base.html.twig' %}
+{% block navegacion %}
+{{ include('@Admin/partials/navegacion.html.twig',{'menu':'Empresa Responsable','submenu':'Clientes'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script src="{{ asset('admin/js/jasny-bootstrap.js') }}"></script>
+{% endblock %}
+
+    {% block body %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title m-b-0">Actualizar Número de Encuestas</h3>
+                    <form class="form-horizontal" role="form" action="{{ path('backend_disponibles_update') }}" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="numero">Encuestas Disponibles</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="numero" name="numero" class="form-control" value="{{ numero }}"  autofocus/>
+                                <input type="text" name="id" class="form-control hidden" value="{{ id }}" />
+                            </div>
+                        </div>
+                        <a class="btn btn-inverse waves-effect waves-light m-t-10" href="{{ path('clientes_index') }}">Regresar</a>
+                        <button class="btn btn-success" style="margin-top: 10px;" type="submit">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

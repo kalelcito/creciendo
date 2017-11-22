@@ -1,0 +1,971 @@
+{
+  "nombre": "Encuesta clima laboral",
+  "descripcion": null,
+  "secciones": [
+    {
+      "id": 1,
+      "nombre": "Secci\u00f3n 1",
+      "descripcion": null,
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfha recibido en contra de su voluntad, comentarios, propuestas, agresiones o bromas relacionadas con el sexo?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pregunta": " En su trabajo, en el \u00faltimo a\u00f1o \u00bfha recibido amenaza de da\u00f1os o castigos en caso de no acceder a proporcionar favores sexuales?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "pregunta": "En caso de haber contestado s\u00ed en alguna de las preguntas anteriores, \u00bfSe resolvi\u00f3 satisfactoriamente su caso?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "No"
+            },
+            {
+              "valor": 2,
+              "nombre": "No Aplica"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfsu jefe(a) o alg\u00fan(a) superior le ha aislado de sus compa\u00f1ros(as), mediante prohibiciones o cambios de lugar repentinos y poco razonables?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfsu jefe(a) o alg\u00fan(a) superior a menospreciado ofensivamente su esfuerzo laboral o sus propuestas de trabajo?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfsu jefe(a) o alg\u00fan(a) superior le ha girado instrucciones de manera altanera y poco educada?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfsu jefe(a) o alg\u00fan(a) superior le ha impuesto tareas sin los medios necesarios para cumplirlas?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfsu jefe(a) o superiores toman en cuenta su opini\u00f3n?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfsu jefe(a) o sus superiores valoran su trabajo y capacidades?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfEs consciente de sus responsabilidades y de lo que su jefe(a) inmediato(a) espera de usted?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, que clasificaci\u00f3n le pondr\u00eda a la empresa en igualdad de oportunidades y no discriminaci\u00f3n por motivos de sexo, raza, religi\u00f3n, edad, discapacidad, etc. (0 es la calificaci\u00f3n m\u00e1s baja y 10 es la m\u00e1s alta o mejor):",
+          "desc": true,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "0"
+            },
+            {
+              "valor": 1,
+              "nombre": "1"
+            },
+            {
+              "valor": 2,
+              "nombre": "2"
+            },
+            {
+              "valor": 3,
+              "nombre": "3"
+            },
+            {
+              "valor": 4,
+              "nombre": "4"
+            },
+            {
+              "valor": 5,
+              "nombre": "5"
+            },
+            {
+              "valor": 6,
+              "nombre": "6"
+            },
+            {
+              "valor": 7,
+              "nombre": "7"
+            },
+            {
+              "valor": 8,
+              "nombre": "8"
+            },
+            {
+              "valor": 9,
+              "nombre": "9"
+            },
+            {
+              "valor": 10,
+              "nombre": "10"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfLas funciones y tareas est\u00e1n definidas con claridad?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfLas cargas de trabajo son justas y equitativas para todas y todos los que laboran en la organizaci\u00f3n?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfLos sueldos y salarios para hombres y mujeres son de car\u00e1cter igualitario, cuando se realizan las mismas funciones, tareas y responsabilidades?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfHay conciencia en los empleados (colaboadores, trabajadores, etc.) de su dignidad y que trabajan para su propio desarrollo? (0 es no hay nada de conciencia, 10 si hay mucha conciencia):",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "0"
+            },
+            {
+              "valor": 1,
+              "nombre": "1"
+            },
+            {
+              "valor": 2,
+              "nombre": "2"
+            },
+            {
+              "valor": 3,
+              "nombre": "3"
+            },
+            {
+              "valor": 4,
+              "nombre": "4"
+            },
+            {
+              "valor": 5,
+              "nombre": "5"
+            },
+            {
+              "valor": 6,
+              "nombre": "6"
+            },
+            {
+              "valor": 7,
+              "nombre": "7"
+            },
+            {
+              "valor": 8,
+              "nombre": "8"
+            },
+            {
+              "valor": 9,
+              "nombre": "9"
+            },
+            {
+              "valor": 10,
+              "nombre": "10"
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfSiente que esta haciendo algo \u00fatil?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "pregunta": "\u00bfLe gusta su trabajo?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Mucho"
+            },
+            {
+              "valor": 1,
+              "nombre": "Poco"
+            },
+            {
+              "valor": 2,
+              "nombre": "Nada"
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfha aprendido cosas nuevas?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfHa podido ver a su familia antes o despu\u00e9s de ir a trabajar?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "pregunta": "\u00bfSe siente orgullosos de pertenecer a la empresa donde trabaja?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "No"
+            }
+          ]
+        },
+        {
+          "id": 21,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfSe levanta con \u00e1nimo de ir a trabajar?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 22,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfhay actitud y esp\u00edritu de servicio? (0 es n hay actitud de servicio, 10 si hay mucha actitud y esp\u00edritu de servicio)",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "0"
+            },
+            {
+              "valor": 1,
+              "nombre": "1"
+            },
+            {
+              "valor": 2,
+              "nombre": "2"
+            },
+            {
+              "valor": 3,
+              "nombre": "3"
+            },
+            {
+              "valor": 4,
+              "nombre": "4"
+            },
+            {
+              "valor": 5,
+              "nombre": "5"
+            },
+            {
+              "valor": 6,
+              "nombre": "6"
+            },
+            {
+              "valor": 7,
+              "nombre": "7"
+            },
+            {
+              "valor": 8,
+              "nombre": "8"
+            },
+            {
+              "valor": 9,
+              "nombre": "9"
+            },
+            {
+              "valor": 10,
+              "nombre": "10"
+            }
+          ]
+        },
+        {
+          "id": 23,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfSe practican los valores establecidos por la empresa?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 24,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfHay mas labor de convencimiento o m\u00e1s \u00f3rdenes? (0 es que siempre se dan \u00f3rdenes, 10 es que siempre hay labor de convencimiento)",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "0"
+            },
+            {
+              "valor": 1,
+              "nombre": "1"
+            },
+            {
+              "valor": 2,
+              "nombre": "2"
+            },
+            {
+              "valor": 3,
+              "nombre": "3"
+            },
+            {
+              "valor": 4,
+              "nombre": "4"
+            },
+            {
+              "valor": 5,
+              "nombre": "5"
+            },
+            {
+              "valor": 6,
+              "nombre": "6"
+            },
+            {
+              "valor": 7,
+              "nombre": "7"
+            },
+            {
+              "valor": 8,
+              "nombre": "8"
+            },
+            {
+              "valor": 9,
+              "nombre": "9"
+            },
+            {
+              "valor": 10,
+              "nombre": "10"
+            }
+          ]
+        },
+        {
+          "id": 25,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfSe respeta mi libertad de pensar, expresarme y actuar? (0 es no hay nada de libertad, 10 si hay mucha libertad)",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "0"
+            },
+            {
+              "valor": 1,
+              "nombre": "1"
+            },
+            {
+              "valor": 2,
+              "nombre": "2"
+            },
+            {
+              "valor": 3,
+              "nombre": "3"
+            },
+            {
+              "valor": 4,
+              "nombre": "4"
+            },
+            {
+              "valor": 5,
+              "nombre": "5"
+            },
+            {
+              "valor": 6,
+              "nombre": "6"
+            },
+            {
+              "valor": 7,
+              "nombre": "7"
+            },
+            {
+              "valor": 8,
+              "nombre": "8"
+            },
+            {
+              "valor": 9,
+              "nombre": "9"
+            },
+            {
+              "valor": 10,
+              "nombre": "10"
+            }
+          ]
+        },
+        {
+          "id": 26,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfsus compa\u00f1eros por lo general toman en cuneta su opini\u00f3n?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "No"
+            },
+            {
+              "valor": 2,
+              "nombre": "No sabe"
+            }
+          ]
+        },
+        {
+          "id": 27,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfSus compa\u00f1eros valoran su trabajo y sus capacidades?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Si"
+            },
+            {
+              "valor": 1,
+              "nombre": "No"
+            },
+            {
+              "valor": 2,
+              "nombre": "No sabe"
+            }
+          ]
+        },
+        {
+          "id": 28,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfC\u00f3mo es la comunicaci\u00f3n con sus compa\u00f1eros?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Muy Cordial"
+            },
+            {
+              "valor": 1,
+              "nombre": "Cordial"
+            },
+            {
+              "valor": 2,
+              "nombre": "Regular"
+            },
+            {
+              "valor": 3,
+              "nombre": "Hostil"
+            },
+            {
+              "valor": 4,
+              "nombre": "Muy Hostil"
+            }
+          ]
+        },
+        {
+          "id": 29,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o, \u00bfSe ha sentido amenazado o ha sido atacado por alg\u00fan compa\u00f1ero?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        },
+        {
+          "id": 30,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfC\u00f3mo es lenguaje entre los compa\u00f1eros?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Muy Cordial"
+            },
+            {
+              "valor": 1,
+              "nombre": "Cordial"
+            },
+            {
+              "valor": 2,
+              "nombre": "Regular"
+            },
+            {
+              "valor": 3,
+              "nombre": "Hostil"
+            },
+            {
+              "valor": 4,
+              "nombre": "Muy Hostil"
+            }
+          ]
+        },
+        {
+          "id": 31,
+          "pregunta": "En su trabajo, en el \u00faltimo a\u00f1o \u00bfLos conflictos entre compa\u00f1eros se resuelven satisfactoriamente?",
+          "desc": false,
+          "descripcion": "",
+          "tipo": "radio",
+          "required": true,
+          "opciones": [
+            {
+              "valor": 0,
+              "nombre": "Nunca"
+            },
+            {
+              "valor": 1,
+              "nombre": "Casi Nunca"
+            },
+            {
+              "valor": 2,
+              "nombre": "Ocasionalmente"
+            },
+            {
+              "valor": 3,
+              "nombre": "Casi Siempre"
+            },
+            {
+              "valor": 4,
+              "nombre": "Siempre"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

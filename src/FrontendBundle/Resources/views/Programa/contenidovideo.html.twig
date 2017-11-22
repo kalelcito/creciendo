@@ -1,0 +1,37 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline">{{ contenido.titulo }}</div>
+                            <div class="course-des-content">
+                                {% if contenido.contenidoPrivado is not empty %}
+                                    {{ contenido.contenidoPrivado|raw }}
+                                {% endif %}
+                            </div>
+                            {% for multimedia in contenido.multimedia %}
+                                {%  if multimedia.tipo == 3 %}
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" width="853" height="480" src="{{ multimedia.video }}?enablejsapi=1&modestbranding=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                {% endif %}
+                            {% endfor  %}
+
+                        </div>
+                        <a href="{{ path("frontend_programa", {"slug":contenido.secciones.programa.slug }) }}"  class="btn btn-green-2" style="left: 45%;"><span>Regresar</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

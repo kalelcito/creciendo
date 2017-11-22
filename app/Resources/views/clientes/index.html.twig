@@ -1,0 +1,66 @@
+    {% extends '@Admin/base.html.twig' %}
+{% block navegacion %}
+{{ include('@Admin/partials/navegacion.html.twig',{'menu':'Empresa Responsable','submenu':'Clientes'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('admin/plugins/bower_components/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/plugins/bower_components/datatables/jquery.dataTables.min.js') }}"></script>
+    <script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div id="idMyModal"></div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">Clientes</h3>
+                <a href="{{ path('backend_clientes_reporte') }}" class="btn btn-success waves-effect waves-light" style="float:right;  margin:5px; font-size: 12px;" >Generar Reporte<br>Clientes Registrados</a>
+               {#<p class="text-muted m-b-30">{{ Clientes</p>#}
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>                             <th>Nombre Completo</th>                            <th>Nombre Empresa</th>               <th>Email</th>                                    <th>Activo</th>                                 <th>Saldo</th>             <th>Encuestas</th>               <th>ID Conekta</th>                                  <th>Opciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set i = 1 %}
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td><a href="{{ path('clientes_show', { 'id': cliente.id }) }}">{{ cliente.id }}</a></td>                                <td>{{ cliente.nombre }} {{ cliente.apellidos }}</td>                                <td>{{ cliente.nomempresa }}</td>                                 <td>{{ cliente.email }}</td>                   <td>{{ cliente.isActive|sino }}</td>                                  <td>{{ cliente.saldo }}</td>
+                        <td>
+                            {% set b=0 %}
+                            {% for p in permisos %}
+                                {% if cliente.id==p.id and p.permisos is defined %}
+                                    <a href="{{ path('clientes_permisos', { 'id': p.id , 'numero' : p.permisos.herramientas.11 }) }}">{{ p.permisos.herramientas.11 }}</a>
+                                    {% set b=1 %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if b==0 %}
+                                <a href="{{ path('clientes_permisos', { 'id': cliente.id , 'numero' : 0 }) }}">Agregar</a>
+                            {% endif %}
+                        </td>                 <td>{{ cliente.conektacustomerid }}</td>                     <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="{{ path('clientes_show', { 'id': cliente.id }) }}" data-toggle="tooltip" title="Ver" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
+                                        <a href="{{ path('clientes_edit', { 'id': cliente.id }) }}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                    </div>
+                                </td>
+                    </tr>
+                    {% set i=i+1 %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

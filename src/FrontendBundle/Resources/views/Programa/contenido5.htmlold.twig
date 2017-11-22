@@ -1,0 +1,928 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $( document ).ready(function() {
+            var secciones=[1,6,11,16,21,26,31,36,41,46,52,56,61,66,71,76,81,86,91,96,101,106,111,116,121];
+           var c=0;
+            $( "#btnsiguiente" ).click(function() {
+                if(secciones[c]==121){
+                    $('#btnenviar').show();
+                    $('#btnsiguiente').hide();
+                }else{
+                    $('#seccion'+secciones[c]).hide();
+                    c++;
+                    $('#seccion'+secciones[c]).show();
+                    if(secciones[c]==121){
+                        $('#btnenviar').show();
+                        $('#btnsiguiente').hide();
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline"> 3.1 Diagnóstico en pagina web</div>
+                            <div class="course-des-content" style="color:#49575f;">
+                                <script>
+                                $( document ).ready(function() {
+                                var inicio=1;
+                                });
+                                </script>
+                                <form>
+                                    {% set c=1 %}
+                                    {% for pregunta in preguntas %}
+                                        {% if c==1 %}<div id="seccion{{ c }}" style="display: auto;">{% endif %}
+                                            {% if c==6 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                {% if c==11 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                    {% if c==16 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                        {% if c==21 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                            {% if c==26 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                {% if c==31 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                    {% if c==36 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                        {% if c==41 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                            {% if c==46 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                {% if c==52 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                    {% if c==56 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                        {% if c==61 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                            {% if c==66 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                {% if c==71 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                    {% if c==76 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                        {% if c==81 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                            {% if c==86 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                                {% if c==91 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                                    {% if c==96 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                                        {% if c==101 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                                            {% if c==106 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                                                {% if c==111 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                                                    {% if c==116 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                                                        {% if c==121 %}<div id="seccion{{ c }}" style="display: none;">{% endif %}
+                                                                                                                                            {% if c==1 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        DIRECCIÓN Y COMUNICACIÓN<br/><br/>
+                                                                                                                                                        El objetivo de este primer grupo de requisitos es garantizar que se implanta
+                                                                                                                                                        un Sistema de Gestión de Calidad Humana y Responsabilidad Social, con el
+                                                                                                                                                        apoyo de un Comité Interno, que cuenta con el apoyo de la Dirección General
+                                                                                                                                                        de la empresa u organización y con los elementos necesarios para darle
+                                                                                                                                                        continuidad y mejora continua.<br/><br/>
+                                                                                                                                                        1. Que la Dirección asigne a un Comité Interno la responsabilidad de asesorar
+                                                                                                                                                        en Calidad Humana y Responsabilidad Social a la empresa u organización.<br/><br/>
+                                                                                                                                                        El Comité Interno, además de implantar la Norma y conseguir el certificado,
+                                                                                                                                                        debe ser una ayuda eficaz para la Dirección General en lo que se refiere
+                                                                                                                                                        a la Calidad Humana y Responsabilidad Social de la empresa u organización,
+                                                                                                                                                        sin perjudicar su eficiencia y productividad.<br/><br/>
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==6 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        2. Que se cuente con una Política de Calidad Humana y Respon- sabilidad Social.<br/><br/>
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos):<br/><br/>
+                                                                                                                                                        a) Que la política exprese la filosofía o forma de pensar de la empresa
+                                                                                                                                                        u organización con respecto su Calidad Humana y Responsabilidad Social.<br/><br/>
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==11 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        3. Que se cuente con un Manual de Políticas y Prácticas de Calidad Humana y Responsabilidad Social.<br/><br/>
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos):<br/><br/>
+                                                                                                                                                        a) Que se cuente con un manual-guía que haga clara referencia al lugar
+                                                                                                                                                        donde se encuentran las prácticas que sirvan para dar cumplimiento a
+                                                                                                                                                        los prerequisitos y requisitos de esta Norma."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==16 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        4. Que se elabore un Informe Anual de Calidad Humana y Res- ponsabilidad
+                                                                                                                                                        Social y que se entregue a los diferentes grupos de interés de la empresa u organización.<br/><br/>
+                                                                                                                                                        "Su elaboración permite una evaluación sólida del comportamiento de
+                                                                                                                                                        la empresa u organización, y puede servir de base para una mejora continua
+                                                                                                                                                        de los resultados. También sirve como herramienta para fortalecer los
+                                                                                                                                                        vínculos con los grupos de interés y para obtener aportaciones valiosas
+                                                                                                                                                        para lComo mínimo se requiere (aspectos mínimos auditables no limitativos):<br/><br/>
+                                                                                                                                                        a) Que se elabore y publique un informe anual que contenga la descripción
+                                                                                                                                                        de las prácticas de Calidad Humana y Responsabilidad Social más relevantes
+                                                                                                                                                        del último año de la empresa u organización, con indicadores y testimonios.<br/><br/>
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==21 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        5. Que se cuente con un Programa anual de auditorías internas con el
+                                                                                                                                                        fin de garantizar el cumplimiento y continuidad de las prácticas de
+                                                                                                                                                        Calidad Humana y Responsabilidad Social.<br/><br/>
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos):<br/><br/>
+                                                                                                                                                        1. Que se realice al menos una auditoría interna completa al año, con
+                                                                                                                                                        sus respectivas acciones correctivas y/o preventivas debidamente cerradas
+                                                                                                                                                        para garantizar que el Sistema de Gestión está funcionando adecuadamente.<br/><br/>
+                                                                                                                                                        2. Que se realicen las auditorías de seguimiento necesarias por los
+                                                                                                                                                        mismos auditores para asegurar el cumplimiento de las acciones correctivas
+                                                                                                                                                        determinadas por el Comité de Calidad Humana y Responsabilidad Social,
+                                                                                                                                                        derivadas de las auditorías internas.<br/><br/>
+                                                                                                                                                        3. Que se determinen acciones preventivas por el comité de Calidad Humana
+                                                                                                                                                        y Responsabilidad Social derivadas de las auditorías internas y externas.<br/><br/>
+                                                                                                                                                        4. Que los auditores internos sean personal de la misma empresa u organización.<br/><br/>
+                                                                                                                                                        5. Que los auditores internos sean independientes del Comité Interno,
+                                                                                                                                                        que es el organismo a través del cual se audita a la empresa u organización.<br/><br/>
+                                                                                                                                                        6. Que la base de la auditoría sea este Manual Guía de Implementación
+                                                                                                                                                        del Sistema de Gestión de Calidad Humana Responsabilidad Social actualizado,
+                                                                                                                                                        sin que este sea limitante.<br/><br/>
+                                                                                                                                                        7. Que se asegure que los reportes de auditorías los conozca el Director General."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==26 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        JUSTICIA SALARIAL Y CULTURA DE LA LEGALIDAD
+                                                                                                                                                        No se puede construir el Bien Común Organizacional si no se respeta
+                                                                                                                                                        la justicia salarial y la cultura de la legalidad. Estos son bienes
+                                                                                                                                                        fundamentales e indispensables para la promoción del Desarrollo Humano
+                                                                                                                                                        Integral y para tener empresas con Calidad Humana y Responsabilidad Social.
+                                                                                                                                                        6. Que exista un programa de justicia salarial que cumpla con los
+                                                                                                                                                        principios de necesidad, contribución y orden económico.
+                                                                                                                                                        "Tres principios se combinan para aproximarse a la justicia salarial:
+                                                                                                                                                        Necesidad, contribución y orden económico.
+
+                                                                                                                                                        El principio de Necesidad hace referencia a un salario suficiente para
+                                                                                                                                                        vivir que es la cantidad mínima debida a cada trabajador en la que se
+                                                                                                                                                        toma en cuenta que éste es un ser humano con una vida a sostener y una
+                                                                                                                                                        personalidad a desarrollar. Este debe ser suficiente para cubrir las
+                                                                                                                                                        necesidades de cada trabajador y su familia, que incluye los siguientes
+                                                                                                                                                        elementos básicos: Alimentos (tres comidas diarias para toda la familia),
+                                                                                                                                                        casa (renta o hipoteca), gastos de salud, gas, energía eléctrica, agua,
+                                                                                                                                                        transportación, escuelas de los hijos, esparcimiento y capacidad de ahorro.
+
+                                                                                                                                                        El principio de Contribución se refiere a que el salario sea equitativo
+                                                                                                                                                        o adecuado a cada nivel de responsabilidad, dedicación y resultados.
+
+                                                                                                                                                        El principio de Orden económico se refiere a que los salarios sean
+                                                                                                                                                        sostenibles por la empresa u organización. No se puede obligar a nadie
+                                                                                                                                                        a establecer salarios sin tomar en cuenta el efecto de los costos laborales
+                                                                                                                                                        en su posición competitiva ya que eso equivaldría a la imprudente elección
+                                                                                                                                                        de medios para la autoderrota."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==31 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        7. Que exista un Programa para promover la cultura de la legalidad en
+                                                                                                                                                        las empresas y organizaciones, con su personal y grupos de interés,
+                                                                                                                                                        enfocado en un plan de acciones preventivas.
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos):
+
+                                                                                                                                                        1. Existencia de mecanismos para prevenir, controlar y dar seguimiento
+                                                                                                                                                        a actos de corrupción, extorsión y robo o abuso de confianza en contra
+                                                                                                                                                        de la empresa u organización, por parte del personal u otros grupos de
+                                                                                                                                                        interés.
+                                                                                                                                                        2. Que se cuente con una lista de todas las leyes, reglamentos y normas
+                                                                                                                                                        que apliquen para la actividad de la empresa u organización, además de
+                                                                                                                                                        mecanismos que garanticen su conocimiento.
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==36 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        CALIDAD DE VIDA Y DESARROLLO DEL PERSONAL
+                                                                                                                                                        "Después de la justicia salarial, la seguridad, la salud, el orden y
+                                                                                                                                                        limpieza, la capacitación y formación académica son elementos que debemos
+                                                                                                                                                        atender en la promoción de la gente, empezando por nosotros mismos y
+                                                                                                                                                        posteriormente con los demás.
+
+                                                                                                                                                        Una Solidaridad más amplia se manifiesta ante todo en seguir promoviendo,
+                                                                                                                                                        inclusive en condiciones de crisis económica, un mayor acceso a estos
+                                                                                                                                                        servicios que, por otro lado, son una condición necesaria para mejorar
+                                                                                                                                                        la productividad y eficiencia de la empresa u organización."
+                                                                                                                                                        8. Que se cuente con un Programa para promover la salud del personal
+                                                                                                                                                        y otros grupos de interés.
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos,
+                                                                                                                                                        propios del pre-requisito II: auditoría laboral y de derechos humanos):
+
+                                                                                                                                                        a) Que se cuente con un botiquín de primeros auxilios en las instalaciones
+                                                                                                                                                        de la empresa u organización.
+
+                                                                                                                                                        b) Evidencia de la existencia de planes y programas de capacitación y
+                                                                                                                                                        adiestramiento, justificando el conocimiento general del personal y
+                                                                                                                                                        visitantes en relación con la salud en el trabajo
+
+                                                                                                                                                        Guías de apoyo:
+
+                                                                                                                                                        -www.crese.org/norma/guiasdeapoyo.pdf
+
+                                                                                                                                                        -La Norma OHSAS 18001 o una equivalente puede ser aprovechada para
+                                                                                                                                                        cumplir con el criterio de existencia de este requisito."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==41 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        9. Que se cuente con un Programa para promover la seguridad del personal
+                                                                                                                                                        y otros grupos de interés.
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos,
+                                                                                                                                                        propios del pre-requisito II: auditoría laboral y de derechos humanos):
+
+                                                                                                                                                        Evidencia de la existencia de Comisión Mixta de Seguridad e Higiene y
+                                                                                                                                                        Salud en el trabajo o equivalente, recorridos mensuales, identificación
+                                                                                                                                                        de riesgos, seguimiento a las observaciones realizadas en las actas que
+                                                                                                                                                        realiza la comisión.
+                                                                                                                                                        Evidencia del manejo que se da a los materiales y sustancias peligrosas (cuando exista).
+                                                                                                                                                        Evidencia del seguimiento y control personalizado de accidentes en
+                                                                                                                                                        la empresa u organización, así como la verificación del comportamiento
+                                                                                                                                                        del grado de riesgo.
+                                                                                                                                                        Evidencia de la existencia de planes y programas de capacitación y
+                                                                                                                                                        adiestramiento, justificando el conocimiento general del personal y
+                                                                                                                                                        visitantes en relación con la seguridad.
+                                                                                                                                                        Estudios de ruido, iluminación y ventilación (cuando aplique).
+
+                                                                                                                                                        Guías de apoyo:
+                                                                                                                                                        -www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -La Norma OHSAS 18001 o una equivalente puede ser aprovechada para
+                                                                                                                                                        cumplir con el criterio de existencia de este requisito.
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==46 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        10. Que se cuente con un Programa para promover el orden y limpieza
+                                                                                                                                                        de las instalaciones de la empresa u organización.
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos,
+                                                                                                                                                        propios del pre-requisito II: auditoría laboral y de derechos humanos):
+                                                                                                                                                        Evidencia de la existencia de Comisión Mixta de Seguridad e Higiene y
+                                                                                                                                                        Salud en el trabajo o equivalente, recorridos mensuales, identificación
+                                                                                                                                                        de riesgos, seguimiento a las observaciones realizadas en las actas
+                                                                                                                                                        que realiza la comisión.
+
+                                                                                                                                                        Guías de apoyo:
+                                                                                                                                                        -www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -La Norma OHSAS 18001 o una equivalente puede ser aprovechada para
+                                                                                                                                                        cumplir con el criterio de existencia de este requisito.
+                                                                                                                                                        -ISO 22000 o equivalente"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==52 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        11. Que se cuente con un Programa de capacitación para el personal
+                                                                                                                                                        en áreas propias de su actividad en el trabajo.
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos):
+
+                                                                                                                                                        Que existan planes y programas de capacitación y adiestramiento,
+                                                                                                                                                        justificando el conocimiento general de los trabajadores y visitantes
+                                                                                                                                                        en relación con la seguridad y salud en el trabajo.
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==56 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        12. Que se cuente con un Programa de preparación académica para el personal.
+                                                                                                                                                        "La preparación académica amplia la visión panorámica y capacidad de
+                                                                                                                                                        abstracción de las personas, aumenta su cultura y los hace mejores
+                                                                                                                                                        personas en el trabajo y fuera de él.
+
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==61 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        13. Que se cuente con un Programa para promover, canalizar y dar
+                                                                                                                                                        seguimiento a las ideas, propuestas o compromisos concretos de todo
+                                                                                                                                                        el personal y otros grupos de interés para hacer más eficiente o
+                                                                                                                                                        productiva a la empresa u organización.
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==66 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        PROTECCIÓN Y DESARROLLO DE LAS FAMILIAS
+                                                                                                                                                        "Normalmente el sostenimiento y desarrollo de las familias es la razón
+                                                                                                                                                        por la cual las personas buscan un trabajo. Por lo tanto, para la Norma
+                                                                                                                                                        CRESE 2014, las familias del personal son un grupo de interés que merece
+                                                                                                                                                        una categoría especial.
+
+                                                                                                                                                        El verdadero desarrollo de las empresas y organizaciones con Calidad
+                                                                                                                                                        Humana y Responsabilidad Social debe centrarse no sólo en las tareas
+                                                                                                                                                        que se han de ejecutar, sino orientarse al adecuado mejoramiento de
+                                                                                                                                                        las personas. Las virtudes humanas que favorecen el trabajo humano y
+                                                                                                                                                        productivo se desarrollan fundamentalmente en el ámbito familiar. Cada
+                                                                                                                                                        vez es más alentador observar como un número pequeño, pero creciente,
+                                                                                                                                                        de directivos asumen progresivamente una nueva postura en la que el
+                                                                                                                                                        trabajo y la vida personal no son prioridades contrapuestas sino complementarias."
+                                                                                                                                                        14. Que exista un Programa que contribuya a mejorar las condiciones de
+                                                                                                                                                        vida de las familias del personal más allá de lo material.
+                                                                                                                                                        "El desarrollo que obtiene el personal en las empresas y organizaciones
+                                                                                                                                                        con Calidad Humana y Responsabilidad Social puede rebasar el nivel de
+                                                                                                                                                        desarrollo que se tiene en los miembros de sus familias; esta es una
+                                                                                                                                                        de las razones por las cuales es necesario promover también su desarrollo
+                                                                                                                                                        humano integral y solidario y fortalecer su integración.
+
+                                                                                                                                                        Guías de apoyo
+                                                                                                                                                        -Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -El Distintivo de Empresa Familiarmente Responsable de la Secretaría
+                                                                                                                                                        del Trabajo o un sistema equivalente puede ser aprovechado para cumplir
+                                                                                                                                                        con el criterio de existencia de este requisito."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==71 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        15. Que exista un Programa para estructurar la actividad laboral de
+                                                                                                                                                        modo que se favorezca la integración de las familias, especialmente
+                                                                                                                                                        en el caso de las madres solteras con hijos menores de edad.
+                                                                                                                                                        "Guías de apoyo:
+                                                                                                                                                        -Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -El Distintivo de Empresa Familiarmente Responsable de la Secretaría
+                                                                                                                                                        del Trabajo o un sistema equivalente puede ser aprovechado para cumplir
+                                                                                                                                                        con el criterio de existencia de este requisito."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==76 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        16. Que exista un Programa para dar orientación y apoyo a las personas
+                                                                                                                                                        que sean separadas de su trabajo que no hayan actuado con dolo, negligencia
+                                                                                                                                                        o mala fe, para que puedan encontrar otra fuente de ingresos con menor dificultad.
+                                                                                                                                                        "Como mínimo se requiere (aspectos mí́nimos auditables no limitativos):
+
+                                                                                                                                                        a) Una lista de personal separado de la empresa u organización en el
+                                                                                                                                                        año anterior y explicación detallada del motivo y trato a su salida.
+
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==81 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        SOLIDARIDAD Y AYUDA A LA COMUNIDAD
+                                                                                                                                                        "El apoyo a la comunidad es fundamental para promover el Bien Común.
+
+                                                                                                                                                        La empresa u organización no puede generar riqueza aislándose del mundo.
+                                                                                                                                                        Todos estamos interrelacionados de alguna manera.
+
+                                                                                                                                                        Crear una Fundación que ayude a la comunidad es loable, sin embargo,
+                                                                                                                                                        con el fin de contribuir al desarrollo de la Solidaridad del personal
+                                                                                                                                                        de la empresa u organización, se pide que participen más activamente
+                                                                                                                                                        en la propuesta, diseño, aplicación y/o revisión de estos programas de apoyo."
+                                                                                                                                                        17. Que exista en la empresa u organización un programa de no discriminación
+                                                                                                                                                        para personas de grupos vulnerables por su edad, origen, condición física
+                                                                                                                                                        o mental (por ejemplo, mayores a 60 años, personal indígena, discapacitados
+                                                                                                                                                        o mujeres embarazadas).
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos):
+
+                                                                                                                                                        a) Que se presente evidencia convincente de no discriminación en la
+                                                                                                                                                        contratación y despido de personal por razón de su edad, origen, sexo,
+                                                                                                                                                        condición física o mental.
+
+                                                                                                                                                        b) Que se cumpla con el 5% de personal de condiciones especiales en la
+                                                                                                                                                        misma empresa o con el apoyo de otras organizaciones que se solidaricen
+                                                                                                                                                        y que puedan contratar personal con estas características. En este caso
+                                                                                                                                                        se requiere un documento que evidencie el acuerdo de apoyarse mutuamente
+                                                                                                                                                        y el cálculo tomando en cuenta al personal de las organizaciones que participan.
+
+                                                                                                                                                        Guías de apoyo:
+                                                                                                                                                        -www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -El Distintivo de Empresa Incluyente de la Secretaría del Trabajo o
+                                                                                                                                                        un sistema equivalente puede ser aprovechado para cumplir con el
+                                                                                                                                                        criterio de existencia de este requisito."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==86 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        18. Que se cuente con un Programa de contratación y desarrollo de becarios,
+                                                                                                                                                        de preferencia con horarios flexibles, con el fin de que estos tengan
+                                                                                                                                                        la oportunidad de tener un currículum con experiencia.
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==91 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        19. Que exista un programa para desarrollar proveedores locales y
+                                                                                                                                                        proveedores con responsabilidad social.
+                                                                                                                                                        "Si abandonamos el ámbito de lo local por la inserción global estaríamos
+                                                                                                                                                        perdiendo el sentimiento de pertenencia. Lo local es cada vez más importante
+                                                                                                                                                        para la vida cotidiana de las personas a medida que aumentan las relaciones globales.
+
+                                                                                                                                                        Como mínimo se requiere (aspectos mínimos auditables no limitativos):
+
+                                                                                                                                                        a) Que se asegure que existen garantías a los Derechos Humanos y Laborales
+                                                                                                                                                        del personal de sus proveedores de bienes y servicios.
+
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==96 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        20. Que exista un Programa para ayudar a las personas y a los grupos
+                                                                                                                                                        o sectores más pobres, pequeños y/o débiles de las comunidades más
+                                                                                                                                                        cercanas a la empresa u organización.
+                                                                                                                                                        "La Norma CRESE 2014 promueve el principio de solidaridad como un
+                                                                                                                                                        beneficio para todos, pero también como un deber por lo que es necesario
+                                                                                                                                                        para cumplir cabalmente con este requisito que el personal y si es
+                                                                                                                                                        posible otros grupos de interés participen activamente en tareas de
+                                                                                                                                                        ayuda a la comunidad.
+
+                                                                                                                                                        Recomendación en base a la experiencia, para mejorar la evaluación e
+                                                                                                                                                        impacto de la práctica: De acuerdo con el principio de subsidiaridad
+                                                                                                                                                        y del criterio de evaluación de participación de la Norma CRESE 2014,
+                                                                                                                                                        se recomienda que el personal y demás grupos de interés de la empresa
+                                                                                                                                                        u organización tomen parte en la medida de lo posible en la propuesta,
+                                                                                                                                                        diseño, ejecución y revisión de los programas de ayuda a la comunidad.
+
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==101 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        PROMOCIÓN DEL CUIDADO DEL MEDIO AMBIENTE
+                                                                                                                                                        "La experiencia demuestra que toda actitud irrespetuosa con el medio
+                                                                                                                                                        ambiente conlleva daños a la convivencia humana, y viceversa.
+
+                                                                                                                                                        El libro de la naturaleza es uno e indivisible, tanto en lo que concierne
+                                                                                                                                                        a la vida, la familia, las relaciones sociales, en una palabra, el
+                                                                                                                                                        desarrollo humano integral. Los deberes que tenemos con el ambiente están
+                                                                                                                                                        relacionados con los que tenemos para con la persona considerada en sí
+                                                                                                                                                        misma y en su relación con los otros. No se pueden exigir unos y
+                                                                                                                                                        quebrantar otros.
+
+                                                                                                                                                        Se considera importante subrayar que los siguientes tres requisitos
+                                                                                                                                                        proponen “concientización y práctica del personal de la empresa u
+                                                                                                                                                        organización, y de sus grupos de interés”"
+                                                                                                                                                        21. Que exista un Programa de concientización y práctica para cuidado
+                                                                                                                                                        del suelo por parte del personal de la empresa u organización, y de
+                                                                                                                                                        sus grupos de interés.
+                                                                                                                                                        "Guías de apoyo:
+                                                                                                                                                        -www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -El Certificado ISO 14001, el Certificado de Industria Limpia de la
+                                                                                                                                                        Procuraduría Federal de Protección al Ambiente o un sistema equivalente
+                                                                                                                                                        puede ser aprovechado para cumplir con el criterio de existencia de
+                                                                                                                                                        este requisito."
+
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==106 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        22. Que exista un Programa de concientización y práctica para cuidado
+                                                                                                                                                        del aire y atmósfera por parte del personal de la empresa u organización,
+                                                                                                                                                        y de sus grupos de interés.
+                                                                                                                                                        "Guías de apoyo:
+                                                                                                                                                        -www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -El Certificado ISO 14001, el Certificado de Industria Limpia de la
+                                                                                                                                                        Procuraduría Federal de Protección al Ambiente o un sistema equivalente
+                                                                                                                                                        puede ser aprovechado para cumplir con el criterio de existencia de
+                                                                                                                                                        este requisito."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==111 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        23. Que exista un Programa de concientización y práctica para cuidado
+                                                                                                                                                        del agua por parte del personal de la empresa u organización, y de
+                                                                                                                                                        sus grupos de interés.
+                                                                                                                                                        "Guías de apoyo:
+                                                                                                                                                        -www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -El Certificado ISO 14001, el Certificado de Industria Limpia de la
+                                                                                                                                                        Procuraduría Federal de Protección al Ambiente o un sistema equivalente
+                                                                                                                                                        puede ser aprovechado para cumplir con el criterio de existencia de
+                                                                                                                                                        este requisito."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==116 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        HUMANIZACIÓN Y TRASCENDENCIA EN EL TRABAJO
+                                                                                                                                                        "Todos los prerequisitos y requisitos de la Norma CRESE 2014 promueven
+                                                                                                                                                        conductas éticas como son la justicia salarial y la cultura de la
+                                                                                                                                                        legalidad, la calidad de vida en el trabajo y el desarrollo del personal,
+                                                                                                                                                        el cuidado y desarrollo de las familias, la solidaridad y ayuda a la
+                                                                                                                                                        comunidad y la promoción del cuidado del medio ambiente. Estos aspectos
+                                                                                                                                                        contribuyen a la construcción del bien común a través del desarrollo
+                                                                                                                                                        humano integral y solidario de las personas. Todas estas son acciones
+                                                                                                                                                        que ayudan a mejorar a la empresa y hacerla exitosa.
+
+                                                                                                                                                        Sin embargo, para asegurar que no se deja a un lado la cuestión antropológica,
+                                                                                                                                                        compleja en sí misma y siempre incompleta, por el mismo desarrollo que
+                                                                                                                                                        todas las personas siempre buscamos, se plantean los siguientes dos
+                                                                                                                                                        últimos requisitos que fortalecerán aún más el aspecto subjetivo del
+                                                                                                                                                        trabajo, que siempre debe estar a la altura de la dignidad de la persona."
+                                                                                                                                                        24. Que exista un programa que sirva para promover el conocimiento,
+                                                                                                                                                        asimilación y práctica de los valores establecidos por la empresa u
+                                                                                                                                                        organización.
+                                                                                                                                                        "Como mínimo se requiere (aspectos mínimos auditables no limitativos):
+
+                                                                                                                                                        a) Que se cuente con una lista de valores y una herramienta que permita
+                                                                                                                                                        detectar las fallas en su práctica.
+
+                                                                                                                                                        Guías de apoyo:
+                                                                                                                                                        -www.crese.org/norma/guiasdeapoyo.pdf
+                                                                                                                                                        -El Premio Nacional de Ética y Valores en la Industria de la Confederación
+                                                                                                                                                        de Cámaras Industriales o un sistema equivalente puede ser aprovechado
+                                                                                                                                                        para cumplir con el criterio de existencia de este requisito."
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            {% if c==121 %}
+                                                                                                                                                <div class="form-group">
+                                                                                                                                                    <p class="col-md-12">
+                                                                                                                                                        25. Que exista un programa para mejorar las características y el ambiente
+                                                                                                                                                        de trabajo para hacerlo aún más digno o más humanizante.
+                                                                                                                                                        "Más allá de los aspectos de seguridad, orden y limpieza y otros que
+                                                                                                                                                        ya se consideraron en requisitos anteriores, este requisito se ocupa
+                                                                                                                                                        de los aspectos psicológicos, culturales, morales y espirituales de
+                                                                                                                                                        la persona. Por ejemplo, la empresa u organización podría desarrollar
+                                                                                                                                                        programas para promover los siguientes objetivos:
+
+                                                                                                                                                        -Más conciencia de parte de los empleados, de su dignidad y de que
+                                                                                                                                                        trabajan para su propio desarrollo.
+                                                                                                                                                        -Más labor de convencimiento y menos órdenes.
+                                                                                                                                                        -Menos restricciones a la libertad de las personas.
+                                                                                                                                                        -Una mejor actitud o espíritu de servicio.
+                                                                                                                                                        -Más responsabilidad con autoridad proporcional.
+                                                                                                                                                        -Un mayor uso del lenguaje edificante y no humillante.
+                                                                                                                                                        -Más reconocimiento, agradecimiento y amor a la patria. Un mayor
+                                                                                                                                                        compromiso con la práctica de valores morales.
+                                                                                                                                                        -Un mayor reconocimiento y desarrollo de lo espiritual y religioso
+                                                                                                                                                        en las personas.
+
+                                                                                                                                                        Como mínimo se requiere (aspectos mínimos auditables no limitativos):
+
+                                                                                                                                                        a) Que se cuente con un programa que promueva, canalice y de seguimiento
+                                                                                                                                                        a las ideas o propuestas de todo el personal para hacer más congruente,
+                                                                                                                                                        ética y humanizantes a la empresa u organización.
+                                                                                                                                                        b) Que exista una práctica que atienda al menos algún aspecto de los
+                                                                                                                                                        mencionados en la lista anterior.
+
+                                                                                                                                                        Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            {% endif %}
+                                                                                                                                            <div class="form-group">
+                                                                                                                                                <label for="exampleInputEmail1">{{ c }}.- {{ pregunta[0] }}</label>
+                                                                                                                                                {% for opciones in pregunta[1] %}
+                                                                                                                                                    <div class="radio">
+                                                                                                                                                        <label class="radio-inline">
+                                                                                                                                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                                                                                                                                            {{ opciones }}
+                                                                                                                                                        </label>
+                                                                                                                                                    </div>
+                                                                                                                                                {% endfor %}
+                                                                                                                                                <label for="comment">Descripción:</label>
+                                                                                                                                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                                                                                                                                            </div>
+                                                                                                                                            {% set c=c+1 %}
+                                                                                                                                        {% if c==6 %}</div>{% endif %}
+                                                                                                                                    {% if c==11 %}</div>{% endif %}
+                                                                                                                                {% if c==16 %}</div>{% endif %}
+                                                                                                                            {% if c==21 %}</div>{% endif %}
+                                                                                                                        {% if c==26 %}</div>{% endif %}
+                                                                                                                    {% if c==31 %}</div>{% endif %}
+                                                                                                                {% if c==36 %}</div>{% endif %}
+                                                                                                            {% if c==41 %}</div>{% endif %}
+                                                                                                        {% if c==46 %}</div>{% endif %}
+                                                                                                    {% if c==52 %}</div>{% endif %}
+                                                                                                {% if c==56 %}</div>{% endif %}
+                                                                                            {% if c==61 %}</div>{% endif %}
+                                                                                        {% if c==66 %}</div>{% endif %}
+                                                                                    {% if c==71 %}</div>{% endif %}
+                                                                                {% if c==76 %}</div>{% endif %}
+                                                                            {% if c==81 %}</div>{% endif %}
+                                                                        {% if c==86 %}</div>{% endif %}
+                                                                    {% if c==91 %}</div>{% endif %}
+                                                                {% if c==96 %}</div>{% endif %}
+                                                            {% if c==101 %}</div>{% endif %}
+                                                        {% if c==106 %}</div>{% endif %}
+                                                    {% if c==111 %}</div>{% endif %}
+                                                {% if c==116 %}</div>{% endif %}
+                                            {% if c==121 %}</div>{% endif %}
+                                    {% endfor %}
+                                        </div>
+                                    <button type="button" id="btnsiguiente" class="btn btn-contact btn-green pull-right"><span>Siguiente</span></button>
+                                    <button type="submit" id="btnenviar" class="btn btn-contact btn-green pull-right" style="display: none;"><span>Enviar diagnóstico</span></button>
+                                </form>
+                            </div>
+                        </div>
+                        {#<h1 class="course-title">Norma CRESE</h1>
+                        <div class="course-info info">
+                            <div class="author item"><a href="#"><span>By&nbsp;</span><span>Emma Watson</span></a></div>
+                            <div class="date-time item"><a href="#">20 Aug 2015</a></div>
+                        </div>
+                        <div class="course-video">
+                            <iframe src="https://www.youtube.com/embed/xo1VInw-SKc?list=PL7JgdmQ0zTfatnGhUnRBnhMwYEraSIRdD" allowfullscreen="allowfullscreen"></iframe>
+                            <div class="video-btn">
+                                <button class="btn btn-grey video-btn-right pull-right"><span>next lesson</span><i class="fa fa-angle-right"></i></button>
+                                <button class="btn btn-grey video-btn-left pull-right"><i class="fa fa-angle-left"></i><span>previous lesson</span></button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>#}
+                    </div>{#col-md-12 layout-left#}
+                </div>{#row#}
+            </div>{#courses-detail-wrapper#}
+        </div>{#container#}
+    </div>{#section section-padding courses-detail#}
+{% endblock %}
+
+
+
+
+{#<div class="tabs tabs-highlight">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#1" data-toggle="tab" style="font-size: 12px">1</a></li>
+        <li><a href="#2" data-toggle="tab" style="font-size: 12px">2</a></li>
+        <li><a href="#3" data-toggle="tab" style="font-size: 12px">3</a></li>
+        <li><a href="#4" data-toggle="tab" style="font-size: 12px">4</a></li>
+        <li><a href="#5" data-toggle="tab" style="font-size: 12px">5</a></li>
+        <li><a href="#6" data-toggle="tab" style="font-size: 12px">6</a></li>
+        <li><a href="#7" data-toggle="tab" style="font-size: 12px">7</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="1">
+            <form>
+                {% set c=1 %}
+                {% for pregunta in preguntas %}
+                {% if c==1 %}
+                <div id="seccion{{ c }}" style="display: auto;">
+                    {% endif %}
+                    {% if c==6 %}
+                    <div id="seccion{{ c }}" style="display: none;">
+                        {% endif %}
+                        {% if c==11 %}
+                        <div id="seccion{{ c }}" style="display: none;">
+                            {% endif %}
+                            {% if c==16 %}
+                            <div id="seccion{{ c }}" style="display: none;">
+                                {% endif %}
+                                {% if c==21 %}
+                                <div id="seccion{{ c }}" style="display: none;">
+                                    {% endif %}
+                                    {% if c==1 %}
+                                        <div class="form-group">
+                                            <p class="col-md-12">
+                                                DIRECCIÓN Y COMUNICACIÓN<br/><br/>
+                                                El objetivo de este primer grupo de requisitos es garantizar que se implanta
+                                                un Sistema de Gestión de Calidad Humana y Responsabilidad Social, con el
+                                                apoyo de un Comité Interno, que cuenta con el apoyo de la Dirección General
+                                                de la empresa u organización y con los elementos necesarios para darle
+                                                continuidad y mejora continua.<br/><br/>
+                                                1. Que la Dirección asigne a un Comité Interno la responsabilidad de asesorar
+                                                en Calidad Humana y Responsabilidad Social a la empresa u organización.<br/><br/>
+                                                El Comité Interno, además de implantar la Norma y conseguir el certificado,
+                                                debe ser una ayuda eficaz para la Dirección General en lo que se refiere
+                                                a la Calidad Humana y Responsabilidad Social de la empresa u organización,
+                                                sin perjudicar su eficiencia y productividad.<br/><br/>
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                    {% if c==6 %}
+                                        <div class="form-group">
+                                            <p class="col-md-12">
+                                                2. Que se cuente con una Política de Calidad Humana y Respon- sabilidad Social.<br/><br/>
+                                                "Como mínimo se requiere (aspectos mínimos auditables no limitativos):<br/><br/>
+                                                a) Que la política exprese la filosofía o forma de pensar de la empresa
+                                                u organización con respecto su Calidad Humana y Responsabilidad Social.<br/><br/>
+                                                Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                    {% if c==11 %}
+                                        <div class="form-group">
+                                            <p class="col-md-12">
+                                                3. Que se cuente con un Manual de Políticas y Prácticas de Calidad Humana y Responsabilidad Social.<br/><br/>
+                                                "Como mínimo se requiere (aspectos mínimos auditables no limitativos):<br/><br/>
+                                                a) Que se cuente con un manual-guía que haga clara referencia al lugar
+                                                donde se encuentran las prácticas que sirvan para dar cumplimiento a
+                                                los prerequisitos y requisitos de esta Norma."
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                    {% if c==16 %}
+                                        <div class="form-group">
+                                            <p class="col-md-12">
+                                                4. Que se elabore un Informe Anual de Calidad Humana y Res- ponsabilidad
+                                                Social y que se entregue a los diferentes grupos de interés de la empresa u organización.<br/><br/>
+                                                "Su elaboración permite una evaluación sólida del comportamiento de
+                                                la empresa u organización, y puede servir de base para una mejora continua
+                                                de los resultados. También sirve como herramienta para fortalecer los
+                                                vínculos con los grupos de interés y para obtener aportaciones valiosas
+                                                para lComo mínimo se requiere (aspectos mínimos auditables no limitativos):<br/><br/>
+                                                a) Que se elabore y publique un informe anual que contenga la descripción
+                                                de las prácticas de Calidad Humana y Responsabilidad Social más relevantes
+                                                del último año de la empresa u organización, con indicadores y testimonios.<br/><br/>
+                                                Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                    {% if c==21 %}
+                                        <div class="form-group">
+                                            <p class="col-md-12">
+                                                5. Que se cuente con un Programa anual de auditorías internas con el
+                                                fin de garantizar el cumplimiento y continuidad de las prácticas de
+                                                Calidad Humana y Responsabilidad Social.<br/><br/>
+                                                "Como mínimo se requiere (aspectos mínimos auditables no limitativos):<br/><br/>
+                                                1. Que se realice al menos una auditoría interna completa al año, con
+                                                sus respectivas acciones correctivas y/o preventivas debidamente cerradas
+                                                para garantizar que el Sistema de Gestión está funcionando adecuadamente.<br/><br/>
+                                                2. Que se realicen las auditorías de seguimiento necesarias por los
+                                                mismos auditores para asegurar el cumplimiento de las acciones correctivas
+                                                determinadas por el Comité de Calidad Humana y Responsabilidad Social,
+                                                derivadas de las auditorías internas.<br/><br/>
+                                                3. Que se determinen acciones preventivas por el comité de Calidad Humana
+                                                y Responsabilidad Social derivadas de las auditorías internas y externas.<br/><br/>
+                                                4. Que los auditores internos sean personal de la misma empresa u organización.<br/><br/>
+                                                5. Que los auditores internos sean independientes del Comité Interno,
+                                                que es el organismo a través del cual se audita a la empresa u organización.<br/><br/>
+                                                6. Que la base de la auditoría sea este Manual Guía de Implementación
+                                                del Sistema de Gestión de Calidad Humana Responsabilidad Social actualizado,
+                                                sin que este sea limitante.<br/><br/>
+                                                7. Que se asegure que los reportes de auditorías los conozca el Director General."
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                    {% if c >=1 and c <= 25 %}
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">{{ c }}.- {{ pregunta[0] }}</label>
+                                            {% for opciones in pregunta[1] %}
+                                                <div class="radio">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                                        {{ opciones }}
+                                                    </label>
+                                                </div>
+                                            {% endfor %}
+                                            <label for="comment">Descripción:</label>
+                                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        </div>
+                                    {% endif %}
+                                    {% set c=c+1 %}
+                                    {% if c==6 %}
+                                </div>
+                                {% endif %}
+                                {% if c==11 %}
+                            </div>
+                            {% endif %}
+                            {% if c==16 %}
+                        </div>
+                        {% endif %}
+                        {% if c==21 %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <button type="button" id="btnsiguiente" class="btn btn-contact btn-green pull-right"><span>Siguiente</span></button>
+                <button type="submit" id="btnenviar" class="btn btn-contact btn-green pull-right" style="display: none;"><span>Enviar diagnóstico</span></button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="2">
+            <form>
+                {% set c=1 %}
+                {% for pregunta in preguntas %}
+                {% if c==26 %}
+                <div id="seccion{{ c }}" style="display: auto;">
+                    {% endif %}
+                    {% if c==31 %}
+                    <div id="seccion{{ c }}" style="display: none;">
+                        {% endif %}
+                        {% if c==26 %}
+                            <div class="form-group">
+                                <p class="col-md-12">
+                                    JUSTICIA SALARIAL Y CULTURA DE LA LEGALIDAD
+                                    No se puede construir el Bien Común Organizacional si no se respeta
+                                    la justicia salarial y la cultura de la legalidad. Estos son bienes
+                                    fundamentales e indispensables para la promoción del Desarrollo Humano
+                                    Integral y para tener empresas con Calidad Humana y Responsabilidad Social.
+                                    6. Que exista un programa de justicia salarial que cumpla con los
+                                    principios de necesidad, contribución y orden económico.
+                                    "Tres principios se combinan para aproximarse a la justicia salarial:
+                                    Necesidad, contribución y orden económico.
+
+                                    El principio de Necesidad hace referencia a un salario suficiente para
+                                    vivir que es la cantidad mínima debida a cada trabajador en la que se
+                                    toma en cuenta que éste es un ser humano con una vida a sostener y una
+                                    personalidad a desarrollar. Este debe ser suficiente para cubrir las
+                                    necesidades de cada trabajador y su familia, que incluye los siguientes
+                                    elementos básicos: Alimentos (tres comidas diarias para toda la familia),
+                                    casa (renta o hipoteca), gastos de salud, gas, energía eléctrica, agua,
+                                    transportación, escuelas de los hijos, esparcimiento y capacidad de ahorro.
+
+                                    El principio de Contribución se refiere a que el salario sea equitativo
+                                    o adecuado a cada nivel de responsabilidad, dedicación y resultados.
+
+                                    El principio de Orden económico se refiere a que los salarios sean
+                                    sostenibles por la empresa u organización. No se puede obligar a nadie
+                                    a establecer salarios sin tomar en cuenta el efecto de los costos laborales
+                                    en su posición competitiva ya que eso equivaldría a la imprudente elección
+                                    de medios para la autoderrota."
+                                </p>
+                            </div>
+                        {% endif %}
+                        {% if c==31 %}
+                            <div class="form-group">
+                                <p class="col-md-12">
+                                    7. Que exista un Programa para promover la cultura de la legalidad en
+                                    las empresas y organizaciones, con su personal y grupos de interés,
+                                    enfocado en un plan de acciones preventivas.
+                                    "Como mínimo se requiere (aspectos mínimos auditables no limitativos):
+
+                                    1. Existencia de mecanismos para prevenir, controlar y dar seguimiento
+                                    a actos de corrupción, extorsión y robo o abuso de confianza en contra
+                                    de la empresa u organización, por parte del personal u otros grupos de
+                                    interés.
+                                    2. Que se cuente con una lista de todas las leyes, reglamentos y normas
+                                    que apliquen para la actividad de la empresa u organización, además de
+                                    mecanismos que garanticen su conocimiento.
+                                    Guías de apoyo: www.crese.org/norma/guiasdeapoyo.pdf"
+                                </p>
+                            </div>
+                        {% endif %}
+                        {% if c >=26 and c <= 35 %}
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ c }}.- {{ pregunta[0] }}</label>
+                                {% for opciones in pregunta[1] %}
+                                    <div class="radio">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                            {{ opciones }}
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                                <label for="comment">Descripción:</label>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                            </div>
+                        {% endif %}
+                        {% set c=c+1 %}
+                        {% if c==31 %}
+                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+                    {% if c==31 %}
+                </div>
+                {% endif %}
+                <button type="button" id="btnsiguiente" class="btn btn-contact btn-green pull-right"><span>Siguiente</span></button>
+                <button type="submit" id="btnenviar" class="btn btn-contact btn-green pull-right" style="display: none;"><span>Enviar diagnóstico</span></button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="3">
+            sdf
+        </div>
+        <div class="tab-pane fade" id="4">
+            sdf
+        </div>
+        <div class="tab-pane fade" id="5">
+            sdf
+        </div>
+        <div class="tab-pane fade" id="6">
+            sdf
+        </div>
+        <div class="tab-pane fade" id="7">
+            sdf
+        </div>
+    </div>
+</div>#}
+
+

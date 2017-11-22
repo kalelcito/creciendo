@@ -1,0 +1,67 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/rs/responsiveslides.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/rs/themes/themes.css') }}">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/rs/responsiveslides.min.js') }}"></script>
+    <script>
+        $(function () {
+            $("#slider3").responsiveSlides({
+                auto: false,
+                pager: false,
+                nav: true,
+                speed: 500,
+                maxwidth: 800,
+                namespace: "large-btns"
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        {#<h1 class="course-title">Norma CRESE</h1>#}
+                        {#
+                                                <div class="course-info info">
+                                                    <div class="author item"><a href="#"><span>By&nbsp;</span><span>Emma Watson</span></a></div>
+                                                    <div class="date-time item"><a href="#">20 Aug 2015</a></div>
+                                                </div>
+                                                <div class="course-video">
+                                                    <iframe src="https://www.youtube.com/embed/xo1VInw-SKc?list=PL7JgdmQ0zTfatnGhUnRBnhMwYEraSIRdD" allowfullscreen="allowfullscreen"></iframe>
+                                                    <div class="video-btn">
+                                                        <button class="btn btn-grey video-btn-right pull-right"><span>next lesson</span><i class="fa fa-angle-right"></i></button>
+                                                        <button class="btn btn-grey video-btn-left pull-right"><i class="fa fa-angle-left"></i><span>previous lesson</span></button>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div> #}
+                        <div class="course-des">
+                            <div class="course-des-title underline">{{ contenido.titulo }}</div>
+                            <div class="course-des-content">
+                                {% if contenido.contenidoPrivado is not empty %}
+                                    {{ contenido.contenidoPrivado|raw }}
+                                {% endif %}
+                                <div class="rslides_container">
+                                    <ul class="rslides" id="slider3">
+                                        {% for multimedia in contenido.multimedia %}
+                                            <li>
+                                                <img oncontextmenu="return false;" src="{{ asset('res/pres/'~contenido.id~'/'~multimedia.imagen) }}" alt="">
+                                            </li>
+                                        {% endfor  %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="{{ path("frontend_programa", {"slug":contenido.secciones.programa.slug }) }}"  class="btn btn-green-2" style="left: 45%;"><span>Regresar</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

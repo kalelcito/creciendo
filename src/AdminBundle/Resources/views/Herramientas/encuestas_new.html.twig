@@ -1,0 +1,39 @@
+{% extends '@Admin/base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+{% block navegacion %}
+    {{ include('@Admin/partials/navegacion.html.twig',{'menu':'Inicio','submenu':'Crear Encuesta'}) }}
+{% endblock %}
+{% block body %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box" style="background-color: #c9e5ff;">
+                    {{ form_start(form,  {'action':path('backend_encuestaNew'), 'attr': {'class':'form-horizontal'}}) }}
+                    <div class="form-group">
+                        <label for="encuesta" class="col-sm-3 control-label">Nombre de la Encuesta</label>
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                {{ form_widget(form.encuesta, {'attr': {'class': 'form-control'} }) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="desc" class="col-sm-3 control-label">Descripción de la Encuesta</label>
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                {{ form_widget(form.descripcion, {'attr': {'class': 'form-control'} }) }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_widget(form.enviar, {'attr': {'class ': 'btn btn-success center-block'} }) }}
+                    {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

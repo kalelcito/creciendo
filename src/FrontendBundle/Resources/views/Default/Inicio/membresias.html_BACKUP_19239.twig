@@ -1,0 +1,896 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Servicios{% endblock %}
+
+{% block stylesheets %}
+    <style type="text/css">
+
+        #PricingTab {
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            padding: 0px 0;
+        }
+
+        #PricingTab table{
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: 1px 1px 20px 0px rgb(24, 25, 25);
+        }
+
+        .tabco0 {
+            background: #c1f7fe;
+            width: 25%;
+            padding: 10px !important;
+            text-align: left;
+        }
+        th{
+            vertical-align: middle!important;
+        }
+        th.tabco0 {
+            background: #c1f7fe;
+            padding: 20px 10px !important;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .tabco1 {
+            background: #fff;
+            width: 20%;
+            padding: 10px !important;
+            text-align: center;
+        }
+        th.tabco1 {
+            background: #fff;
+            padding: 20px 10px !important;
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #000;
+        }
+        .tabco2 {
+            background: #c1f7fe;
+            width: 20%;
+            text-align: center;
+            color: #000;
+        }
+
+        th.tabco2 {
+            background: #c1f7fe;
+            padding: 20px 10px !important;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .tabco3 {
+            background: #ffffff;
+            width: 20%;
+            text-align: center;
+            color: #000;
+        }
+        th.tabco3 {
+            background: #ffffff;
+            padding: 20px 10px !important;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .tabco4 {
+            background: #94b4c8;
+            text-align: center;
+            color: #000;
+        }
+        th.tabco4 {
+            background: #b0d2e8;
+
+            padding: 20px 10px !important;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .tabco5 {
+            background: #ffffff;
+            text-align: center;
+            color: #000;
+        }
+        th.tabco5 {
+            background: #ffffff;
+            padding: 20px 10px !important;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .rightSign {
+            color: #45a1c6;
+            background: #fff;
+            border-radius: 45px;
+            padding: 5px;
+            border: 2px solid;
+            box-shadow: 0px 0px 11px -5px #000;
+        }
+        .crossSign {
+            color: #de2315;
+            background: #fff;
+            border-radius: 45px;
+            padding: 5px 7px;
+            border: 2px solid;
+            box-shadow: 0px 0px 11px -5px #000;
+        }
+        .White-Yellow {
+            border-top: 0;
+            border-left: 75px solid #fff;
+            border-right: 75px solid #FEF200;
+            height: 5px;
+            width: 0px;
+        }
+        .accordion .panel-heading .panel-title a {
+            color: #000;
+            font-size: 1em;
+            text-transform: uppercase;
+        }
+        .edu-table-responsive span{
+            padding-left: 0px;
+        }
+        .edu-table-responsive p{
+            color: #2ECBF8;
+            font-size: 1em;
+        }
+        .edu-table-responsive .col-1 {
+            text-align: justify;
+        }
+        .accordion .panel-heading .panel-title a:after {
+            font-family: 'Lato', Helvetica, Arial, sans-serif;
+            content: "Más Info";
+            position: absolute;
+            top: 0;
+            right: 30px
+        }
+
+        @media (max-width: 768px) {
+            .accordion .panel-heading .panel-title a:after {
+                content: "+"!important;
+            }
+            .accordion .panel.active .panel-heading .panel-title a:after {
+                content: "-"!important;
+            }
+        }
+        .accordion .panel.active .panel-heading .panel-title a:after {
+            font-family: 'Lato', Helvetica, Arial, sans-serif;
+            content: "Menos";
+            position: absolute;
+            top: 0;
+            right: 30px
+        }
+        .accordion .panel-heading {
+            background-color: rgba(102, 233, 255, 0.35);
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+        }
+        .accordion .panel.active {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .table-hover > tbody > tr:hover{
+            background-color: rgba(102, 233, 255, 0.2);
+        }
+        .btn.btn-green-2 {
+            line-height: 40px;
+            background-color: transparent
+        }
+        .btn.btn-green-2:before {
+            position: absolute;
+            content: '';
+            border: 2px solid #122468;
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            left: 0
+        }
+        .btn.btn-green-2:after {
+            position: absolute;
+            content: '';
+            background-color: #122468;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0
+        }
+        .btn.btn-green-2:hover {
+            color: #122468;
+        }
+        .btn.btn-green-2:hover:after {
+            right: -100%
+        }
+        .btn.btn-green-2:focus span {
+            color: #122468;
+        }
+        .solidario {
+            background-color: #ffcab0!important;
+        }
+        .basico {
+            background-color: #afc8e5!important;
+        }
+        .medida {
+            background-color: white!important;
+            color: black!important;
+        }
+        .amedida {
+            color: black!important;
+        }
+        .titulo {
+            text-align: center;
+            font-size: 1.5em;
+            color: #122468;
+            font-weight: 700;
+        }
+        .courses-detail-wrapper {
+            margin-bottom: 0px;
+        }
+        .section-padding {
+            padding: 0px 0;
+        }
+        @media screen and (max-width: 600px) {
+            .section-padding {
+                padding: 0px;
+            }
+        }
+
+        @media (min-width: 1200px){
+            .container {
+                width: 90%!important;
+            }
+        }
+
+        @media (min-width: 992px){
+            .container {
+                width: 90%!important;
+            }
+        }
+
+        @media (min-width: 768px){
+            .container {
+                width: 90%!important;
+            }
+        }
+
+        @media (max-width: 520px){
+            th.tabco1 , th.tabco0 , th.tabco2, th.tabco3 {
+                font-size: 80%!important;
+            }
+            td.tabco1 , td.tabco0 , td.tabco2, td.tabco3 {
+                font-size: 80%!important;
+            }
+        }
+        @media (max-width: 400px){
+            th.tabco1 , th.tabco0 , th.tabco2, th.tabco3 {
+                font-size: 70%!important;
+            }
+            td.tabco1 , td.tabco0 , td.tabco2, td.tabco3 {
+                font-size: 70%!important;
+            }
+        }
+        @media (max-width: 1470px) and  (min-width: 1200px){
+            #accordion-7 > .panel > .panel-heading > .panel-title , #accordion-8 > .panel > .panel-heading > .panel-title {
+                font-size: 80%;
+            }
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/js/pages/homepage.js')}}"></script>
+    <script>
+        (function($) {
+            "use strict";
+            $(function () {
+                $('.accordion .panel .panel-heading').on('click', function() {
+                    var accor = $(this).closest('.accordion');
+                    var accor_panel = $(this).parent();
+                    if (accor_panel.hasClass('active')){
+                        accor_panel.removeClass('active');
+                    } else{
+                        if ($('.panel-title a.accordion-toggle').hasClass('collapsed')) {
+                            $('.panel', accor).removeClass('active');
+                            accor_panel.addClass('active');
+                        } else{
+                            accor_panel.removeClass('active');
+                        }
+                    }
+                });
+            });
+
+        })(jQuery);
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding" style="margin-top: 40px;">
+        <div class="container">
+            <div class="group-title-index">
+                <h2 class="center-title">PAQUETES</h2>
+            </div>
+            <div class="accordion-faq">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-4 col-sm-6">
+                        <div id="accordion-1" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-1" href="#collapse-1" aria-expanded="false" class="accordion-toggle collapsed">
+                                            1. Servicio Solidario
+                                        </a></h5>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        {% if app.user.niveles.nombre=='Servicio Solidario' or app.user.niveles.nombre=='Servicio Básico' %}
+                                        {% else %}
+                                            <div class="col-xs-offset-5">
+                                                <p>
+                                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                        {% if app.user.niveles.nombre=='Servicio Solidario' or app.user.niveles.nombre=='Servicio Básico' %}
+                                                            Contratado
+                                                        {% else %}
+                                                            COSTO $ 0.00<sup>*</sup>
+                                                        {% endif %}
+                                                    {% else %}
+                                                        COSTO $ 0.00<sup>*</sup>
+                                                    {% endif %}
+                                                </p>
+                                                <p>Virtual</p>
+                                                <br>
+                                            </div>
+                                            <div class="col-xs-offset-4">
+                                                <a href="{{ path('registro') }}"  class="btn btn-green-2"><span>Contratar</span></a>
+                                            </div>
+                                        {% endif %}
+                                    {% else %}
+                                        <div class="col-xs-offset-5">
+                                            <p>
+                                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                {% if app.user.niveles.nombre=='Servicio Solidario' or app.user.niveles.nombre=='Servicio Básico' %}
+                                                    Contratado
+                                                {% else %}
+                                                    COSTO $ 0.00<sup>*</sup>
+                                                {% endif %}
+                                            {% else %}
+                                                COSTO $ 0.00<sup>*</sup>
+                                            {% endif %}
+                                            </p>
+                                            <p>Virtual</p>
+                                            <br>
+                                        </div>
+                                        <div class="col-xs-offset-4">
+                                            <a href="{{ path('registro') }}"  class="btn btn-green-2"><span>Contratar</span></a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div id="collapse-1" style="" aria-expanded="false" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <p style="text-align: justify; font-size: 1em;">El Servicio Solidario consiste en presentaciones virtuales para dar a
+                                                conocer la Norma CRESE y su estructura. También se ofrecen otras presentaciones que
+                                                pueden servir a la empresa para capacitarse en diversos temas de Calidad Humana y
+                                                Responsabilidad Social y para formar su Comité Interno, que es el equipo de trabajo que
+                                                está a cargo de la implantación de la Norma en la empresa.<br>
+                                                Con esta información la empresa puede empezar a implantar la Norma por su cuenta, pero
+                                                puede obtener más ayuda con el Servicio Básico o la Solución a la medida.
+                                            </p>
+                                            <p style="font-size: 1em;">Recursos:</p>
+                                            <ol style="margin-left: -10px; list-style-type: disc;">
+                                                <li>Video Introductorio sobre la Norma CRESE.</li>
+                                                <li>Presentación en PowerPoint del curso de inducción.</li>
+                                                <li>Video de inducción, con una duración de 2 horas.</li>
+                                                <li>Presentación en PowerPoint "Nuestra casa común"</li>
+                                                <li>Presentación en PowerPoint ¿Qué es Calidad Humana en las empresas?</li>
+                                                <li>Video Conferencia “El amor a las personas en el mundo del trabajo”.</li>
+                                                <li>Video Conferencia “Trabajo decente y trascendente desde la Doctrina Social de la Iglesia”.</li>
+                                                <li>Presentación en PowerPoint de cómo formar un comité.</li>
+                                                <li>Norma CRESE® 2014.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4 col-sm-6">
+                        <div id="accordion-2" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-2" href="#collapse-2" aria-expanded="false" class="accordion-toggle collapsed">
+                                            2. Servicio Básico
+                                        </a></h5>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        {% if app.user.niveles.nombre=='Servicio Básico' or app.user.niveles.nombre=='Solución a la Medida' %}
+                                        {% else %}
+                                            <div class="col-xs-offset-4">
+                                                <p>
+                                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                        {% if app.user.niveles.nombre=='Servicio Básico' or app.user.niveles.nombre=='Solución a la Medida' %}
+                                                            Contratado
+                                                        {% else %}
+                                                    COSTO $ 1,250.00<sup>*</sup> /mes </p><p style="font-size: 90%; margin-left: 20px;"> (Cargo por 1 año)
+                                                        {% endif %}
+                                                    {% else %}
+                                                        COSTO $ 1,250.00<sup>*</sup> /mes </p><p style="font-size: 90%; margin-left: 20px;"> (Cargo por 1 año)
+                                                    {% endif %}
+                                                </p>
+                                                <p style="padding-left: 15px;">A distancia</p>
+                                            </div>
+                                            <div class="col-xs-offset-4">
+                                                <a href="{{ path('registro') }}"  class="btn btn-green-2"><span>Contratar</span></a>
+                                            </div>
+                                        {% endif %}
+                                    {% else %}
+                                        <div class="col-xs-offset-4">
+                                            <p>
+                                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                    {% if app.user.niveles.nombre=='Servicio Básico' or app.user.niveles.nombre=='Solución a la Medida' %}
+                                                        Contratado
+                                                    {% else %}
+                                                        COSTO $ 1,250.00<sup>*</sup> /mes </p><p style="font-size: 90%; margin-left: 20px;"> (Cargo por 1 año)
+                                                    {% endif %}
+                                                {% else %}
+                                                    COSTO $ 1,250.00<sup>*</sup> /mes </p><p style="font-size: 90%; margin-left: 20px;"> (Cargo por 1 año)
+                                                {% endif %}
+                                            </p>
+                                            <p style="padding-left: 15px;">A distancia</p>
+                                        </div>
+                                        <div class="col-xs-offset-4">
+                                            <a href="{{ path('registro') }}"  class="btn btn-green-2"><span>Contratar</span></a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div id="collapse-2" aria-expanded="false" style="height: 0px;" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <p style="text-align: justify; font-size: 1em;">
+                                                El Servicio Básico incluye los recursos del Servicio Solidario y otros servicios a distancia, para dar a las
+                                                empresas las herramientas que se necesitan para implantar la Norma CRESE por su cuenta, a un precio muy atractivo.
+                                            </p>
+                                            <p style="font-size: 1em;">Recursos:</p>
+                                            <ol style="margin-left: -10px; list-style-type: disc;">
+                                                <li>Todos los recursos del Servicio Solidario.</li>
+                                                <li>Uso de la herramienta de auto-diagnóstico y reporte de resultados en PDF.</li>
+                                                <li>Uso de la herramienta para evaluar el clima laboral y reporte de resultados en PDF.</li>
+                                                <li>Uso de la herramienta de auto-diagnóstico de prevención de incendios y reporte de resultados en PDF.</li>
+                                                <li>Uso de la herramienta de auto-diagnóstico de prevención de salud en el trabajo y reporte de resultados en PDF.</li>
+                                                <li>Uso de la herramienta para elaborar el plan de trabajo.</li>
+                                                <li>Uso de la aplicación Carpeta Virtual y hosting para todos sus programas.</li>
+                                                <li>Revisión y retroalimentación a distancia de un programa mensual o 12 programas anuales. (Si requiere una revisión adicional tendrá un costo de $770)</li>
+                                                <li>Uso de la aplicación para hacer minutas.</li>
+                                                <li>Video con un curso para auditores internos.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4 col-sm-6">
+                        <div id="accordion-3" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title"><a style="font-size: 90%;" data-toggle="collapse" data-parent="#accordion-3" href="#collapse-3" aria-expanded="false" class="accordion-toggle collapsed">
+                                            3. Solución a la Medida
+                                        </a></h5>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        {% if app.user.niveles.nombre=='Solución a la Medida' %}
+                                        {% else %}
+                                            <div class="col-xs-offset-5">
+                                                <p>
+                                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                        {% if app.user.niveles.nombre=='Solución a la Medida' %}
+                                                            Contratado
+                                                        {% else %}
+                                                            COSTO $ -<sup>*</sup>
+                                                        {% endif %}
+                                                    {% else %}
+                                                        COSTO $ -<sup>*</sup>
+                                                    {% endif %}
+                                                </p>
+                                                <p>Presencial</p>
+                                                <br>
+                                            </div>
+                                            <div class="col-xs-offset-4">
+                                                <a href="{{ path('solicitud') }}"  class="btn btn-green-2"><span>Cotizar</span></a>
+                                            </div>
+                                        {% endif %}
+                                    {% else %}
+                                        <div class="col-xs-offset-5">
+                                            <p>
+                                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                    {% if app.user.niveles.nombre=='Solución a la Medida' %}
+                                                        Contratado
+                                                    {% else %}
+                                                        COSTO $ -<sup>*</sup>
+                                                    {% endif %}
+                                                {% else %}
+                                                    COSTO $ -<sup>*</sup>
+                                                {% endif %}
+                                            </p>
+                                            <p>Presencial</p>
+                                            <br>
+                                        </div>
+                                        <div class="col-xs-offset-4">
+                                            <a href="{{ path('solicitud') }}"  class="btn btn-green-2"><span>Cotizar</span></a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div id="collapse-3" style="height: 0px;" aria-expanded="false" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <p style="text-align: justify; font-size: 1em;">
+                                                La Solución a la medida incluye todos los recursos que la empresa requiera,
+                                                de manera virtual, a distancia o presencial.<br>
+                                                Con este paquete, se puede garantizar que las empresas obtienen lo que necesitan
+                                                para implantar la Norma CRESE con éxito y obtener los resultados de calidad humana y
+                                                productividad que son propios de este sistema. Con este servicio se les puede apoyar a
+                                                las empresas a cumplir con todos los pasos del proceso de consultoría de Empresa Responsable, A.C.,
+                                                que ha sido probado por más de 10 años.
+                                            </p>
+                                            <p style="font-size: 1em;">Recursos:</p>
+                                            <ol style="margin-left: -5px; list-style-type: disc;">
+                                                <li>Todos los recursos que se soliciten, de manera virtual, a distancia o presencial.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div style="margin-bottom: 20px;" class="course-des-title underline">Contenido de los Paquetes</div>
+                            <a href="{{ asset('res/Informacion_Paquetes.pdf') }}" download>Descargar toda la Información <i class="fa fa-file-pdf-o"></i></a>
+                            <div class="course-des-content" style="text-align: justify; margin-top: 15px;">
+                                <div class="row irow-sm text-center pricing pricing-mono">
+                                    <div class="col-xs-12">
+                                        <div id="PricingTab">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <table class="table table-condensed table-hover">
+                                                        <thead>
+                                                        <tr>
+                                                            <th class="tabco0">Actividades
+                                                                <p style="font-size: 0.7em; margin-bottom: -10px;">para implantar la Norma CRESE</p>
+                                                                <a style="font-size: 0.7em;" href="https://youtu.be/GbGwT_1DtQc" target="_blank">Ver Video <i class="fa fa-play-circle" style="font-size: 1.5em;"></i></a>
+                                                            </th>
+                                                            <th class="tabco1">Servicio Solidario</th>
+                                                            <th class="tabco2">Servicio Básico</th>
+                                                            <th class="tabco3">Solución a la Medida</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="tabco0" style="font-weight: 700;">1. Inducción</td>
+                                                            <td class="tabco1" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco2" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco3" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="tabco0" style="font-weight: 700;">2. Diagnósticos</td>
+                                                            <td class="tabco1" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco2" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco3" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="tabco0" style="font-weight: 700;">3. Consultoría</td>
+                                                            <td class="tabco1" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco2" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco3" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="tabco0" style="font-weight: 700;">4. Capacitación de Auditores Internos</td>
+                                                            <td class="tabco1" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco2" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco3" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="tabco0" style="font-weight: 700;">5. Acompañamiento Auditoría Interna</td>
+                                                            <td class="tabco1" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco2" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco3" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="tabco0" style="font-weight: 700;">6. Programa de Principios y Valores de la Norma CRESE</td>
+                                                            <td class="tabco1" ><i style="margin-top: 5px;" class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco2" ><i style="margin-top: 10px;" class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco3" ><i style="margin-top: 10px;" class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="tabco0" style="font-weight: 700;">7. Auditoría de Seguimiento</td>
+                                                            <td class="tabco1" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco2" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco3" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="tabco0" style="font-weight: 700;">8. Diseño y Documentación de Programas</td>
+                                                            <td class="tabco1" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco2" ><i class="fa fa-times crossSign" aria-hidden="true"></i></td>
+                                                            <td class="tabco3" ><i class="fa fa-check rightSign" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div><!--row-->
+                                            </div><!--container-->
+                                        </div><!--PricingTab-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-padding">
+        <div class="container">
+            <div class="group-title-index">
+                <h2 class="center-title">SERVICIOS INDIVIDUALES</h2>
+            </div>
+            <div class="accordion-faq">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-6">
+                        <div id="accordion-4" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading"><h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-4" href="#collapse-4" aria-expanded="true" class="accordion-toggle">
+                                            1. Auto-Diagnóstico</a></h5>
+                                    <div class="col-xs-offset-5">
+                                        <p>COSTO $ 3,500.00<sup>*</sup></p>
+                                        <a href="{{ path('frontend_pagos_paquete',{"id":app.user.id,"cantidad":3500,'paq':1}) }}"  class="btn btn-green-2"><span>Contratar</span></a>
+                                    </div>
+                                </div>
+                                <div id="collapse-4" style="" aria-expanded="false" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <div class="table-header">
+                                                <table class="edu-table-responsive">
+                                                    <thead>
+                                                    <tr class="heading-table">
+                                                        <th class="col-1">Incluye</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="table-body">
+                                                <table class="edu-table-responsive table-hover">
+                                                    <tbody>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>1. Uso de la Herramienta de Auto-Diagnóstico (Virtual).</span></td>
+                                                    </tr>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>2. Reporte detallado en PDF.</span></td>
+                                                    </tr>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>3. Presentación en PowerPoint con los resultados del Auto-Diagnóstico.</span></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <div id="accordion-5" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading"><h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-5" href="#collapse-5" aria-expanded="false" class="accordion-toggle collapsed">
+                                            2. Encuesta Clima Laboral</a></h5>
+                                    <div class="col-xs-offset-5">
+                                        <p>COSTO $ 700.00<sup>*</sup></p>
+                                        <a href="{{ path('frontend_pagos_paquete',{"id":app.user.id,"cantidad":700,'paq':2}) }}"  class="btn btn-green-2"><span>Contratar</span></a>
+                                    </div>
+                                </div>
+                                <div id="collapse-5" aria-expanded="false" style="height: 0px;" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <div class="table-header">
+                                                <table class="edu-table-responsive">
+                                                    <thead>
+                                                    <tr class="heading-table">
+                                                        <th class="col-1">Incluye</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="table-body">
+                                                <table class="edu-table-responsive table-hover">
+                                                    <tbody>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>1. Uso de la herramienta de Clima Laboral<sup>1</sup>.</span></td>
+                                                    </tr>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>2. Reporte detallado en PDF.</span></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <p style="font-size: 0.9em; text-align: justify;"><sup>1</sup>Esta cotización está hecha para 22 trabajadores que son suficientes para obtener un 95% de grado de confianza y 10% de margen de error, siempre y cuando la empresa elija a los trabajadores de forma aleatoria. Es responsabilidad de la empresa elegir adecuadamente esta muestra.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <div id="accordion-6" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading"><h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-6" href="#collapse-6" aria-expanded="false" class="accordion-toggle collapsed">
+                                            3. Plan de Trabajo Anual</a></h5>
+                                    <div class="col-xs-offset-5">
+                                        <p>COSTO $ 2,700.00<sup>*</sup></p>
+                                        <a href="{{ path('frontend_pagos_paquete',{"id":app.user.id,"cantidad":2700,'paq':3}) }}"  class="btn btn-green-2"><span>Contratar</span></a>
+                                    </div>
+                                </div>
+                                <div id="collapse-6" style="height: 0px;" aria-expanded="false" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <div class="table-header">
+                                                <table class="edu-table-responsive">
+                                                    <thead>
+                                                    <tr class="heading-table">
+                                                        <th class="col-1">Incluye</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="table-body">
+                                                <table class="edu-table-responsive table-hover">
+                                                    <tbody>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>1. Herramienta virtual para hacer su plan de trabajo.</span></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <div id="accordion-7" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading"><h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-7" href="#collapse-7" aria-expanded="false" class="accordion-toggle collapsed">
+                                            4. Programa de principios y valores de la Norma CRESE</a></h5>
+                                    <div class="col-xs-offset-5">
+                                        <p>COSTO $ 500.00<sup>*</sup></p>
+                                        <a href="{{ path('frontend_pagos_paquete',{"id":app.user.id,"cantidad":500,'paq':4}) }}"  class="btn btn-green-2"><span>Contratar</span></a>
+                                    </div>
+                                </div>
+                                <div id="collapse-7" style="height: 0px;" aria-expanded="false" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <div class="table-header">
+                                                <table class="edu-table-responsive">
+                                                    <thead>
+                                                    <tr class="heading-table">
+                                                        <th class="col-1">Incluye</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="table-body">
+                                                <table class="edu-table-responsive table-hover">
+                                                    <tbody>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>1. Manual Virtual con una metodología participativa que favorece la reflexión introspectiva,
+                                                                el diálogo directo con compañeros de trabajo y la conclusiones, a partir del análisis de la realidad.
+                                                                Al menos dos lectura para cada valor provenientes de autores destacados y encíclicas papales sociales.</span></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <div id="accordion-8" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading"><h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-8" href="#collapse-8" aria-expanded="false" class="accordion-toggle collapsed">
+                                            5. Programa de principios y valores de tu empresa</a></h5>
+                                    <div class="col-xs-offset-5">
+                                        <p>COSTO $ -<sup>*</sup></p>
+                                        <a href="{{ path('solicitud_valores') }}"  class="btn btn-green-2"><span>Cotizar</span></a>
+                                    </div>
+                                </div>
+                                <div id="collapse-8" style="height: 0px;" aria-expanded="false" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <div class="table-header">
+                                                <table class="edu-table-responsive">
+                                                    <thead>
+                                                    <tr class="heading-table">
+                                                        <th class="col-1">Incluye</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="table-body">
+                                                <table class="edu-table-responsive table-hover">
+                                                    <tbody>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>1. Manual virtual con una metodología participativa que
+                                                                favorece la reflexión introspectiva, el diálogo directo con compañeros de trabajo
+                                                                y conclusiones, a partir del análisis de la realidad sobre los valores de tu empresa.</span></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <div id="accordion-9" class="panel-group accordion">
+                            <div class="panel">
+                                <div class="panel-heading"><h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-9" href="#collapse-9" aria-expanded="false" class="accordion-toggle collapsed">
+                                            6. Revisión adicional de programa</a></h5>
+                                    <div class="col-xs-offset-5">
+                                        <p>COSTO $ 770<sup>*</sup></p>
+<<<<<<< HEAD
+                                        <a href="{{ path('frontend_pagos_paquete',{"id":app.user.id,"cantidad":770,'paq':6}) }}"  class="btn btn-green-2"><span>Cotizar</span></a>
+=======
+                                        <a href="{{ path('solicitud_valores') }}"  class="btn btn-green-2"><span>Contratar</span></a>
+>>>>>>> 766b4920b926d33c4d5f90b45a1d2e707e6f3f95
+                                    </div>
+                                </div>
+                                <div id="collapse-9" style="height: 0px;" aria-expanded="false" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="inner-container col-xs-12">
+                                            <div class="table-header">
+                                                <table class="edu-table-responsive">
+                                                    <thead>
+                                                    <tr class="heading-table">
+                                                        <th class="col-1">Incluye</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="table-body">
+                                                <table class="edu-table-responsive table-hover">
+                                                    <tbody>
+                                                    <tr class="table-row">
+                                                        <td class="col-1"><span>1. Revisión adicional de un  programa en la capeta virtual.</span></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section pricing">
+        <div class="container">
+            <div class="row">
+                    {#<p style="font-size: 1em;"><strong>Notas:</strong></p>#}
+                    <ol>
+                        {#<li>Todos los servicios, excepto en <strong>Solución a la medida</strong>, es virtual o a distancia.</li>#}
+                        {#<li>Visítanos con frecuencia, ya que continuamente se agregarán nuevas herramientas y se mejoraran las que ya se tienen.</li>#}
+                        {#<br>#}
+                        <p>* Todos los precios son en Pesos Mexicanos + IVA</p>
+                    </ol>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

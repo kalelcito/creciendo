@@ -1,0 +1,256 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        .error {
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="course-des">
+                            <div class="course-des-title underline">{{ titulo }}</div>
+                            <div class="col-sm-12" id="impresion">
+                                <div class="status alert alert-success" style="display: none"></div>
+                                {{ form_start(form, {'action':path('frontend_contenido',{'slug':slug})}) }}
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Fecha <span
+                                                    class="highlight">*</span></label>
+                                        {{ form_widget(form.fecha, {'attr':{'class': 'form-control'}}) }}
+                                        {% if form.fecha.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.fecha.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Tema <span
+                                                    class="highlight">*</span></label>
+                                        {{ form_widget(form.tema, {'attr':{'class': 'form-control'}} ) }}
+                                        {% if form.tema.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.tema.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Empresa <span
+                                                    class="highlight">*</span></label>
+                                        {{ form_widget(form.empresa, {'attr':{'class': 'form-control'}} ) }}
+                                        {% if form.empresa.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.empresa.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Duración <span
+                                                    class="highlight">*</span></label>
+                                        {{ form_widget(form.duracion, {'attr':{'class': 'form-control'}} ) }}
+                                        {% if form.duracion.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.duracion.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Asistentes <span class="highlight">*</span></label>
+                                        {{ form_widget(form.asistentes, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.asistentes.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.asistentes.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Puntos a Tratar <span
+                                                    class="highlight">*</span></label>
+                                        {{ form_widget(form.puntos, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.puntos.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.puntos.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Acuerdos <span
+                                                    class="highlight">*</span></label>
+                                        {{ form_widget(form.acuerdos, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.acuerdos.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.acuerdos.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Fecha de la siguiente reunion <span
+                                                    class="highlight">*</span></label>
+                                        {{ form_widget(form.fechasiguiente, {'attr':{'class': 'form-control'}}) }}
+                                        {% if form.fechasiguiente.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.fechasiguiente.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Consultor <span class="highlight">*</span></label>
+                                        {{ form_widget(form.consultor, {'attr':{'class': 'form-control'}} ) }}
+                                        {% if form.consultor.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.consultor.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <p id="user" class="hidden">{{ app.user.nomempresa }}</p>
+                                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">
+                                    <button value="Imprimir" onclick="createPdf()"
+                                            class="btn btn-contact btn-green pull-right"><span>Descargar</span>
+                                    </button>
+                                </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="window.location.href='../programa/accesos'" class="btn btn-green-2" style="left: 45%;">
+                <span>Regresar</span>
+            </button>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/jspdf.min.js') }}"></script>
+    <script>
+        function createPdf() {
+            var form = $("form[name='corebundle_minutas']");
+            if(document.forms.corebundle_minutas.corebundle_minutas_fecha.value=="" ||
+                document.forms.corebundle_minutas.corebundle_minutas_tema.value=="" ||
+                document.forms.corebundle_minutas.corebundle_minutas_empresa.value=="" ||
+                document.forms.corebundle_minutas.corebundle_minutas_duracion.value=="" ||
+                document.forms.corebundle_minutas.corebundle_minutas_asistentes.value=="" ||
+                document.forms.corebundle_minutas.corebundle_minutas_puntos.value=="" ||
+                document.forms.corebundle_minutas.corebundle_minutas_acuerdos.value=="" ||
+                document.forms.corebundle_minutas.corebundle_minutas_fechasiguiente.value==""){
+            } else {
+
+                var content = [document.forms.corebundle_minutas.corebundle_minutas_fecha.value,
+                    document.forms.corebundle_minutas.corebundle_minutas_tema.value,
+                    document.forms.corebundle_minutas.corebundle_minutas_empresa.value,
+                    document.forms.corebundle_minutas.corebundle_minutas_duracion.value,
+                    document.forms.corebundle_minutas.corebundle_minutas_asistentes.value,
+                    document.forms.corebundle_minutas.corebundle_minutas_puntos.value,
+                    document.forms.corebundle_minutas.corebundle_minutas_acuerdos.value,
+                    document.forms.corebundle_minutas.corebundle_minutas_fechasiguiente.value,
+                    document.forms.corebundle_minutas.corebundle_minutas_consultor.value];
+                var temas = ["Fecha: ","Tema: ","Empresa: ","Duración: ","Asistentes: ","Puntos a Tratar: ","Acuerdos: ",
+                    "Fecha de la siguiente Reunión: ","Correo del Consultor: "];
+                var doc = new jsPDF('p','in','letter') ,sizes = [12,14,20],lines,lines2,t1,t2,space,block ,margin = 0.5 ,verticalOffset = margin;
+                var page= doc.internal.pageSize.height;
+                var t = page;
+                var titulo = 'Servicio de Minutas de la Plataforma Empresa Responsable';
+
+                lines = doc.splitTextToSize(titulo, 7);
+                doc.setFontSize(sizes[2]);
+                doc.setTextColor(18,36,104);
+                doc.text(0.5, verticalOffset + sizes[2] / 72, lines);
+                verticalOffset += (lines.length + 0.5) * sizes[2] / 72;
+                verticalOffset += (lines.length + 0.5) * sizes[2] / 72;
+                doc.setTextColor(0,0,0);
+
+                for(var i in content){
+                    lines = doc.splitTextToSize(temas[i], 7);
+                    lines2 = doc.splitTextToSize(content[i], 6.5);
+                    t1 = (lines.length + 0.5) * sizes[1] / 72;
+                    t2 = (lines2.length + 0.5) * sizes[1] / 72;
+                    space = (1 + 0.5) * sizes[0] / 72;
+                    block = t1+t2+space;
+
+                    //check page
+                    t = t - block;
+                    if(t<0){
+                        doc.addPage();
+                        t=page;
+                        verticalOffset = margin;
+                    }
+
+                    //tema
+                    doc.setFontSize(sizes[1]);
+                    doc.text(0.5, verticalOffset + sizes[1] / 72, lines);
+                    verticalOffset += (lines.length + 0.5) * sizes[1] / 72;
+                    //content
+                    doc.setFontSize(sizes[0]);
+                    doc.text(1, verticalOffset + sizes[0] / 72, lines2);
+                    verticalOffset += (lines2.length + 0.5) * sizes[0] / 72;
+                    //space
+                    verticalOffset += (1 + 0.5) * sizes[0] / 72;
+                }
+
+                doc.save('Minuta_' + $("#user").html() + '.pdf');
+            }
+        }
+    </script>
+{% endblock %}

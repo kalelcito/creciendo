@@ -1,0 +1,56 @@
+{% extends '@Admin/base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+{% block navegacion %}
+    {{ include('@Admin/partials/navegacion.html.twig',{'menu':'Inicio','submenu':'Lista de Encuestas'}) }}
+{% endblock %}
+{% block body %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">Encuestas</h3>
+                {% if data|length > 0 %}
+                    <table id="myTable" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Opciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set i=0 %}
+                        {% for d in data %}
+                            <tr>
+                                <td>
+                                    <a href="{{ path('backend_encuestas_edit', { 'id': d.archivojson | split('.json') | first}) }}"
+                                       data-toggle="tooltip" title="Editar Encuesta">{{ i+1 }}</a></td>
+                                <td>{{ d.nombre }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="{{ path('backend_encuestas_show', { 'id': d.archivojson | split('.json') | first}) }}"
+                                           data-toggle="tooltip" title="Ver" class="btn btn-default"><i
+                                                    class="fa fa-list-ul"></i></a>
+                                        <a href="{{ path('backend_encuestas_edit', { 'id': d.archivojson | split('.json') | first}) }}"
+                                           data-toggle="tooltip" title="Editar Encuesta" class="btn btn-default"><i
+                                                    class="fa fa-edit"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% set i=i+1 %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <h4>Sin Encuestas</h4>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

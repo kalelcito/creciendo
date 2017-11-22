@@ -1,0 +1,156 @@
+{% extends '@Frontend/layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/libs/x-editable/css/bootstrap-editable.css') }}" rel="stylesheet">
+    <style>
+        .panel-body>a:hover, .panel-body>a:visited  {
+            color: #0088cc;
+        }
+        .error {
+            color: #953b39;
+            font-size: 14px;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding">
+        <div class="container">
+
+                <div class="col-md-12 layout-left">
+                    <div class="course-des">
+                        <div class="course-des-title underline">{{ contenido.titulo }}</div>
+                    </div>
+                </div>
+
+            <div class="accordion-faq">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="underline" style="font-size: 20px;">Encuestas</div>
+                        <p>Los datos ingresados no podrán ser modificados posteriormente.</p>
+                        <div id="accordion-1" class="panel-group accordion">
+                            <div class="col-xs-3 col-xs-offset-9"><span class="col-sm-offset-4 col-xs-offset-2">Contestada</span></div>
+                            {% set i=1 %}
+                            {% for res in data %}
+                                <div class="panel">
+                                    <div class="panel-heading col-xs-9">
+                                        <h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-1" href="#collapse-1-{{ i }}" aria-expanded="false" class="accordion-toggle collapsed">
+                                                {{ i }}. {{ res.nombre }}
+                                            </a></h5>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {% if res.completado==1 %}
+                                            <i class="fa fa-check-circle col-xs-offset-6" style="color: limegreen; padding-top: 15px;"></i>
+                                        {% else %}
+                                            <i class="fa fa-times-circle col-xs-offset-6" style="color: red; padding-top: 15px;"></i>
+                                        {% endif %}
+                                    </div>
+                                    <div id="collapse-1-{{ i }}" aria-expanded="false" style="height: 0px;" class="panel-collapse collapse col-xs-12">
+                                        <div class="panel-body">
+                                            Nombre: {{ res.nombre }}<br>
+                                            Empresa: {{ res.empresa }}<br>
+                                            Sucursal: {{ res.sucursal }}<br>
+                                            Antigüedad: {{ res.antiguedad }}<br>
+                                            Creada: {{ res.createdAt|date("d/m/Y") }}<br>
+                                            {% if res.completado==1 %}
+                                                Contestada: {{ res.updatedAt|date("d/m/Y") }}
+                                            {% endif %}
+                                        </div>
+                                        {% if res.completado==1 %}
+                                        {% else %}
+                                            <a href="{{ path('frontend_clima_encuesta', { 'codigo' : res.codigo , 'slug' : app.request.get('slug')}) }}" class="btn btn-green-4"><span>Accesar</span></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% set i=i+1 %}
+                            {% endfor %}
+                            {% if num-(data|length) == 0 %}
+                            {% else %}
+                                {% for x in i..num %}
+                                    <div class="panel">
+                                        <div class="panel-heading col-xs-9">
+                                            <h5 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion-1" href="#collapse-1-{{ x }}" aria-expanded="false" class="accordion-toggle collapsed">
+                                                    {{ x }}. Sin asignar
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div class="col-xs-3">
+                                                <i class="fa fa-times-circle col-xs-offset-6" style="color: red; padding-top: 15px;"></i>
+                                        </div>
+                                        <div id="collapse-1-{{ x }}" aria-expanded="false" style="height: 0px;" class="panel-collapse collapse col-xs-12">
+                                            <div class="panel-body">Sin Asignar</div>
+                                            <button data-toggle="modal" data-target="#agregar" style="margin-top: 5px; margin-left: 100px; margin-bottom: 10px;" class="btn btn-green-4"><span>Agregar</span></button>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path("frontend_programa", {"slug":'accesos' }) }}"  class="btn btn-green-2" style="left: 45%; margin-top: 50px;"><span>Regresar</span></a>
+        </div>
+    </div>
+    <div id="agregar" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Agregar a la Lista</h4>
+                </div>
+                <div class="modal-body">
+                    {#action a guardar en la DB el nuevo empleado#}
+                    <form action="{{ path('frontend_clima') }}" method="post" id="submit_agregar">
+                        <input id="empresa"  name="empresa" placeholder="Empresa" type="text" class="form-control" required>
+                        <p class="error empresa hidden"></p>
+                        <input id="sucursal" name="sucursal" style="margin-top: 10px;" placeholder="Sucursal" type="text" class="form-control" required>
+                        <p class="error sucursal hidden"></p>
+                        <input id="anti" name="anti" style="margin-top: 10px;" placeholder="Antigüedad" type="text" class="form-control" required>
+                        <p class="error anti hidden"></p>
+                        <input name="id" value="{{ id }}" class="hidden">
+                        <input name="slug" value="{{ app.request.get('slug') }}" class="hidden">
+                        <button style="margin-top: 10px;" class="btn btn-green-4" type="submit"><span>Agregar</span></button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-green" data-dismiss="modal"><span>Cerrar</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('button[type="submit"]').click(function (e) {
+                e.preventDefault();
+                $(this).prop('disabled',true);
+                if($('#empresa').val()=='' || $('#anti').val()=='' || $('#sucursal').val()==''){
+                    $(this).prop('disabled',false);
+                    if($('#empresa').val()==''){
+                        $(".error.empresa").html('Ingresa nombre de la empresa');
+                        $(".error.empresa").removeClass('hidden');
+                    }else{
+                        $(".error.empresa").addClass('hidden');
+                    }
+                    if($('#sucursal').val()==''){
+                        $(".error.sucursal").html('Ingresa nombre de la sucursal');
+                        $(".error.sucursal").removeClass('hidden');
+                    }else{
+                        $(".error.sucursal").addClass('hidden');
+                    }
+                    if($('#anti').val()==''){
+                        $(".error.anti").html('Ingresa antigüedad en la empresa');
+                        $(".error.anti").removeClass('hidden');
+                    }else{
+                        $(".error.anti").addClass('hidden');
+                    }
+                }else{
+                    $('#submit_agregar').submit();
+                }
+            });
+        });
+    </script>
+{% endblock %}

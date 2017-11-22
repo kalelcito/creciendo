@@ -1,0 +1,19 @@
+#services:
+#    frontend.example:
+#        class: FrontendBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+parameters:
+    frontend.component.authentication.handler.login_success_handler.class: FrontendBundle\Component\Authentication\Handler\LoginSuccessHandler
+    frontend.component.authentication.handler.logout_success_handler.class: FrontendBundle\Component\Authentication\Handler\LogoutSuccessHandler
+
+services:
+    frontend.component.authentication.handler.login_success_handler:
+        class:  FrontendBundle\Component\Authentication\Handler\LoginSuccessHandler
+        arguments:  [ '@router', '@security.authorization_checker','@service_container']
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+    frontend.component.authentication.handler.logout_success_handler:
+        class:  FrontendBundle\Component\Authentication\Handler\LogoutSuccessHandler
+        arguments:  ['@router','@service_container']
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }

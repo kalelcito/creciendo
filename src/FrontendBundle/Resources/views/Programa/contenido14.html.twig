@@ -1,0 +1,219 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline">  3.4 Diagnóstico de Servicios Preventivos de Salud</div>
+                            <div class="course-des-content" style="color:#49575f;">
+                                <p>Referencia: Art. 19. Nuevo Reglamento Federal de Seguridad y Salud en el Trabajo</p>
+                                <div class="col-md-12">
+                                    {{ form_start(form, {'action':path('salud')}) }}
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">I. ¿Se cuenta con algún médico o personal capacitado, para proporcionar atención en caso de un accidente en el trabajo (PreR II de la Norma CRESE 2014)?</label><br/>
+                                        {% form_theme form.a01 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a01, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a01.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a01.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">II. ¿Qué acciones se tienen en la empresa para promover la salud de los trabajadores (Art. 49, II, Reglamento) (PreR II-11 de la Norma CRESE 2014, mínimo auditable "a" del R9 y R10)?</label>
+                                        {{ form_widget(form.a02, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.a02.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a02.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">III. ¿Qué acciones se tienen en la empresa para prevenir las adicciones en los trabajadores (Art. 49, II, Reglamento) (PreR II-11 de la Norma CRESE 2014, mínimo auditable "a" del R9 y R10)?</label>
+                                        {{ form_widget(form.a03, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.a03.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a03.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">IV. ¿Se cuenta con un botiquín de primeros auxilios debidamente equipado; (Pre-requisito II-16, Botiquín, mínimo auditable "a" del R8)?</label><br/>
+                                        {% form_theme form.a04 '@Frontend/Programa/fields.html.twig' %}
+                                        {{ form_widget(form.a04, {'attr': {'class': 'radio-inline'} })}}
+                                        {% if form.a04.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a04.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">V. ¿Cómo se da seguimiento a las acciones de los incisos II y III de este diagnóstico? (PreR II-11 de la Norma CRESE 2014, mínimo auditable "a" del R9 y R10)?</label>
+                                        {{ form_widget(form.a05, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.a05.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a05.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">VI. ¿Cómo se apoya la actualización (capacitación y adiestramiento) de los responsables de los servicios preventivos de medicina del trabajo de carácter interno, en su caso (PreR II-11 de la Norma CRESE 2014, mínimo auditable "b" del R8 y "d" del R10)?</label>
+                                        {{ form_widget(form.a06, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.a06.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.a06.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Nombre de la Empresa u Organización:</label>
+                                        {{ form_widget(form.empresa, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.empresa.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.empresa.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Sucursal:</label>
+                                        {{ form_widget(form.sucursal, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.sucursal.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.sucursal.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Nombre de Quien Contesto el Diagnóstico:</label>
+                                        {{ form_widget(form.nombre, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.nombre.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.nombre.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Departamento/Area:</label>
+                                        {{ form_widget(form.departamento, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.departamento.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.departamento.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Asesor de Empresa Responsable:</label>
+                                        {{ form_widget(form.asesor, {'attr':{'rows':'5', 'class': 'form-control'}}) }}
+                                        {% if form.asesor.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.asesor.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textbox" class="textbox">Fecha:</label>
+                                        {{ form_widget(form.fecha, {'attr':{'class': 'form-control'}}) }}
+                                        {% if form.fecha.vars.errors|length > 0 %}
+                                            <label class="panel-login">
+                                                <div class="login_result">
+                                                    {% for error in form.fecha.vars.errors %}
+                                                        {{ error.message }} <br/>
+                                                    {% endfor %}
+                                                </div>
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                    {{ form_widget(form.enviar, {'attr': {'class ': 'btn btn-contact btn-green pull-right', 'data-toggle': 'modal', 'data-target': '#res'} }) }}
+
+
+                                    {% for label, flashes in app.session.flashbag.all %}
+                                        {% for flash in flashes %}
+                                            <div id="res" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title"></h4>
+                                                        </div>
+                                                        <div class="modal-body ">
+                                                            <div class="alert alert-{{ label }}">
+                                                                {{ flash }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% endfor %}
+
+
+
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="window.location.href='../gestion'" class="btn btn-green-2" style="left: 45%;">
+                    <span>Regresar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,153 @@
+    {% extends '@Admin/base.html.twig' %}
+{% block navegacion %}
+{{ include('@Admin/partials/navegacion.html.twig',{'menu':'Empresa Responsable','submenu':'Clientes'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script src="{{ asset('admin/js/jasny-bootstrap.js') }}"></script>
+{% endblock %}
+
+    {% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">Ver Registro</h3>                <form class="form-horizontal" role="form">                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Id</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.id }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nivel</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.niveles }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.nombre }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Apellidos</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.apellidos }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nombre Empresa</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.nomempresa }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Puesto</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.puesto }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">{#
+                            <label class="col-sm-2 control-label">Foto</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.foto }}                                </p>
+                            </div>
+                        </div>                        #}<div class="form-group">
+                            <label class="col-sm-2 control-label">Username</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.username }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.email }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Telefono</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.telefono }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Celular</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.celular }}                                </p>
+                            </div>
+                        </div>                        {#<div class="form-group">
+                            <label class="col-sm-2 control-label">Pass</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.pass }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Salt</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.salt }}                                </p>
+                            </div>
+                        </div>                        #}<div class="form-group">
+                            <label class="col-sm-2 control-label">Activo</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{  cliente.isactive|sino }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Verificado</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.verificado|sino }}                               </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Recuperacion</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.recuperacion }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Activacion</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.activacion }}                                </p>
+                            </div>
+                        </div>                        {#<div class="form-group">
+                            <label class="col-sm-2 control-label">Ultimo_acceso</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {% if cliente.ultimoacceso %}{{ cliente.ultimoacceso|date('Y-m-d H:i:s') }}{% endif %}                                </p>
+                            </div>
+                        </div>                        #}<div class="form-group">
+                            <label class="col-sm-2 control-label">Pago Efectivo</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.pagoefectivo|sino }}                          </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Pago Tarjeta</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.pagotarjeta|sino }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Pago Oxxo</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.pagooxxo|sino }}                               </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Saldo</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.saldo }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ID Conekta</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ cliente.conektacustomerid }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Creado</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {% if cliente.creado %}{{ cliente.creado|date('Y-m-d H:i:s') }}{% endif %}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Actualizado</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {% if cliente.actualizado %}{{ cliente.actualizado|date('Y-m-d H:i:s') }}{% endif %}                                </p>
+                            </div>
+                        </div>                    <div class="form-group m-b-0">
+                        <div class="col-sm-12">
+                                                                    <a class="btn btn-inverse waves-effect waves-light m-t-10" style="float:left; margin:5px;" href="{{ path('clientes_index') }}">Regresar</a>            <a class="btn btn-info waves-effect waves-light m-t-10" style="float:left;  margin:5px;"  href="{{ path('clientes_edit', { 'id': cliente.id }) }}">Editar</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,188 @@
+{% extends '@Frontend/layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/libs/x-editable/css/bootstrap-editable.css') }}" rel="stylesheet">
+    <style>
+        .incorrecto {
+            color: red;
+            font-size: 0.8em;
+            margin-top: -10px;
+            margin-bottom: -10px;
+        }
+        .panel-body>a:hover, .panel-body>a:visited  {
+            color: #0088cc;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/x-editable/js/bootstrap-editable.js') }}"></script>
+    {% if cod!=null %}
+        <script>
+            $( document ).ready(function() {
+                swal({
+                    title: "Código para Acceso: {{ cod }}",
+                    text: "Este Código de Acceso se Solicitará al Encuestado!",
+                    type: "warning",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "OK!",
+                    closeOnConfirm: false
+                }, function(){
+                    window.location.href = "{{ path("frontend_contenido", {"slug":app.request.get('slug') }) }}";
+                });
+            });
+        </script>
+    {% endif %}
+    <script>
+        $(document).ready(function () {
+            //modals action
+            {% set i=1 %}
+            {% for res in data %}
+            $("#codigo{{ i }}").keyup(function(){
+                if($("#codigo{{ i }}").val() != '{{ res.codigo }}'){
+                    $("#msg{{ i }}").html("Código Incorrecto");
+                    $("#boton{{ i }}").prop("disabled",true);
+                    $("#div{{ i }}").addClass("has-error");
+                    $("#div{{ i }}").removeClass("has-success");
+                }else{
+                    $("#msg{{ i }}").html("");
+                    $("#boton{{ i }}").prop("disabled",false);
+                    $("#div{{ i }}").removeClass("has-error");
+                    $("#div{{ i }}").addClass("has-success");
+                }
+            });
+            $('#empresa{{ i }}').editable({
+                mode: 'inline',
+                success: function(){
+                    window.location.reload();
+                }
+            });
+            $('#sucursal{{ i }}').editable({
+                mode: 'inline',
+                success: function() {
+                    window.location.reload();
+                }
+            });
+            $('#anti{{ i }}').editable({
+                mode: 'inline',
+                success: function() {
+                    window.location.reload();
+                }
+            });
+            {% set i=i+1 %}
+            {% endfor %}
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding">
+        <div class="container">
+
+                <div class="col-md-12 layout-left">
+                    <div class="course-des">
+                        <div class="course-des-title underline">{{ contenido.titulo }}</div>
+                        {% if data|length < num %}
+                            <a href="#" data-toggle="modal" data-target="#agregar" class="btn btn-green-2" style="float: right;"><span>Agregar</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+
+            <div class="accordion-faq">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="underline" style="font-size: 20px;">Encuestas</div>
+                        <p>Disponibles: {{ num-(data|length) }}</p>{#conteo de encuestas disponibles#}
+                        <div id="accordion-1" class="panel-group accordion">
+                            <div class="col-xs-3 col-xs-offset-9"><span class="col-sm-offset-4 col-xs-offset-2">Contestada</span></div>
+                            {% set i=1 %}
+                            {% for res in data %}
+                                <div class="panel">
+                                    <div class="panel-heading col-xs-9">
+                                        <h5 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-1" href="#collapse-1-{{ i }}" aria-expanded="false" class="accordion-toggle collapsed">
+                                                {{ i }}. {{ res.nombre }}
+                                            </a></h5>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {% if res.completado==1 %}
+                                            <i class="fa fa-check-circle col-xs-offset-6" style="color: limegreen; padding-top: 15px;"></i>
+                                        {% else %}
+                                            <i class="fa fa-times-circle col-xs-offset-6" style="color: red; padding-top: 15px;"></i>
+                                        {% endif %}
+                                    </div>
+                                    <div id="collapse-1-{{ i }}" aria-expanded="false" style="height: 0px;" class="panel-collapse collapse col-xs-12">
+                                        <div class="panel-body">
+                                            Nombre: <a href="#" id="nombre{{ i }}" name="nombre{{ i }}" data-type="text" data-pk="{{ res.id }}" data-url="{{ path('frontend_save') }}" data-title="Ingresa Nombre">{{ res.nombre }}</a><br>
+                                            Empresa: <a href="#" id="empresa{{ i }}" name="empresa{{ i }}" data-type="text" data-pk="{{ res.id }}" data-url="{{ path('frontend_save') }}" data-title="Ingresa Empresa">{{ res.empresa }}</a><br>
+                                            Sucursal: <a href="#" id="sucursal{{ i }}" name="sucursal{{ i }}" data-type="text" data-pk="{{ res.id }}" data-url="{{ path('frontend_save') }}" data-title="Ingresa número de Sucursal">{{ res.sucursal }}</a><br>
+                                            Antigüedad: <a href="#" id="anti{{ i }}" name="anti{{ i }}" data-type="text" data-pk="{{ res.id }}" data-url="{{ path('frontend_save') }}" data-title="Ingresa Antigüedad">{{ res.antiguedad }}</a><br>
+                                            Creada: {{ res.createdAt|date("d/m/Y") }}<br>
+                                            {% if res.completado==1 %}
+                                                Contestada: {{ res.updatedAt|date("d/m/Y") }}
+                                            {% endif %}
+                                        </div>
+                                        {% if res.completado==1 %}
+                                        {% else %}
+                                            <a href="#" data-toggle="modal" data-target="#acceso{{ i }}" class="btn btn-green-4" style="left: 47%; margin-bottom: 15px;"><span>Encuesta</span></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div id="acceso{{ i }}" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Código de Acceso a la Encuesta</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ path('frontend_clima_encuesta') }}" method="post">
+                                                    <div id="div{{ i }}" class="form-group has-error">
+                                                        <input autocomplete="off" autofocus type="text" class="form-control" name="codigo" id="codigo{{ i }}" placeholder="Ingresa tu Código">
+                                                    </div>
+                                                    <p id="msg{{ i }}" class="incorrecto"></p>
+                                                    <input name="id" value="{{ id }}" class="hidden" />
+                                                    <input name="slug" value="{{ app.request.get('slug') }}" class="hidden" />
+                                                    <button id="boton{{ i }}" disabled style="margin-top: 10px;" class="btn btn-green-4" type="submit"><span>Accesar</span></button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-green" data-dismiss="modal"><span>Cerrar</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% set i=i+1 %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path("frontend_programa", {"slug":'accesos' }) }}"  class="btn btn-green-2" style="left: 45%; margin-top: 50px;"><span>Regresar</span></a>
+        </div>
+    </div>
+    <div id="agregar" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Agregar a la Lista</h4>
+                </div>
+                <div class="modal-body">
+                    {#action a guardar en la DB el nuevo empleado#}
+                    <form action="{{ path('frontend_clima') }}" method="post">
+                        <input name="empresa" placeholder="Empresa" type="text" class="form-control">
+                        <input name="sucursal" style="margin-top: 10px;" placeholder="Sucursal" type="text" class="form-control">
+                        <input name="anti" style="margin-top: 10px;" placeholder="Antigüedad" type="text" class="form-control">
+                        <input name="id" value="{{ id }}" class="hidden">
+                        <input name="slug" value="{{ app.request.get('slug') }}" class="hidden">
+                        <button style="margin-top: 10px;" class="btn btn-green-4" type="submit"><span>Agregar</span></button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-green" data-dismiss="modal"><span>Cerrar</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

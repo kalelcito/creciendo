@@ -1,0 +1,61 @@
+    {% extends '@Admin/base.html.twig' %}
+{% block navegacion %}
+{{ include('@Admin/partials/navegacion.html.twig',{'menu':'Empresa Responsable','submenu':'Contenido'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('admin/plugins/bower_components/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/plugins/bower_components/datatables/jquery.dataTables.min.js') }}"></script><script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">Contenidos</h3>
+               {#<p class="text-muted m-b-30">{{ Seccion_Contenidos</p>#}
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Titulo</th>
+                        <th>Tipo</th>
+                        <th>Orden</th>
+                        <th>Activo</th>
+                        <th>Opciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set i = 1 %}
+                    {% for seccion_Contenido in seccion_Contenidos %}
+                    <tr>
+                    <td><a href="{{ path('seccion_contenidos_show', { 'id': seccion_Contenido.id }) }}">{{ seccion_Contenido.id }}</a></td>                                <td>{{ seccion_Contenido.nombre }}</td>                                <td>{{ seccion_Contenido.titulo }}</td>                                        <td> {{ plat.tipos(seccion_Contenido.tipo) }} </td>                                <td>{{ seccion_Contenido.orden }}</td>                                <td>{{ seccion_Contenido.activo|sino }}</td>                                            <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="{{ path('seccion_contenidos_show', { 'id': seccion_Contenido.id }) }}" data-toggle="tooltip" title="Ver" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
+                                        {% if seccion_Contenido.tipo == 10 or seccion_Contenido.tipo == 11 or seccion_Contenido.tipo == 12 or seccion_Contenido.tipo == 13 %}
+                                            <a href="{{ path('seccion_contenidos_edit', { 'id': seccion_Contenido.id , 'tipo': seccion_Contenido.tipo }) }}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                        {% else %}
+                                            <a href="{{ path('seccion_contenidos_edit', { 'id': seccion_Contenido.id }) }}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                    </tr>
+                    {% set i=i+1 %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,263 @@
+{% extends '@Admin/base.html.twig' %}
+{% block navegacion %}
+    {{ include('@Admin/partials/navegacion.html.twig',{'menu':'Empresa Responsable','submenu':'Contenido'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('admin/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/jasny-bootstrap.js') }}"></script>
+    <script src="{{ asset('admin/plugins/bower_components/fancybox/ekko-lightbox.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            // delegate calls to data-toggle="lightbox"
+            $(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function(event) {
+                event.preventDefault();
+                return $(this).ekkoLightbox({
+                    onShown: function() {
+                        if (window.console) {
+                        }
+                    },
+                    onNavigate: function(direction, itemIndex) {
+                        if (window.console) {
+                        }
+                    }
+                });
+            });
+
+            //Programatically call
+            $('#open-image').click(function (e) {
+                e.preventDefault();
+                $(this).ekkoLightbox();
+            });
+            $('#open-youtube').click(function (e) {
+                e.preventDefault();
+                $(this).ekkoLightbox();
+            });
+
+            // navigateTo
+            $(document).delegate('*[data-gallery="navigateTo"]', 'click', function(event) {
+                event.preventDefault();
+
+                var lb;
+                return $(this).ekkoLightbox({
+                    onShown: function() {
+
+                        lb = this;
+
+                        $(lb.modal_content).on('click', '.modal-footer a', function(e) {
+
+                            e.preventDefault();
+                            lb.navigateTo(2);
+
+                        });
+
+                    }
+                });
+            });
+
+
+        });
+    </script>
+{% endblock %}
+
+    {% block body %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title m-b-0">Ver Registro</h3>                <form class="form-horizontal" role="form">                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Id</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ seccion_Contenido.id }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ seccion_Contenido.nombre }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Titulo</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ seccion_Contenido.titulo }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">URL Única</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ seccion_Contenido.urlkey }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Descripción</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ seccion_Contenido.descripcion }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Contenido Privado</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ seccion_Contenido.contenidoprivado|raw }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tipo</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ plat.tipos(seccion_Contenido.tipo) }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Orden</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ seccion_Contenido.orden }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Activo</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ seccion_Contenido.activo|sino }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Creado</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {% if seccion_Contenido.createdat %}{{ seccion_Contenido.createdat|date('Y-m-d H:i:s') }}{% endif %}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Actualizado</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {% if seccion_Contenido.updatedat %}{{ seccion_Contenido.updatedat|date('Y-m-d H:i:s') }}{% endif %}                                </p>
+                            </div>
+                        </div>                    <div class="form-group m-b-0">
+                            <div class="col-sm-12">
+                                <a class="btn btn-inverse waves-effect waves-light m-t-10" style="float:left; margin:5px;" href="{{ path('seccion_contenidos_index') }}">Regresar</a>
+                                {% if seccion_Contenido.tipo == 10 or seccion_Contenido.tipo == 11 or seccion_Contenido.tipo == 12 or seccion_Contenido.tipo == 13 %}
+                                <a class="btn btn-info waves-effect waves-light m-t-10" style="float:left;  margin:5px;"  href="{{ path('seccion_contenidos_edit', { 'id': seccion_Contenido.id, 'tipo': seccion_Contenido.tipo }) }}">Editar</a></div>
+                                {% else %}
+                                <a class="btn btn-info waves-effect waves-light m-t-10" style="float:left;  margin:5px;"  href="{{ path('seccion_contenidos_edit', { 'id': seccion_Contenido.id }) }}">Editar</a></div>
+                                {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% if(seccion_Contenido.tipo==1) %}
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title m-b-0">Ver Descargas</h3>
+
+                        <table id="myTable" class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Id</th>                            <th>Nombre</th>                            <th>Descripcion</th>                             <th>Opciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for descarga in seccion_Contenido.descargas %}
+                                <tr>
+                                    <td><a target="_blank" href="{{ asset('res/files/'~seccion_Contenido.id~'/'~descarga.archivo) }}">{{ descarga.id }}</a></td>                                <td>{{ descarga.nombre }}</td>                                <td>{{ descarga.descripcion }}</td>                                                     <td>
+                                        <div class="btn-group btn-group-xs">
+                                            <a target="_blank" href="{{ asset('res/files/'~seccion_Contenido.id~'/'~descarga.archivo) }}" data-toggle="tooltip" title="Ver" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
+                                            <a href="{{ path('descargas_edit', { 'id': descarga.id }) }}?sec={{ seccion_Contenido.id }}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <a class="btn btn-info waves-effect waves-light m-t-10" style="margin:5px;"  href="{{ path('descargas_new', { 'id': seccion_Contenido.id }) }}">Agregar</a>
+                    </div>
+                </div>
+            {% elseif(seccion_Contenido.tipo==2) %}
+                <div class="col-md-12 white-box">
+                    <h3 class="box-title m-b-0">Ver Presentaciones</h3>
+
+                    <table id="myTable" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>                            <th>Nombre</th>                                              <th>Opciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for multimedia in seccion_Contenido.multimedia %}
+                            <tr>
+                                <td><a href="{{ asset('res/pres/'~seccion_Contenido.id~'/'~multimedia.imagen) }}" data-toggle="lightbox">{{ multimedia.id }}</a></td>                                <td>{{ multimedia.nombre }}</td>                                                                         <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="{{ asset('res/pres/'~seccion_Contenido.id~'/'~multimedia.imagen) }}" data-toggle="lightbox" title="Ver" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
+                                        <a href="{{ path('multimedia_edit', { 'id': multimedia.id }) }}?sec={{ seccion_Contenido.id }}&tipo=1" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="col-md-12">
+                        <a class="btn btn-info waves-effect waves-light m-t-10" style="margin:5px;"  href="{{ path('multimedia_new',{'tipo':1 ,'id': seccion_Contenido.id }) }}">Agregar</a>
+                    </div>
+                </div>
+            {% elseif(seccion_Contenido.tipo==3) %}
+                <div class="col-md-12 white-box">
+                    <h3 class="box-title m-b-0">Ver Videos Youtube/Vimeo</h3>
+
+                    <table id="myTable" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>                            <th>Nombre</th>                                              <th>Opciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for multimedia in seccion_Contenido.multimedia %}
+                            <tr>
+                                {% if multimedia.tipo == 3 %}
+                                    <td><a href="{{ multimedia.video }}" data-toggle="lightbox">{{ multimedia.id }}</a></td>                                <td>{{ multimedia.nombre }}</td>                                                                         <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="{{ multimedia.video }}" data-toggle="lightbox" title="Ver Youtube" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
+                                {% elseif multimedia.tipo ==4 %}
+                                    <td><a href="http://player.vimeo.com/video/{{ multimedia.video|split('/')|last }}" data-toggle="lightbox">{{ multimedia.id }}</a></td>                                <td>{{ multimedia.nombre }}</td>                                                                         <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="http://player.vimeo.com/video/{{ multimedia.video|split('/')|last }}" data-toggle="lightbox" title="Ver Vimeo" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
+                                {% endif %}
+                                        <a href="{{ path('multimedia_edit', { 'id': multimedia.id }) }}?sec={{ seccion_Contenido.id }}&tipo={{ seccion_Contenido.tipo }}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="col-md-12">
+                        <a class="btn btn-info waves-effect waves-light m-t-10" style="margin:5px;"  href="{{ path('multimedia_new',{'tipo':3,'id': seccion_Contenido.id}) }}">Agregar Youtube</a>
+                        <a class="btn btn-info waves-effect waves-light m-t-10" style="margin:5px; margin-left: 10px;"  href="{{ path('multimedia_new',{'tipo':4,'id': seccion_Contenido.id}) }}">Agregar Vimeo</a>
+                    </div>
+                </div>
+            {% elseif(seccion_Contenido.tipo==4) %}
+                <div class="col-md-12 white-box">
+                    <h3 class="box-title m-b-0">Ver Videos Almacenados</h3>
+
+                    <table id="myTable" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>                            <th>Nombre</th>                                              <th>Opciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for multimedia in seccion_Contenido.multimedia %}
+                            <tr>
+                                <td><a href="{{ asset('res/video/'~seccion_Contenido.id~'/'~multimedia.imagen) }}" data-toggle="lightbox" data-type="video">{{ multimedia.id }}</a></td>                                <td>{{ multimedia.nombre }}</td>                                                                         <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="{{ asset('res/video/'~seccion_Contenido.id~'/'~multimedia.imagen) }}" data-toggle="lightbox" data-type="video" title="Ver" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
+                                        <a href="{{ path('multimedia_edit', { 'id': multimedia.id }) }}?sec={{ seccion_Contenido.id }}&tipo=2" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="col-md-12">
+                        <a class="btn btn-info waves-effect waves-light m-t-10" style="margin:5px;"  href="{{ path('multimedia_new',{'tipo':2,'id': seccion_Contenido.id}) }}">Agregar</a>
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+
+    {% endblock %}

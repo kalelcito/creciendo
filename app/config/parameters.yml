@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 3306
+    database_name: crese_go
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: mail.plataforma-er.com
+    mailer_user: web@plataforma-er.com
+    mailer_password: 'SLWMWB6LXDUG4E'
+    secret: 5565bd88efcec73b93f4b38ba6ac7f4a465447d7

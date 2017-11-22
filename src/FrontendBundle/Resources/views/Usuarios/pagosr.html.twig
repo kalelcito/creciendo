@@ -1,0 +1,81 @@
+{#https://gateway.payulatam.com/ppp-web-gateway/pb.zul#}
+{#http://localhost/crese/web/app_dev.php/pagosr?merchantId=508029&merchant_name=Test+PayU+Test
+&merchant_address=Av+123+Calle+12&telephone=7512354&merchant_url=http%3A%2F%2Fpruebaslapv.xtrweb.com&
+transactionState=4&lapTransactionState=APPROVED&message=APPROVED&referenceCode=Servicio_Basico+1
+&reference_pol=840884668&transactionId=cc6a8011-af48-4dae-9ea0-e3bd368284f9
+&description=Plataforma+ER&trazabilityCode=00000000&cus=00000000&orderLanguage=es
+&extra1=&extra2=&extra3=&polTransactionState=4&signature=660dd10bd38f531b162e669e1600755b
+&polResponseCode=1&lapResponseCode=APPROVED&risk=.00
+&polPaymentMethod=260&lapPaymentMethod=VISA&polPaymentMethodType=2&lapPaymentMethodType=CREDIT_CARD
+&installmentsNumber=1&TX_VALUE=1250.00&TX_TAX=.00&currency=MXN&lng=es&pseCycle=
+&buyerEmail=victor%40innology.mx&pseBank=&pseReference1=&pseReference2=&pseReference3=
+&authorizationCode=00000000&processingDate=2017-04-26#}
+
+{#<form method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway/" accept-charset="UTF-8">#}
+    {#  <input type="image" border="0" alt="" src="https://www.payulatam.com/img-secure-2015/boton_pagar_mediano.png" onClick="this.form.urlOrigen.value = window.location.href;"/>#}
+    {#  <input name="buttonId" type="hidden" value="Ywf1DHPgcHc+f9jG+Ym7/rzzDWu7WiDMYNsDHQjP/2WPY+3GeELg2Q=="/>#}
+    {#  <input name="merchantId" type="hidden" value="639074"/>#}
+    {#  <input name="accountId" type="hidden" value="641440"/>#}
+    {#  <input name="description" type="hidden" value="Plataforma ER"/>#}
+    {#  <input name="referenceCode" type="hidden" value="Servicio_Basico"/>#}
+    {#  <input name="amount" type="hidden" value="1250.00"/>#}
+    {#  <input name="tax" type="hidden" value="0.00"/>#}
+    {#  <input name="taxReturnBase" type="hidden" value="0"/>#}
+    {#  <input name="currency" type="hidden" value="MXN"/>#}
+    {#  <input name="lng" type="hidden" value="es"/>#}
+    {#  <input name="approvedResponseUrl" type="hidden" value="http://localhost/crese/web/app_dev.php/pagosr"/>#}
+    {#  <input name="declinedResponseUrl" type="hidden" value="http://localhost/crese/web/app_dev.php/pagosr"/>#}
+    {#  <input name="pendingResponseUrl" type="hidden" value="http://localhost/crese/web/app_dev.php/pagosr"/>#}
+    {#  <input name="displayShippingInformation" type="hidden" value="NO"/>#}
+    {#  <input name="sourceUrl" id="urlOrigen" value="" type="hidden"/>#}
+    {#  <input name="buttonType" value="SIMPLE" type="hidden"/>#}
+        {#<input name="test" value="1" type="hidden">#}
+    {#  <input name="signature" value="edd3f5576b148a2ce0ab188fd809a70f47e2d7a5a7cddf43ed0afc17ab4d5cd8" type="hidden"/>#}
+
+{#
+<input name="responseUrl"    type="hidden"  value="http://localhost/crese/web/app_dev.php/pagosr" >
+<input name="confirmationUrl"    type="hidden"  value="http://localhost/crese/web/app_dev.php/pagosr" >
+#}
+
+{#</form>#}
+
+
+{% extends '@Frontend/layoutlogin.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+
+{% block body %}
+    <div class="page-register rlp" style="background-image: none; background-color: #004f6e; ">
+        <div class="container">
+            <div class="register-wrapper rlp-wrapper">
+                <div class="register-table rlp-table">
+                    <a href="{{ path('login') }}">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="" class="login" style="height: 100px; width: auto;"/>
+                    </a>
+                    <div class="register-title rlp-title">Pago de Membresía</div>
+                    <label class="panel-login">
+                        <div class="login_result">
+                            <p style="font-weight: bold;" class="text-left">&nbsp;</p>
+                        </div>
+                    </label>
+                    <div class="register-form bg-w-form rlp-form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ html|raw }}
+                            </div>
+                            {% if acceso==1 %}
+                            <div class="col-md-12">
+                                <a href="{{ path('login') }}"  class="btn btn-login btn-green">
+                                    <span>Ingresar con mi cuenta</span></a>
+                            </div>
+                                {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

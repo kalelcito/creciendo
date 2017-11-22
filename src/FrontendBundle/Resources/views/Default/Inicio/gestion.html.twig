@@ -1,0 +1,298 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+    <style type="text/css">
+        .rightSign {
+            color: rgb(6, 105, 194);
+            background: #fff;
+            border-radius: 45px;
+            padding: 5px;
+            border: 2px solid;
+            box-shadow: 0px 0px 11px -5px #000;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 layout-left">
+                        <div class="course-syllabus">
+                            <div class="course-syllabus-title underline">Implantación de la Norma CRESE</div>
+                            <div class="course-des-content" style="text-align: justify;">
+                                <p>Actividades necesarias para implantar la Norma CRESE</p>
+                            </div>
+                            <div class="course-table" >
+                                <div class="outer-container">
+                                    <div class="inner-container table-responsive">
+                                        <div class="table-body">
+                                            <table class="edu-table-responsive table-hover">
+                                                <thead>
+                                                <tr class="heading-table">
+                                                    <th class="col-1" style="text-align: center">Sección</th>
+                                                    <th class="col-2">Acceso</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="heading-content">
+                                                    <td colspan="2" class="left heading-content">1. Curso de Inducción</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Presentación en PowerPoint del curso de inducción</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color  col-2">
+                                                        <a href="{{ path('contenido1') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Video de inducción, con una duración de 2 horas</span>
+                                                        </a></td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido0') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Presentación en PowerPoint "Nuestra casa común"</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido11') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Presentación en PowerPoint ¿Que es Calidad Humana en las empresas?</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido12') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="spacing-table">
+                                                    <td colspan="2"></td>
+                                                </tr>
+                                                <tr class="heading-content">
+                                                    <td colspan="2" class="left heading-content">2. Formar el comité</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Presentación en PowerPoint sobre como formar un comité interno de calidad humana y responsabilidad social</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido3') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="spacing-table">
+                                                    <td colspan="8"></td>
+                                                </tr>
+                                                <tr class="heading-content">
+                                                    <td colspan="8" class="left heading-content">3. Hacer el diagnóstico</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Auto-diagnóstico</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido5') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Reporte</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido7') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Encuesta clima laboral</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido6') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Reporte</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido16') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Diagnóstico de prevención de incendios</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido13') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Reporte</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido17') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Diagnóstico de salud</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido14') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Reporte</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido18') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="spacing-table">
+                                                    <td colspan="8"></td>
+                                                </tr>
+                                                <tr class="heading-content">
+                                                    <td colspan="8" class="left heading-content">4. Consultoría (Capacitación, seguimiento, eficiencia, mejora y consejería)</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Plan de trabajo</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('frontend_plantrabajo') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Carpeta Virtual</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Minutas</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido8') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="spacing-table">
+                                                    <td colspan="8"></td>
+                                                </tr>
+                                                <tr class="heading-content">
+                                                    <td colspan="8" class="left heading-content">5. Auditoria Interna</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Curso para auditores internos</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido4') }}" style="color:#5CA0C9;">
+                                                            <i class="w27 fa fa-check-square"></i><span>Accesar</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="spacing-table">
+                                                    <td colspan="8"></td>
+                                                </tr>
+                                                <tr class="heading-content">
+                                                    <td colspan="8" class="left heading-content">6. Red social CRESE</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Red social</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2"><i class="w27 fa fa-check-square"></i><span>Proximamente</span></td>
+                                                </tr>
+                                                <tr class="spacing-table">
+                                                    <td colspan="8"></td>
+                                                </tr>
+                                                <tr class="heading-content">
+                                                    <td colspan="8" class="left heading-content">7. Programa RFC</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="left col-1">
+                                                        <a href="#">
+                                                            <span>Programa RFC</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="green-color col-2">
+                                                        <a href="{{ path('contenido15') }}" style="color: #5ca0c9">
+                                                            <i class="w27 fa fa-check-square"></i><span>Descargar Manual</span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr class="spacing-table">
+                                                    <td colspan="8"></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

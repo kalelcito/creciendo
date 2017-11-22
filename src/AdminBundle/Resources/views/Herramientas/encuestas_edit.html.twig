@@ -1,0 +1,333 @@
+{% extends '@Admin/base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet">
+    <style type="text/css">
+        .entry:not(:first-of-type) {
+            margin-top: 10px;
+        }
+        .glyphicon {
+            font-size: 12px;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js') }}"></script>
+    <script src="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.btn-add', function (e) {
+                e.preventDefault();
+                var controlForm = $('.controls form:first'),
+                    currentEntry = $(this).parents('.entry:first'),
+                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+                newEntry.find('input').val('');
+                controlForm.find('.entry:not(:last) .btn-add')
+                    .removeClass('btn-add').addClass('btn-remove')
+                    .removeClass('btn-success').addClass('btn-danger')
+                    .html('<span class="glyphicon glyphicon-minus"></span>');
+            }).on('click', '.btn-remove', function (e) {
+                $(this).parents('.entry:first').remove();
+                e.preventDefault();
+                return false;
+            });
+            $("#btn_submit").click(function () {
+                $("#form_op").submit();
+            });
+            $("#tipo").change(function () {
+                var x = $("#tipo").val();
+                if (x == 1) {
+                    $("#rest").removeClass('hidden');
+                    $("#seccion").removeClass('hidden');
+                    $("#pregunta").addClass('hidden');
+                    $("#add_options").addClass('hidden');
+                } else if (x == 2) {
+                    $("#rest").removeClass('hidden');
+                    $("#pregunta").removeClass('hidden');
+                    $("#seccion").addClass('hidden');
+                    $("#add_options").addClass('hidden');
+                } else if (x == 3) {
+                    $("#rest").removeClass('hidden');
+                    $("#add_options").removeClass('hidden');
+                    $("#seccion").addClass('hidden');
+                    $("#pregunta").addClass('hidden');
+                } else if (x == 0) {
+                    $("#rest").addClass('hidden');
+                }
+            });
+            $("#question").change(function () {
+                var x = $("#question").val();
+                if (x == 3 || x == 4 || x == 5) {
+                    $("#opciones").removeClass('hidden');
+                    $("#abierta").addClass('hidden');
+                    if (x == 3) {
+                        $("#ty").val("checkbox");
+                    } else if (x == 4) {
+                        $("#ty").val("radio");
+                    } else if (x == 5) {
+                        $("#ty").val("select");
+                    }
+                } else if (x == 1 || x == 2) {
+                    $("#abierta").removeClass('hidden');
+                    $("#opciones").addClass('hidden');
+                    if (x == 1) {
+                        $("#typ").val("text");
+                    } else if (x == 2) {
+                        $("#typ").val("textarea");
+                    }
+                } else if (x == 0) {
+                    $("#opciones").addClass('hidden');
+                    $("#abierta").addClass('hidden');
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block navegacion %}
+    {{ include('@Admin/partials/navegacion.html.twig',{'menu':'Inicio','submenu':'Editar Encuesta'}) }}
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12 white-box" style="background-color: #c9e5ff">
+            <form class="form-horizontal" action="{{ path('backend_encuestas_name',{'id':app.request.get('id')}) }}" method="post">
+                <div class="form-group">
+                    <label for="nombre" class="col-sm-2 control-label">Nombre de la Encuesta</label>
+                    <div class="col-sm-10">
+                        <div class="form-group">
+                            <input class="form-control" name="nombre" type="text" value="{{ data.nombre }}">
+                        </div>
+                    </div>
+                    <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
+                    <div class="col-sm-10">
+                        <div class="form-group">
+                            <input class="form-control" name="descripcion" type="text" value="{{ data.descripcion }}">
+                        </div>
+                    </div>
+                    <button class="btn btn-success center-block" type="submit">Cambiar</button>
+                </div>
+            </form>
+            <form id="borrar" class="form-horizontal" action="{{ path('backend_encuestas_bye',{'id':app.request.get('id')}) }}" method="post">
+            </form>
+            <div class="form-group">
+                <button class="btn btn-danger center-block" style="background: red;" id="sa-params">Borrar Encuesta</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 white-box" style="background-color: #c9e5ff">
+            <label for="tipo" class="col-sm-2 control-label">Agregar Elemento</label>
+            <div class="col-sm-10">
+                <div class="form-group">
+                    <select id="tipo" class="form-control">
+                        <option value="0">Selecciona una Opción</option>
+                        <option value="1">Agregar Sección</option>
+                        {% if secciones is not null %}
+                            <option value="2">Agregar Pregunta</option>
+                        {% endif %}
+                        {% set o=0 %}
+                        {% if data.secciones is defined %}
+                            {% for d in data.secciones %}
+                                {% if d.preguntas is defined %}
+                                    {% for p in d.preguntas %}
+                                        {% if o==0 %}
+                                            {% if p.tipo == 'checkbox' or p.tipo == 'radio' or p.tipo == 'select' %}
+                                                <option value="3">Agregar Opción</option>
+                                                {% set o=1 %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rest" class="row hidden">
+        <div class="col-sm-12 white-box" style="background-color: #c9e5ff">
+            <div id="seccion" class="hidden base">
+                {{ form_start(form,  {'action':path('backend_encuestas_edit',{'id':app.request.get('id')}), 'attr': {'class':'form-horizontal'}}) }}
+                <div class="form-group">
+                    <label for="encuesta" class="col-sm-2 control-label">Nombre de la Sección</label>
+                    <div class="col-sm-10">
+                        <div class="form-group">
+                            {{ form_widget(form.seccion, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
+                    <div class="col-sm-10">
+                        <div class="form-group">
+                            {{ form_widget(form.descripcion, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+                {{ form_widget(form.enviar, {'attr': {'class ': 'btn btn-success center-block'} }) }}
+                {{ form_end(form) }}
+            </div>
+            <div id="pregunta" class="hidden base">
+                <label for="question" class="col-sm-2 control-label">Tipo de elemento</label>
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <select id="question" class="form-control">
+                            <option value="0">Selecciona un elemento</option>
+                            <option value="1">Pregunta abierta</option>
+                            <option value="2">Pregunta abierta extensa</option>
+                            <option value="3">Opción Multiple</option>
+                            <option value="4">Respuesta única</option>
+                            <option value="5">Selección</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="opciones" class="hidden base">
+                    <div class="form-group" style="margin-top: -20px;">
+                        <div class="control-group">
+                            <div class="controls">
+                                <form id="form_op" role="form" autocomplete="off"
+                                      action="{{ path('backend_encuestas_edit',{'id':app.request.get('id')}) }}"
+                                      method="post">
+                                    <label for="op" class="col-sm-2 control-label">Escoge Sección</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <select name="op" class="form-control">
+                                                <option value="0">Selecciona una Sección</option>
+                                                {% set i=1 %}
+                                                {% for s in secciones %}
+                                                    <option value="{{ i }}">{{ s.nombre }}</option>
+                                                    {% set i=i+1 %}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pregunta" class="col-sm-2 control-label">Pregunta</label>
+                                        <div class="col-sm-10">
+                                            <div class="form-group">
+                                                <input name="pregunta" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc" class="col-xs-4 control-label">Requiere Descripción de Parte del Usuario</label>
+                                        <div class="col-xs-8">
+                                            <div class="form-group">
+                                                <input class="form-control" name="desc" type="checkbox">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
+                                        <div class="col-sm-10">
+                                            <div class="form-group">
+                                                <input name="descripcion" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h4 style="text-align: center">Opciones</h4>
+                                    <div class="entry">
+                                        <div class="col-sm-2"></div>
+                                        <div class="input-group col-sm-10">
+                                            <input class="form-control" name="fields[]" type="text"
+                                                   placeholder="Ingresa Opción"/>
+                                            <span class="input-group-btn">
+                                            <button class="btn btn-success btn-add" type="button">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <input name="tipo" id="ty" value="TIPO" class="hidden">
+                                </form>
+                                <br>
+                                <button id="btn_submit" class="btn btn-success center-block" type="submit">Crear
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="abierta" class="hidden base">
+                    <form class="form-horizontal"
+                          action="{{ path('backend_encuestas_edit',{'id':app.request.get('id')}) }}" method="post">
+                        <label for="op" class="col-sm-2 control-label">Escoge Sección</label>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <select name="op" class="form-control">
+                                    <option value="0">Selecciona una Sección</option>
+                                    {% for s in secciones %}
+                                        <option value="{{ s.id }}">{{ s.nombre }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pregunta" class="col-sm-2 control-label">Pregunta</label>
+                            <div class="col-sm-10">
+                                <div class="form-group">
+                                    <input class="form-control" name="pregunta" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="desc" class="col-xs-4 control-label">Requiere Descripción de Parte del Usuario</label>
+                            <div class="col-xs-8">
+                                <div class="form-group">
+                                    <input class="form-control" name="desc" type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
+                            <div class="col-sm-10">
+                                <div class="form-group">
+                                    <input class="form-control" name="descripcion" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <input name="tipo" id="typ" value="TIPO" class="hidden">
+                        <button class="btn btn-success center-block" type="submit">Crear</button>
+                    </form>
+                </div>
+            </div>
+            <div id="add_options" class="hidden base">
+                <form class="form-horizontal"
+                      action="{{ path('backend_encuestas_addop',{'id':app.request.get('id')}) }}" method="post">
+                    <div class="form-group">
+                        <label for="op" class="col-sm-3 control-label">Escoge una Pregunta de la Sección
+                            Correspondiente</label>
+                        <div class="col-sm-9">
+                            <select name="sec_id" id="sec_id" class="form-control">
+                                <option value="0">Selecciona una Pregunta</option>
+                                {% if data.secciones is defined %}
+                                    {% for key,d in data.secciones %}
+                                        {% if d.preguntas is defined %}
+                                            {% for key2,p in d.preguntas %}
+                                                {% if p.tipo == 'checkbox' or p.tipo == 'radio' or p.tipo == 'select' %}
+                                                    <option value="{{ key }}-{{ key2 }}">{{ p.pregunta }} -
+                                                        Sección: {{ d.nombre }}</option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion" class="col-sm-3 control-label">Opción</label>
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                <input class="form-control" name="opt" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success center-block" type="submit">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

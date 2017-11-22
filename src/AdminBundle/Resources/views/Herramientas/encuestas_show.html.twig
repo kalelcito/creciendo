@@ -1,0 +1,154 @@
+{% extends '@Admin/base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style type="text/css">
+        .nav-pills >li >a {
+            color: black;
+            background-color: white;
+            border-radius: 25px;
+            border: solid 1px black;
+        }
+        .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover,.nav-pills >li >a:hover {
+            background: black;
+            color: #ffffff;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('.open').click(function (element) {
+                var answerid = $(this).attr('id');
+                var getnombre = $(this).attr('name');
+                var getdesc = $(this).attr('data');
+                var getvalue = $(this).attr('value');
+
+                doModal('idMyModal', answerid, getnombre,getvalue,getdesc);
+
+                return false;
+            });
+            function doModal(placementId, id, nombre,check,desc)
+            {
+                var index = id.split("-");
+                html =  '<div id="modalWindow" class="modal fade" role="dialog" style="display:none;">';
+                html += '<div class="modal-dialog"><div class="modal-content">';
+                html += '<div class="modal-header">';
+                html += '<a class="close" data-dismiss="modal">×</a>';
+                html += '<h4>Modificar Datos</h4>'
+                html += '</div>';
+                html += '<div class="modal-body">';
+                html += '<form action="{{ path('backend_encuestas_update',{'id':app.request.get('id')}) }}" method="post">';
+                if(index[0]!=null && index[1]==null && index[2]==null){
+                    html += '<h5>Nombre de la sección</h5>';
+                    html += '<input name="seccion" type="text" class="form-control" value="'+nombre+'">';
+                    html += '<h5>Descripción de la sección</h5>';
+                    html += '<textarea class="form-control" name="descripcion" rows="8">'+desc+'</textarea>';
+                }else if(index[1]!=null && index[2]==null){
+                    html += '<input name="pregunta" type="text" class="form-control" value="'+nombre+'">';
+                    if(check==true){
+                        html += '<br>Requiere Descripción del Usuario<input style="float: right;" name="desc" type="checkbox" class="form-control" checked>';
+                    }else{
+                        html += '<br>Requiere Descripción del Usuario<input style="float: right;" name="desc" type="checkbox" class="form-control">';
+                    }
+                }else if(index[2]!=null){
+                    html += '<input name="opcion" type="text" class="form-control" value="'+nombre+'">';
+                }
+                html += '<input name="index" value="'+index+'" class="hidden">';
+                html += '<br><button class="btn btn-success" type="submit">Actualizar</button>'; //update button
+                html += '</form>';
+                html += '<form action="{{ path('backend_encuestas_delete',{'id':app.request.get('id')}) }}" method="post">';
+                html += '<input name="index" value="'+index+'" class="hidden">';
+                html += '<br><button class="btn btn-danger" type="submit" style="background: red;">Borrar</button>'; //delete button
+                html += '</form>';
+                html += '</div>';
+                html += '<div class="modal-footer">';
+                html += '<span class="btn btn-danger" data-dismiss="modal">';
+                html += 'Cerrar';
+                html += '</span>'; // close button
+                html += '</div>';  // footer
+                html += '</div></div>';
+                html += '</div>';  // modalWindow
+                $("#"+placementId).html(html);
+                $("#modalWindow").modal();
+            }
+        });
+    </script>
+{% endblock %}
+{% block navegacion %}
+    {{ include('@Admin/partials/navegacion.html.twig',{'menu':'Inicio','submenu':'Encuesta'}) }}
+{% endblock %}
+{% block body %}
+    <div id="idMyModal"></div>
+
+    <div class="row">
+        <div class="col-xs-12 white-box">
+            <h3 class="box-title m-b-0">Encuesta</h3>
+            <br>
+            {% if data.secciones is defined %}
+                {% if data.secciones|length > 0 %}
+                    {% set i=1 %}
+                    <ul class="nav nav-pills">
+                        {% for d in data.secciones %}
+                                <li {% if loop.first %}class="active"{% endif %}><a data-toggle="pill" href="#menu{{ i }}">{{ d.nombre }}</a></li>
+                            {% set i=i+1 %}
+                        {% endfor %}
+                    </ul>
+                    <div class="tab-content">
+                        {% set i=1 %}
+                        {% set j=1 %}
+                        {% for key,d in data.secciones %}
+                            <div id="menu{{ i }}" class="tab-pane fade {% if loop.first %}in active{% endif %}">
+                                <a href="" id="{{ key }}" name="{{ d.nombre }}" data="{{ d.descripcion }}" class="open"><i class="fa fa-pencil"></i> Editar Sección</a>
+                                {% if d.preguntas is defined %}
+                                    <div class="panel-group" id="accordion{{ i }}">
+                                        {% for key2,p in d.preguntas %}
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion{{ i }}" href="#collapse{{ j }}">
+                                                            {{ p.pregunta }}</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse{{ j }}" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <a href="" id="{{ key }}-{{ key2 }}" name="{{ p.pregunta }}" value="{{ p.desc }}" class="open"><i class="fa fa-pencil"></i> Editar Pregunta</a>
+                                                        <p style="font-style: italic;">
+                                                            {% if p.tipo == 'text' %}
+                                                            Pregunta Abierta
+                                                            {% elseif p.tipo == 'textarea' %}
+                                                                Pregunta Abierta Extensa
+                                                            {% elseif p.tipo == 'checkbox' %}
+                                                                Opción Múltiple
+                                                            {% elseif p.tipo == 'radio' %}
+                                                                Respuesta Única
+                                                            {% elseif p.tipo == 'select' %}
+                                                                Selección
+                                                            {% endif %}
+                                                        </p>
+                                                        {% if p.opciones is defined %}
+                                                            {% for key3,o in p.opciones %}
+                                                                <p>{{ o.nombre }} <a href="" id="{{ key }}-{{ key2 }}-{{ key3 }}" name="{{ o.nombre }}" class="open"><i class="fa fa-pencil"></i> Editar Opción</a></p>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% set j=j+1 %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% set i=i+1 %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <h4>Sin Secciones</h4>
+                {% endif %}
+            {% else %}
+                <h4>Sin Secciones</h4>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% use "form_div_layout.html.twig" %}
+
+   {% block radio_widget %}
+       <label class="radio-inline">
+           <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+           {% if value ==1 %}
+               {{ "Si<br/><br/>" }}
+           {% endif %}
+           {% if value ==2 %}
+               {{ "En desarrollo avanzado / Informal muy conocido /<br/> Subjetivo muy claro" }}
+           {% endif %}
+           {% if value ==3 %}
+               {{ "50%<br/><br/>" }}
+           {% endif %}
+           {% if value ==4 %}
+               {{ "En desarrollo iniciando / Informal poco conocido /<br/> Subjetivo poco claro" }}
+           {% endif %}
+           {% if value ==5 %}
+               {{ "No<br/><br/>" }}
+           {% endif %}
+       </label>
+   {% endblock radio_widget %}
+
+
+
+{#{% for choiceFormView in form.a01 %}
+    {{ form_widget(choiceFormView) }}
+{% endfor %}#}

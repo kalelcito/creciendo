@@ -1,0 +1,186 @@
+{% extends '@Frontend/layout.html.twig' %}
+{% block stylesheets %}
+    <style>
+        @media (min-width: 992px){
+            .modal-lg {
+                width: 90%;
+            }
+        }
+        .summary {
+            height: 100%;
+            overflow-y: scroll;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail" > <!-- oncontextmenu="return false;" -->
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        <div class="course-des">
+                            <div class="course-des-title underline">{{ contenido.titulo }}</div>
+                            <div class="course-des-content">
+                                {% if contenido.contenidoPrivado is not empty %}
+                                    {{ contenido.contenidoPrivado|raw }}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if contenido.id == 19 %}
+                            <div class="course-table">
+                                <div class="outer-container">
+                                    <div class="inner-container table-responsive">
+                                        <div class="table-header">
+                                            <table class="edu-table-responsive">
+                                                <thead>
+                                                <tr class="heading-table">
+                                                    <th class="col-1">Descripción</th>
+                                                    <th class="col-2" style="text-align: center; font-size: 1em;">Ver</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <div class="table-body">
+                                            <table class="edu-table-responsive table-hover">
+                                                <tbody>
+                                                {% set i=0 %}
+                                                {% for descarga in contenido.descargas %}
+                                                    <tr class="table-row">
+                                                        <td class="left col-1"><a href="#"><i class="bg-green mr25 fa fa-caret-right"></i><span>{{ descarga.nombre }}</span></a></td>
+                                                        <td class="green-color col-2" style="text-align: center">
+                                                            <a href="#" data-toggle="modal" data-target="#modal{{ i }}" style="color:#86bc42;">
+                                                                <i class="fa fa-download"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <script>
+                                                        $(document).ready(function () {
+                                                            var pdf = "{{ asset('res/files/'~contenido.id~'/'~descarga.archivo) }}#toolbar=0&navpanes=0";
+                                                            $(".pdf-rfc").click(function (e) {
+                                                                e.preventDefault();
+                                                                $("#rfc").attr("data",pdf+"&page="+$(this).attr("page"));
+                                                            });
+                                                        });
+                                                    </script>
+                                                    <div id="modal{{ i }}" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title">{{ descarga.nombre }}</h4>
+                                                                </div>
+                                                                <div class="modal-body" style="height: 450px;">
+                                                                    <div class="col-md-3 summary">
+                                                                        <p><a href="#" class="pdf-rfc" page="1">Inicio</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="3">Índice</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="5">Introducción</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="9">La Verdad</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="13">La Libertad</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="17">La Justicia</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="21">El Amor</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="25">La Participación</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="29">La Familia</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="33">El Respeto a la Dignidad de la Persona</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="37">La Solidaridad</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="43">La Subsidiaridad</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="49">El Bien Común</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="55">El Amor Cívico y Político</a></p>
+                                                                        <p><a href="#" class="pdf-rfc" page="59">La Ecología Integral</a></p>
+                                                                    </div>
+                                                                    <div class="col-md-9" style="height: 100%;">
+                                                                        <object data="{{ asset('res/files/'~contenido.id~'/'~descarga.archivo) }}#toolbar=0&navpanes=0" type="application/pdf" width="100%" height="100%" id="rfc"></object>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-green" data-dismiss="modal"><span>Cerrar</span></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% set i=i+1 %}
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            {% if contenido.descargas|length >0 %}
+                                <div class="course-table">
+                                    <div class="outer-container">
+                                        <div class="inner-container table-responsive">
+                                            <div class="table-header">
+                                                <table class="edu-table-responsive">
+                                                    <thead>
+                                                    <tr class="heading-table">
+                                                        <th class="col-1">Descripción</th>
+                                                        <th class="col-2" style="text-align: center; font-size: 1em;">Descargar</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="table-body">
+                                                <table class="edu-table-responsive table-hover">
+                                                    <tbody>
+                                                    {% for descarga in contenido.descargas %}
+                                                    <tr class="table-row">
+                                                        <td class="left col-1"><a href="#"><i class="bg-green mr25 fa fa-caret-right"></i><span>{{ descarga.nombre }}</span></a></td>
+                                                        <td class="green-color col-2" style="text-align: center">
+                                                            <a target="_blank" href="{{ asset('res/files/'~contenido.id~'/'~descarga.archivo) }}" style="color:#86bc42;">
+                                                                <i class="fa fa-download"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if reportes is defined and reportes|length >0 %}
+                            <div class="course-table">
+                                <div class="outer-container">
+                                    <div class="inner-container table-responsive">
+                                        <div class="table-header">
+                                            <table class="edu-table-responsive">
+                                                <thead>
+                                                <tr class="heading-table">
+                                                    <th class="col-1">Descripción</th>
+                                                    <th class="col-2" style="text-align: center; font-size: 1em;">Descargar Reporte</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <div class="table-body">
+                                            <table class="edu-table-responsive table-hover">
+                                                <tbody>
+                                                {% for reporte in reportes %}
+                                                    <tr class="table-row">
+                                                        <td class="left col-1"><a href="#"><i class="bg-green mr25 fa fa-caret-right"></i><span>{{ reporte.nombre }}</span></a></td>
+                                                        <td class="green-color col-2" style="text-align: center">
+                                                            <a download href="{{ asset('res/rep/'~reporte.archivo) }}" style="color:#86bc42;">
+                                                                <i class="fa fa-download"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        <a href="{{ path("frontend_programa", {"slug":contenido.secciones.programa.slug }) }}"  class="btn btn-green-2" style="left: 45%;"><span>Regresar</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

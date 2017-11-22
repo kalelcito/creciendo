@@ -1,0 +1,60 @@
+core_reportes:
+    resource: "@AdminBundle/Controller/ReportesController.php"
+    type:     annotation
+
+core_clientes:
+    resource: "@AdminBundle/Controller/ClientesController.php"
+    type:     annotation
+
+core_multimedia:
+    resource: "@AdminBundle/Controller/MultimediaController.php"
+    type:     annotation
+
+core_descargas:
+    resource: "@AdminBundle/Controller/DescargasController.php"
+    type:     annotation
+
+core_niveles:
+    resource: "@AdminBundle/Controller/NivelesController.php"
+    type:     annotation
+
+core_administradores:
+    resource: "@AdminBundle/Controller/AdministradoresController.php"
+    type:     annotation
+
+core_seccion.contenidos:
+    resource: "@AdminBundle/Controller/Seccion_ContenidosController.php"
+    type:     annotation
+
+core_secciones:
+    resource: "@AdminBundle/Controller/SeccionesController.php"
+    type:     annotation
+
+core_programas:
+    resource: "@AdminBundle/Controller/ProgramasController.php"
+    type:     annotation
+
+core_banners:
+    resource: "@AdminBundle/Controller/BannersController.php"
+    type:     annotation
+
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+
+core:
+    resource: "@CoreBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
+frontend:
+    resource: "@FrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+logout:
+    path: /logout
+
+logoutadmin:
+    path: /admin/logout

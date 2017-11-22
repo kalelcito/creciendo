@@ -1,0 +1,80 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+    <style type="text/css">
+       a:hover{
+           color: #2d8ac7;
+       }
+        .respuesta {
+            color: red;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $('#calcular').click(function () {
+                poblacion = parseInt($('#poblacion').val());
+                grado = parseFloat($('#grado').val());
+                margen = parseFloat($('#margen').val());
+                resultado = 0;
+                resultado = poblacion/(1+((margen*margen)*(poblacion-1))/((grado*grado)*(0.25)));
+                $('#resultado').html(Math.round(resultado));
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                       <div class="course-des">
+                            <div class="course-des-title underline">Encuestas no Asignadas</div>
+                            <div class="course-des-content" style="text-align: justify;">
+                                <p>Favor de contactar al proveedor de la plataforma a través del chat en línea o <a href="mailto:cricardez@red-erac.com">correo</a> para solicitar sus encuestas.<br><br>
+                                    El número de encuestas se determina de acuerdo al grado de confianza y margen de error  que se requiera, llenando la siguiente tabla (se sugiere un grado de confianza del 95% y margen de error del  10%).</p>
+                            </div>
+                           <div class="row">
+                               <div class="col-md-12 text-center">
+                                   <h3 style="margin-bottom: 30px; margin-top: 30px;">Cálculo de Muestra Estadística</h3>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label class="control-label form-label">Población</label>
+                                       <input type="number" min="0" id="poblacion" placeholder="Ej. 34" class="form-control form-input"/>
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label class="control-label form-label">Grado de Confianza Mínimo (%)</label>
+                                       <input type="number" step="0.01" min="0" id="grado" placeholder="Ej. 95.00" class="form-control form-input" />
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label class="control-label form-label">Margen de Error Máximo (%)</label>
+                                       <input type="number" step="0.01" min="0" id="margen" placeholder="Ej. 10.00" class="form-control form-input" />
+                                   </div>
+                               </div>
+                               <div class="col-md-12">
+                                   <div class="form-group respuesta">
+                                       <a id="calcular" class="btn btn-contact btn-green"><span>Calcular</span></a>
+                                       <p></p>
+                                       <label class="control-label form-label">Número de Encuestas: </label>
+                                       <p id="resultado"></p>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

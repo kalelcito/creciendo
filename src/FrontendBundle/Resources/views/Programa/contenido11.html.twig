@@ -1,0 +1,81 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/rs/responsiveslides.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/rs/themes/themes.css') }}">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/rs/responsiveslides.min.js') }}"></script>
+    <script>
+        $(function () {
+            $("#slider3").responsiveSlides({
+                auto: false,
+                pager: false,
+                nav: true,
+                speed: 500,
+                maxwidth: 800,
+                namespace: "large-btns"
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding courses-detail">
+        <div class="container">
+            <div class="courses-detail-wrapper">
+                <div class="row">
+                    <div class="col-md-12 layout-left">
+                        {#<h1 class="course-title">Norma CRESE</h1>#}
+                        {#
+                                                <div class="course-info info">
+                                                    <div class="author item"><a href="#"><span>By&nbsp;</span><span>Emma Watson</span></a></div>
+                                                    <div class="date-time item"><a href="#">20 Aug 2015</a></div>
+                                                </div>
+                                                <div class="course-video">
+                                                    <iframe src="https://www.youtube.com/embed/xo1VInw-SKc?list=PL7JgdmQ0zTfatnGhUnRBnhMwYEraSIRdD" allowfullscreen="allowfullscreen"></iframe>
+                                                    <div class="video-btn">
+                                                        <button class="btn btn-grey video-btn-right pull-right"><span>next lesson</span><i class="fa fa-angle-right"></i></button>
+                                                        <button class="btn btn-grey video-btn-left pull-right"><i class="fa fa-angle-left"></i><span>previous lesson</span></button>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div> #}
+                        <div class="course-des">
+                            <div class="course-des-title underline">1.3 Presentación (Nuestra casa común)</div>
+                            <div class="course-des-content">
+                                {#<p>Presentación power point.</p>#}
+                                <div class="rslides_container">
+                                    <ul class="rslides" id="slider3">
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva01.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva02.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva03.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva04.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva05.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva06.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva07.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva08.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva09.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva10.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva11.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva12.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva13.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva14.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva15.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva16.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva17.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva18.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva19.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva20.png') }}" alt=""></li>
+                                        <li><img src="{{ asset('documentacion/1/presppt2/Diapositiva21.png') }}" alt=""></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button onclick="window.location.href='../gestion'" class="btn btn-green-2" style="left: 45%;">
+                                <span>Regresar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

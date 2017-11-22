@@ -1,0 +1,250 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Contacto{% endblock %}
+
+{% block stylesheets %}
+    <style type="text/css">
+        .main_title {
+            font-size: 44px;
+            padding-bottom: 30px;
+            margin-top: 30px;
+            text-align: center;
+            line-height: 65px;
+            text-transform: uppercase;
+            color: #2b2b2b;
+        }
+        .main_title span {
+            border-bottom: 1px solid #666;
+        }
+
+        .box {
+            border-radius: 3px;
+            padding: 38px 30px;
+            text-align: right;
+            display: block;
+        }
+        .box-icon span {
+            color: #fff;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .info h4 {
+            color: #000;
+            font-size: 22px;
+            margin: 0px;
+            font-weight: 100;
+            padding: 28px 0px;
+            text-transform: uppercase;
+        }
+        .info > p {
+            color: #000;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .box >.box-icon {
+            border: 2px solid #5CA0C9;
+        }
+        .box:hover >.box-icon {
+            border: 2px solid #5CA0C9;
+            background-color: #fff;
+            color: #5CA0C9;
+            -webkit-transition: All 0.5s ease;
+            -moz-transition: All 0.5s ease;
+            -o-transition: All 0.5s ease;
+        }
+        .box:hover >.box-icon >span {
+            color: #5CA0C9;
+        }
+        .box-icon {
+            background-color: #5CA0C9;
+            border-radius: 50%;
+            display: table;
+            height: 80px;
+            margin: 0 auto;
+            width: 80px;/*margin-top: -61px;*/
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu6tm60TzeUo9rWpLnrQ7mrFn4JPMVje4"></script>
+    <script type="text/javascript">
+        (function ($) {
+
+            function init() {
+                var myLatlng = new google.maps.LatLng(-99.591128, 19.253196);
+                var isDraggable = $(document).width() > 767 ? true : false;
+                var myOptions = {
+                    zoom: 14,
+                    mapTypeControl: true,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    draggable: isDraggable,
+                    scrollwheel: false,
+
+                };
+                var contentString = '<div id="content">' +
+                    '</div>';
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                var map = new google.maps.Map(document.getElementById('map'), myOptions);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: 'edugate',
+                    infowindow: infowindow
+                });
+                var contentString = '<div id="content">' +
+                    '<div class="text-center">' +
+                    '<h1 id="firstHeading" class="firstHeading">Empresa Responsable</h1>' +
+                    '<div class="g-address">Paseo San isidro 361</div>' +
+                    '<div class="g-phone-num">+52 xxxxxxxxx</div>' +
+                    '</div>' +
+                    '</div>';
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                map.setCenter({
+                    lat: -99.591128,
+                    lng: 19.253196
+                });
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', init);
+        })(jQuery);
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="section section-padding contact-main">
+        <div class="container">
+            <div class="contact-main-wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-icon"> <span class="fa fa-3x fa-book"></span> </div>
+                            <div class="info">
+                                <h3 style="margin-bottom: 15px; margin-top: 15px; text-align: center;">¿Quiénes Somos?</h3>
+                                   <p>Empresa Responsable es una asociación civil constituida en 2007.</p>
+                                <h3 style="margin-bottom: 15px; margin-top: 15px; text-align: center; font-size: 16px;">¿Que hacemos?</h3>
+                                    <p>Desarrollamos soluciones de calidad humana y responsabilidad social para las empresas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row contact-method">
+                    <div class="col-md-4">
+                        <div class="method-item"><i class="fa fa-map-marker"></i>
+                            <p class="sub">Ubicación</p>
+                            <div class="detail">
+                                <p>Dirección</p>
+                                <p>Paseo San Isidro 268 Piso 1, oficina 2 y 3, Metepec, Estado de México, México.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="method-item"><i class="fa fa-phone"></i>
+                            <p class="sub">Teléfonos</p>
+                            <div class="detail">
+                                <p>Tel:+52 722-3851242</p>
+                                <p>Soporte: +52 722-3851242</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="method-item"><i class="fa fa-envelope"></i>
+                            <p class="sub">Correo electrónico</p>
+                            <div class="detail">
+                                <p>info@empresaresponsable.org</p>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{ form_start(form,  {'action':path('contacto'), 'attr': {'class':'bg-w-form contact-form'}}) }}
+                <div class="row"><div class="col-md-12 text-center"><h3 style="margin-bottom: 30px; margin-top: 0px;">Formulario de Contacto</h3></div></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label form-label">NOMBRE<span class="highlight">*</span></label>
+                            {{ form_widget(form.nombre, {'attr': {'class': 'form-control  form-input'} }) }}
+                            {% if form.nombre.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.nombre.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label form-label">EMAIL <span class="highlight">*</span></label>
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control  form-input'} }) }}
+                            {% if form.email.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.email.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label form-label">TIPO de consulta</label>
+                            {{ form_widget(form.tipo, {'attr': {'class': 'form-control  form-input'} }) }}
+                            {% if form.tipo.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.tipo.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label form-label">Asunto <span class="highlight">*</span></label>
+                            {{ form_widget(form.asunto, {'attr': {'class': 'form-control  form-input'} }) }}
+                            {% if form.asunto.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.asunto.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label form-label">Mensaje</label>
+                            {{ form_widget(form.mensaje, {'attr': {'class': 'form-control  form-input'} }) }}
+                            {% if form.mensaje.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.mensaje.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-submit">
+                    {{ form_widget(form.enviar, {'attr': {'class ': 'btn btn-contact btn-green'} }) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    <div class="section section-padding contact-main">
+        <div class="container">
+            <iframe scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d941.6687240924163!2d-99.59263387077746!3d19.252995365285923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd8ba7034d9485%3A0xeb7aabf0e37e5cbe!2sPaseo+San+Isidro+268%2C+Santiaguito%2C+52140+Metepec%2C+M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1480963687428" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+{% endblock %}
+
+

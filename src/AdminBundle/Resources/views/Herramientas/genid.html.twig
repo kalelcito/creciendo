@@ -1,0 +1,193 @@
+{% extends '@Admin/base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/js/wizard/css/wizard.css') }}" rel="stylesheet">
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/wizard/jquery-wizard.js') }}"></script>
+<script>
+    $( document ).ready(function() {
+        $('#exampleValidator').wizard({
+            buttonLabels: {
+                next: 'Siguiente',
+                back: 'Anterior',
+                finish: 'Enviar'
+            },
+            onInit: function() {
+                /*$('#validation').formValidation({
+                 framework: 'bootstrap',
+                 fields: {
+                 username: {
+                 validators: {
+                 notEmpty: {
+                 message: 'The username is required'
+                 },
+                 stringLength: {
+                 min: 6,
+                 max: 30,
+                 message: 'The username must be more than 6 and less than 30 characters long'
+                 },
+                 regexp: {
+                 regexp: /^[a-zA-Z0-9_\.]+$/,
+                 message: 'The username can only consist of alphabetical, number, dot and underscore'
+                 }
+                 }
+                 },
+                 email: {
+                 validators: {
+                 notEmpty: {
+                 message: 'The email address is required'
+                 },
+                 emailAddress: {
+                 message: 'The input is not a valid email address'
+                 }
+                 }
+                 },
+                 password: {
+                 validators: {
+                 notEmpty: {
+                 message: 'The password is required'
+                 },
+                 different: {
+                 field: 'username',
+                 message: 'The password cannot be the same as username'
+                 }
+                 }
+                 }
+                 }
+                 });*/
+            },
+            /*validator: function() {
+             var fv = $('#validation').data('formValidation');
+             var $this = $(this);
+             // Validate the container
+             fv.validateContainer($this);
+             var isValidStep = fv.isValidContainer($this);
+             if (isValidStep === false || isValidStep === null) {
+             return false;
+             }
+             return true;
+             },*/
+            onBeforeChange: function(from, to) {
+                //console.info('BeforeChange:' + from.index + ' to ' + to.index);
+               /* $('#st'+from.index).find('input').each(function () {
+                    console.log(this.value);
+                });*/
+                //JSON.stringify( $(form).serializeArray() );
+                varr=JSON.stringify($('#st'+from.index+ " input").serializeArray());
+                console.log(varr);
+            },
+            onFinish: function() {
+                //$('#validation').submit();
+                alert('finish');
+            }
+        });
+    });
+
+
+
+
+
+</script>
+{% endblock %}
+{% block navegacion %}
+    {{ include('@Admin/partials/navegacion.html.twig',{'menu':'Inicio','submenu':'Generador Encuestas'}) }}
+{% endblock %}
+{% block body %}
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="white-box">
+                <div id="exampleValidator" class="wizard">
+                    <ul class="wizard-steps" role="tablist">
+                        {% set i=0 %}
+                        {% for seccion in encuesta.secciones %}
+                            <li {% if i==0 %}class="active"{% endif %} role="tab">{{ seccion.nombre }}</li>
+                            {% set i=i+1 %}
+                        {% endfor %}
+                    </ul>
+                    <form id="validation" class="form-horizontal">
+                        {% set i=0 %}
+                        {% set p=0 %}
+                        <div class="wizard-content">
+                            {% for seccion in encuesta.secciones %}
+                            <div class="wizard-pane {% if i==0 %}active{% endif %}" id="st{{ i }}" role="tabpanel">
+                                {% for pregunta in seccion.preguntas %}
+                                        {% if pregunta.tipo=="text" %}
+                                            <div class="form-group">
+                                                <label for="preg{{ p }}">{{ pregunta.pregunta }}</label>
+                                                <input type="text" class="form-control" name="preg{{ p }}" />
+                                            </div>
+
+                                        {% endif %}
+                                        {% if pregunta.tipo=="textarea" %}
+                                            <div class="form-group">
+                                                <label for="preg{{ p }}">{{ pregunta.pregunta }}</label>
+                                                <textarea class="form-control" name="preg{{ p }}"></textarea>
+                                            </div>
+
+                                        {% endif %}
+                                        {% if pregunta.tipo=="checkbox" %}
+                                            <label>{{ pregunta.pregunta }}</label>
+                                            {% for opcion in pregunta.opciones %}
+                                                <div class="checkbox">
+                                                    <label for="preg{{ p }}">
+                                                        <input type="checkbox" value="{{ opcion.valor }}" name="preg{{ p }}[]" /> {{ opcion.nombre }}
+                                                    </label>
+                                                </div>
+
+                                            {% endfor   %}
+                                        {% endif %}
+                                        {% if pregunta.tipo=="radio" %}
+                                            <label>{{ pregunta.pregunta }}</label>
+                                        {% for opcion in pregunta.opciones %}
+                                            <div class="radio">
+                                                <label for="preg{{ p }}">
+                                                    <input type="radio" value="{{ opcion.valor }}" name="preg{{ p }}[]" /> {{ opcion.nombre }}
+                                                </label>
+                                            </div>
+
+                                        {% endfor   %}
+                                        {% endif %}
+                                        {% if pregunta.tipo=="select" %}
+                                            <div class="form-group">
+                                                <label for="preg{{ p }}">{{ pregunta.pregunta }}</label>
+                                                <select class="form-control" name="preg{{ p }}">
+                                                    {% for opcion in pregunta.opciones %}
+                                                        <option value="{{ opcion.valor }}">{{ opcion.nombre }}</option>
+                                                    {% endfor   %}
+                                                </select>
+                                            </div>
+
+                                        {% endif %}
+
+                                    {% set p=p+1 %}
+                                {% endfor %}
+                            </div>
+                            {% set i=i+1 %}
+                            {% endfor %}
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        {#<div class="col-sm-12">
+            <input type="hidden" name="count" value="1" />
+            <div class="control-group" id="fields">
+                <label class="control-label" for="field1">Nice Multiple Form Fields</label>
+                <div class="controls" id="profs">
+                    <form class="input-append">
+                        <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+                    </form>
+                    <br>
+                    <small>Press + to add another form field :)</small>
+                </div>
+            </div>
+        </div>#}
+    </div>
+
+{% endblock %}

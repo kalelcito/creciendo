@@ -1,0 +1,60 @@
+    {% extends '@Admin/base.html.twig' %}
+{% block navegacion %}
+{{ include('@Admin/partials/navegacion.html.twig',{'menu':'Empresa Responsable','submenu':'Sección Contenidos'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script src="{{ asset('admin/js/jasny-bootstrap.js') }}"></script>
+    <script>
+        var uripath = '{{ asset('admin/') }}';
+    </script>
+    <script type="text/javascript" src="{{ asset('admin/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('admin/plugins/ckeditor/adapters/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('admin/plugins/ckeditor/config.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#corebundle_seccion_contenidos_encuestas").addClass('hidden');
+            $("label[for=corebundle_seccion_contenidos_encuestas]").addClass('hidden');
+            $("#corebundle_seccion_contenidos_tipo").change(function () {
+                var x = $("#corebundle_seccion_contenidos_tipo").val();
+                if (x == 10 || x==11 || x==12 || x==13) {
+                    $("#corebundle_seccion_contenidos_encuestas").removeClass('hidden');
+                    $("label[for=corebundle_seccion_contenidos_encuestas]").removeClass('hidden');
+                }else{
+                    $("#corebundle_seccion_contenidos_encuestas").addClass('hidden');
+                    $("label[for=corebundle_seccion_contenidos_encuestas]").addClass('hidden');
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title m-b-0">Nuevo Registro</h3>                    {% form_theme form '@Admin/form/innology_bootstrap_3_horizontal_layout.html.twig' %}
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <div class="form-group m-b-0">
+                        <div class="col-sm-12">
+                                                                    <a class="btn btn-inverse waves-effect waves-light m-t-10" style="float:left; margin:5px;" href="{{ path('seccion_contenidos_index') }}">Regresar</a><button type="submit" class="btn btn-success waves-effect waves-light m-t-10" style="float:left;  margin:5px;" >Guardar</button>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
